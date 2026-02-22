@@ -449,38 +449,6 @@ button { font-family: inherit; cursor: pointer; }
 .testi-loc  { font-size: 10px; color: var(--slate); margin-top: 2px; }
 
 /* ─────────────────────────────────────────
-   SHOP BANNER
-───────────────────────────────────────── */
-#shop {
-  background: var(--gold); padding: 90px 56px;
-  position: relative; overflow: hidden;
-}
-#shop::before {
-  content: ''; position: absolute; inset: 0;
-  background: repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(0,0,0,.035) 28px, rgba(0,0,0,.035) 29px);
-}
-#shop::after {
-  content: 'SHOP'; position: absolute; right: -10px; top: -20px;
-  font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: 240px; color: rgba(0,0,0,.055); letter-spacing: .04em; line-height: 1; pointer-events: none;
-}
-.shop-inner { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
-.shop-tag  { font-size: 10px; font-weight: 700; letter-spacing: .42em; text-transform: uppercase; color: rgba(0,0,0,.5); margin-bottom: 10px; }
-.shop-h    { font-family: 'Bebas Neue', Impact, sans-serif; font-size: clamp(42px, 5.5vw, 76px); color: var(--black); letter-spacing: .04em; line-height: 1; margin-bottom: 14px; }
-.shop-p    { font-size: 14px; color: rgba(0,0,0,.6); max-width: 380px; line-height: 1.7; }
-.shop-actions { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; flex-shrink: 0; }
-.btn-dark {
-  display: inline-flex; align-items: center; gap: 12px;
-  background: var(--black); color: var(--gold);
-  font-family: 'Barlow', sans-serif; font-weight: 700;
-  font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
-  padding: 15px 34px; border: none;
-  transition: background .22s; cursor: pointer;
-}
-.btn-dark:hover { background: var(--char2); }
-.shop-note { font-size: 11px; color: rgba(0,0,0,.5); letter-spacing: .1em; }
-
-/* ─────────────────────────────────────────
    SERVICE AREAS
 ───────────────────────────────────────── */
 #areas { background: var(--char); padding: 110px 56px; }
@@ -622,9 +590,8 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
 
   .about-grid, .stairs-grid, .contact-grid, .areas-grid, .services-intro { grid-template-columns: 1fr; gap: 44px; }
 
-  #about, #services, #stairs, #process, #testimonials, #shop, #areas, #contact { padding: 72px 24px; }
+  #about, #services, #stairs, #process, #testimonials, #areas, #contact { padding: 72px 24px; }
   .section-wrap { padding: 72px 24px; }
-  .shop-inner   { flex-direction: column; align-items: flex-start; }
   .testi-grid   { grid-template-columns: 1fr; }
   .footer-main  { grid-template-columns: 1fr 1fr; padding: 56px 24px; gap: 36px; }
   .footer-bar   { padding: 20px 24px; flex-direction: column; text-align: center; }
@@ -648,7 +615,6 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
   <a href="Index.html"          onclick="closeMobile()">Home</a>
   <a href="#services"      onclick="closeMobile()">Services</a>
   <a href="#stairs"        onclick="closeMobile()">Staircases</a>
-  <a href="stair-nosings.html" onclick="closeMobile()">Shop Nosings</a>
   <a href="#areas"         onclick="closeMobile()">Areas</a>
   <a href="#contact"       onclick="closeMobile()">Contact</a>
 </nav>
@@ -674,7 +640,6 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#stairs">Staircases</a>
-    <a href="stair-nosings.html">Shop Nosings</a>
     <a href="#areas">Areas</a>
   </div>
 
@@ -737,7 +702,6 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
     <span class="ticker-item">Decks & Fences</span>
     <span class="ticker-item">Carpet & Carpet Stairs</span>
     <span class="ticker-item">Repairs & Renovations</span>
-    <span class="ticker-item">Vinyl Stair Treads Shop</span>
     <span class="ticker-item">Free Quotes Always</span>
     <span class="ticker-item">Halifax & HRM</span>
     <span class="ticker-item">Flooring Installs</span>
@@ -747,7 +711,6 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
     <span class="ticker-item">Decks & Fences</span>
     <span class="ticker-item">Carpet & Carpet Stairs</span>
     <span class="ticker-item">Repairs & Renovations</span>
-    <span class="ticker-item">Vinyl Stair Treads Shop</span>
     <span class="ticker-item">Free Quotes Always</span>
     <span class="ticker-item">Halifax & HRM</span>
   </div>
@@ -843,7 +806,7 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
       <div class="svc-badge">★ Signature Specialty</div>
       <div class="svc-num">05</div>
       <div class="svc-name">Custom Vinyl Staircases</div>
-      <p class="svc-desc">Precision vinyl stair tread installs and full staircase transformations. Purchase or install — we do both.</p>
+      <p class="svc-desc">Precision vinyl stair tread installs and full staircase transformations. From carpet removal to a premium vinyl finish.</p>
     </div>
     <div class="svc-card">
       <div class="svc-num">06</div>
@@ -872,8 +835,6 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
         <div class="stair-feat">Precision-cut vinyl tread installation</div>
         <div class="stair-feat">Full staircase transformations & remodels</div>
         <div class="stair-feat">Carpet removal & vinyl replacement</div>
-        <div class="stair-feat">Female Click & Deco Model nosing profiles</div>
-        <div class="stair-feat">Vinyl stair treads available to purchase direct</div>
         <div class="stair-feat">Free in-home measurement & quote</div>
       </div>
       <a href="#contact" class="btn-gold">Book a Staircase Consult &nbsp;→</a>
@@ -954,22 +915,6 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
           <div class="testi-loc">Dartmouth, NS · Drywall & Remodel</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════ SHOP ══════ -->
-<section id="shop">
-  <div class="shop-inner">
-    <div>
-      <p class="shop-tag">Now Available Direct</p>
-      <h2 class="shop-h">VINYL STAIR<br>TREADS — SHOP.</h2>
-      <p class="shop-p">Purchase our premium vinyl stair treads directly — professional and consumer grades available, with or without installation service.</p>
-    </div>
-    <div class="shop-actions">
-      <a href="stair-nosings.html" class="btn-dark">Browse Stair Nosings &nbsp;→</a>
-      <a href="#contact" class="btn-dark" style="background:transparent;border:1px solid var(--black);color:var(--black);">Inquire About Products &nbsp;→</a>
-      <p class="shop-note">Sold direct &nbsp;·&nbsp; Install available separately<br>Professional & consumer grades in stock</p>
     </div>
   </div>
 </section>
@@ -1089,7 +1034,6 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
           <option>Deck or Fence</option>
           <option>Carpet / Carpet Stairs</option>
           <option>Repair or Remodel</option>
-          <option>Vinyl Stair Treads — Shop</option>
           <option>Multiple Services</option>
           <option>Other / Not Sure</option>
         </select>
@@ -1148,18 +1092,12 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
     </div>
 
     <div class="ft-col">
-      <h4>Shop</h4>
-      <ul>
-        <li><a href="stair-nosings.html">Stair Nosings</a></li>
-        <li><a href="stair-nosings.html#models">Nosing Models</a></li>
-        <li><a href="#contact">Product Inquiry</a></li>
-        <li><a href="#contact">Install + Supply</a></li>
-      </ul>
-      <h4 style="margin-top:24px;">Company</h4>
+      <h4>Company</h4>
       <ul>
         <li><a href="#about">About ETRA</a></li>
         <li><a href="#testimonials">Reviews</a></li>
         <li><a href="#areas">Service Areas</a></li>
+        <li><a href="#contact">Product Inquiry</a></li>
       </ul>
     </div>
 
