@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ETRA Pro Services — Brand Identity</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:wght@400;700;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:     #0D0D0D;
+    --charcoal:  #1A1A1A;
+    --steel:     #2C2C2C;
+    --slate:     #4A4A4A;
+    --mist:      #E8E4DF;
+    --cream:     #F5F1EB;
+    --white:     #FAFAF8;
+    --gold:      #C8A96E;
+    --gold-lt:   #E2C89A;
+    --gold-dk:   #9E7D44;
+    --red:       #B83A2C;
+  }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+background: var(–black);
+color: var(–cream);
+font-family: ‘Barlow’, sans-serif;
+font-weight: 300;
+line-height: 1.6;
+overflow-x: hidden;
+}
+
+/* ─── HEADER ─── */
+.cover {
+min-height: 100vh;
+background: var(–black);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+position: relative;
+overflow: hidden;
+padding: 60px 40px;
+}
+
+.cover::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse 80% 60% at 50% 110%, rgba(200,169,110,0.12) 0%, transparent 60%),
+radial-gradient(ellipse 40% 40% at 10% 20%, rgba(200,169,110,0.05) 0%, transparent 50%);
+pointer-events: none;
+}
+
+.cover-rule {
+width: 1px;
+height: 80px;
+background: linear-gradient(to bottom, transparent, var(–gold));
+margin-bottom: 40px;
+animation: fadeDown 1.2s ease forwards;
+}
+
+.cover-eyebrow {
+font-family: ‘Barlow’, sans-serif;
+font-weight: 500;
+font-size: 11px;
+letter-spacing: 0.35em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 24px;
+animation: fadeUp 1s 0.3s ease both;
+}
+
+.cover-logo {
+display: flex;
+align-items: center;
+gap: 20px;
+margin-bottom: 24px;
+animation: fadeUp 1s 0.5s ease both;
+}
+
+.logo-mark {
+width: 72px;
+height: 72px;
+position: relative;
+flex-shrink: 0;
+}
+
+.logo-mark svg {
+width: 100%;
+height: 100%;
+}
+
+.cover-wordmark {
+display: flex;
+flex-direction: column;
+line-height: 1;
+}
+
+.wordmark-etra {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 88px;
+letter-spacing: 0.08em;
+color: var(–white);
+line-height: 0.9;
+}
+
+.wordmark-sub {
+font-family: ‘Barlow’, sans-serif;
+font-weight: 500;
+font-size: 13px;
+letter-spacing: 0.38em;
+text-transform: uppercase;
+color: var(–gold);
+margin-top: 6px;
+}
+
+.cover-tagline {
+font-family: ‘Playfair Display’, serif;
+font-style: italic;
+font-size: clamp(18px, 2.5vw, 26px);
+color: var(–mist);
+opacity: 0.75;
+margin-bottom: 48px;
+animation: fadeUp 1s 0.7s ease both;
+text-align: center;
+}
+
+.cover-divider {
+display: flex;
+align-items: center;
+gap: 16px;
+margin-bottom: 48px;
+animation: fadeUp 1s 0.9s ease both;
+}
+.cover-divider span { width: 60px; height: 1px; background: var(–gold); opacity: 0.4; display: block; }
+.cover-divider em { width: 6px; height: 6px; background: var(–gold); transform: rotate(45deg); display: block; }
+
+.cover-desc {
+font-size: 15px;
+font-weight: 300;
+color: var(–mist);
+opacity: 0.6;
+letter-spacing: 0.08em;
+text-align: center;
+animation: fadeUp 1s 1.1s ease both;
+}
+
+/* ─── SECTION WRAPPER ─── */
+section {
+padding: 100px 40px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.section-label {
+font-family: ‘Barlow’, sans-serif;
+font-weight: 500;
+font-size: 11px;
+letter-spacing: 0.4em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 16px;
+}
+
+.section-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(42px, 5vw, 64px);
+letter-spacing: 0.04em;
+color: var(–white);
+line-height: 1;
+margin-bottom: 48px;
+}
+
+.section-rule {
+width: 48px;
+height: 2px;
+background: var(–gold);
+margin-bottom: 48px;
+}
+
+/* ─── DIVIDERS BETWEEN SECTIONS ─── */
+.full-divider {
+width: 100%;
+height: 1px;
+background: linear-gradient(to right, transparent, var(–steel) 20%, var(–steel) 80%, transparent);
+}
+
+/* ─── LOGO SECTION ─── */
+.logo-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2px;
+margin-top: 8px;
+}
+
+.logo-tile {
+padding: 60px 48px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 24px;
+position: relative;
+}
+
+.logo-tile-label {
+font-size: 11px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+font-weight: 500;
+opacity: 0.45;
+position: absolute;
+bottom: 20px;
+right: 24px;
+}
+
+.tile-dark  { background: var(–black); }
+.tile-char  { background: var(–charcoal); }
+.tile-cream { background: var(–cream); }
+.tile-gold  { background: var(–gold); }
+
+/* The actual SVG logo — used in multiple tiles */
+.logo-inline { display: flex; align-items: center; gap: 14px; }
+.logo-inline-mark { width: 52px; height: 52px; }
+.logo-inline-text { display: flex; flex-direction: column; line-height: 1; }
+.li-etra { font-family: ‘Bebas Neue’, sans-serif; font-size: 52px; letter-spacing: 0.07em; line-height: 0.88; }
+.li-sub  { font-family: ‘Barlow’, sans-serif; font-weight: 500; font-size: 9.5px; letter-spacing: 0.34em; text-transform: uppercase; margin-top: 5px; }
+
+/* stacked version */
+.logo-stacked { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.logo-stacked-mark { width: 56px; height: 56px; }
+.ls-etra { font-family: ‘Bebas Neue’, sans-serif; font-size: 40px; letter-spacing: 0.22em; }
+.ls-sub  { font-family: ‘Barlow’, sans-serif; font-weight: 500; font-size: 8.5px; letter-spacing: 0.38em; text-transform: uppercase; margin-top: 2px; }
+
+/* icon only */
+.logo-icon { width: 64px; height: 64px; }
+
+/* ─── COLORS ─── */
+.color-row {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+gap: 2px;
+}
+
+.color-chip {
+height: 180px;
+position: relative;
+overflow: hidden;
+cursor: default;
+transition: transform 0.3s ease;
+}
+.color-chip:hover { transform: scaleY(1.04); z-index: 1; }
+
+.color-info {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+padding: 14px 16px;
+background: rgba(0,0,0,0.35);
+backdrop-filter: blur(4px);
+}
+
+.color-name { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: #fff; }
+.color-hex  { font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); margin-top: 2px; }
+
+/* ─── TYPOGRAPHY ─── */
+.type-specimens {
+display: flex;
+flex-direction: column;
+gap: 48px;
+}
+
+.type-row {
+display: grid;
+grid-template-columns: 200px 1fr;
+gap: 32px;
+align-items: start;
+padding-bottom: 48px;
+border-bottom: 1px solid var(–steel);
+}
+
+.type-meta { padding-top: 8px; }
+.type-face { font-size: 13px; font-weight: 600; color: var(–gold); letter-spacing: 0.1em; }
+.type-role { font-size: 11px; color: var(–slate); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 4px; }
+.type-use  { font-size: 11px; color: var(–slate); margin-top: 12px; line-height: 1.7; font-style: italic; }
+
+.type-sample-display {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(48px, 7vw, 96px);
+letter-spacing: 0.05em;
+color: var(–white);
+line-height: 1;
+}
+
+.type-sample-serif {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(28px, 4vw, 52px);
+color: var(–mist);
+line-height: 1.2;
+}
+
+.type-sample-serif em { font-style: italic; color: var(–gold-lt); }
+
+.type-sample-body {
+font-family: ‘Barlow’, sans-serif;
+font-weight: 300;
+font-size: 16px;
+color: var(–mist);
+line-height: 1.8;
+max-width: 560px;
+}
+
+.type-sample-body strong { font-weight: 600; color: var(–white); }
+
+.type-weights {
+display: flex;
+flex-direction: column;
+gap: 8px;
+margin-top: 16px;
+}
+
+.tw { font-family: ‘Barlow’, sans-serif; font-size: 20px; color: var(–mist); letter-spacing: 0.03em; }
+
+/* ─── SERVICES / BRAND VOICE ─── */
+.services-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+gap: 1px;
+background: var(–steel);
+}
+
+.service-card {
+background: var(–charcoal);
+padding: 36px 32px;
+position: relative;
+overflow: hidden;
+transition: background 0.3s ease;
+}
+
+.service-card:hover { background: var(–steel); }
+
+.service-card::after {
+content: ‘’;
+position: absolute;
+bottom: 0;
+left: 0;
+width: 0;
+height: 2px;
+background: var(–gold);
+transition: width 0.4s ease;
+}
+
+.service-card:hover::after { width: 100%; }
+
+.service-icon {
+font-size: 24px;
+margin-bottom: 16px;
+display: block;
+}
+
+.service-name {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 22px;
+letter-spacing: 0.07em;
+color: var(–white);
+margin-bottom: 8px;
+}
+
+.service-desc {
+font-size: 13px;
+font-weight: 300;
+color: var(–slate);
+line-height: 1.7;
+}
+
+/* ─── TAGLINES ─── */
+.tagline-block {
+padding: 80px 0;
+text-align: center;
+border-top: 1px solid var(–steel);
+border-bottom: 1px solid var(–steel);
+}
+
+.tagline-primary {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(40px, 6vw, 80px);
+letter-spacing: 0.1em;
+color: var(–white);
+line-height: 1;
+margin-bottom: 12px;
+}
+
+.tagline-primary span { color: var(–gold); }
+
+.tagline-secondary {
+font-family: ‘Playfair Display’, serif;
+font-style: italic;
+font-size: clamp(16px, 2.5vw, 22px);
+color: var(–mist);
+opacity: 0.6;
+}
+
+/* ─── PRINT ELEMENTS / BRAND APPLICATIONS ─── */
+.app-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2px;
+}
+
+/* Business Card */
+.biz-card {
+aspect-ratio: 3.5 / 2;
+background: var(–black);
+border: 1px solid rgba(200,169,110,0.25);
+padding: 28px 32px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+position: relative;
+overflow: hidden;
+}
+
+.biz-card::before {
+content: ‘’;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+height: 3px;
+background: linear-gradient(90deg, var(–gold-dk), var(–gold-lt), var(–gold-dk));
+}
+
+.biz-card::after {
+content: ‘ETRA’;
+position: absolute;
+right: -20px;
+bottom: -30px;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 120px;
+color: rgba(200,169,110,0.04);
+pointer-events: none;
+letter-spacing: 0.05em;
+}
+
+.bc-logo { display: flex; align-items: center; gap: 8px; }
+.bc-mark { width: 28px; height: 28px; }
+.bc-name-e { font-family: ‘Bebas Neue’, sans-serif; font-size: 26px; color: var(–white); letter-spacing: 0.05em; line-height: 1; }
+.bc-name-s { font-family: ‘Barlow’, sans-serif; font-weight: 500; font-size: 7px; color: var(–gold); letter-spacing: 0.3em; text-transform: uppercase; }
+
+.bc-person { }
+.bc-person-name { font-family: ‘Barlow’, sans-serif; font-weight: 600; font-size: 14px; color: var(–white); letter-spacing: 0.08em; }
+.bc-person-title { font-family: ‘Barlow’, sans-serif; font-weight: 300; font-size: 10px; color: var(–gold); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 2px; }
+
+.bc-info { display: flex; flex-direction: column; gap: 3px; }
+.bc-info span { font-size: 9px; color: var(–slate); letter-spacing: 0.08em; font-weight: 300; }
+.bc-info span em { font-style: normal; color: var(–mist); }
+
+/* Back of card */
+.biz-card-back {
+aspect-ratio: 3.5 / 2;
+background: var(–gold);
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 8px;
+position: relative;
+overflow: hidden;
+}
+
+.biz-card-back::before {
+content: ‘’;
+position: absolute;
+inset: 0;
+background: repeating-linear-gradient(
+45deg,
+transparent,
+transparent 20px,
+rgba(0,0,0,0.04) 20px,
+rgba(0,0,0,0.04) 21px
+);
+}
+
+.bcb-e { font-family: ‘Bebas Neue’, sans-serif; font-size: 52px; color: var(–black); letter-spacing: 0.15em; line-height: 1; }
+.bcb-s { font-family: ‘Barlow’, sans-serif; font-weight: 600; font-size: 8px; color: var(–black); letter-spacing: 0.45em; text-transform: uppercase; opacity: 0.7; }
+
+/* Letterhead */
+.letterhead {
+background: var(–cream);
+padding: 40px 48px;
+color: var(–black);
+grid-column: 1 / -1;
+}
+
+.lh-top {
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+padding-bottom: 24px;
+border-bottom: 2px solid var(–gold);
+margin-bottom: 32px;
+}
+
+.lh-logo { display: flex; align-items: center; gap: 12px; }
+.lh-mark { width: 40px; height: 40px; }
+.lh-e { font-family: ‘Bebas Neue’, sans-serif; font-size: 40px; color: var(–black); letter-spacing: 0.06em; line-height: 1; }
+.lh-s { font-family: ‘Barlow’, sans-serif; font-weight: 600; font-size: 8px; color: var(–gold-dk); letter-spacing: 0.3em; text-transform: uppercase; margin-top: 3px; }
+
+.lh-contact { text-align: right; }
+.lh-contact span { display: block; font-size: 10px; color: var(–slate); font-weight: 300; letter-spacing: 0.05em; line-height: 1.8; }
+.lh-contact strong { font-weight: 600; color: var(–black); }
+
+.lh-body { }
+.lh-date { font-size: 11px; color: var(–slate); letter-spacing: 0.15em; margin-bottom: 20px; font-weight: 300; }
+.lh-text { font-size: 13px; color: var(–charcoal); font-weight: 300; line-height: 1.9; max-width: 500px; }
+.lh-text p { margin-bottom: 12px; }
+
+/* Shirt/uniform preview */
+.uniform-card {
+background: var(–charcoal);
+padding: 48px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 32px;
+min-height: 300px;
+}
+
+.shirt {
+width: 160px;
+height: 140px;
+background: var(–black);
+border: 1px solid var(–steel);
+border-radius: 4px;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+}
+
+.shirt::before, .shirt::after {
+content: ‘’;
+position: absolute;
+background: var(–black);
+border: 1px solid var(–steel);
+border-radius: 2px;
+}
+
+.shirt::before { top: -18px; left: 22px; width: 46px; height: 20px; border-bottom: none; border-radius: 4px 4px 0 0; }
+.shirt::after  { top: -18px; right: 22px; width: 46px; height: 20px; border-bottom: none; border-radius: 4px 4px 0 0; }
+
+.shirt-chest { display: flex; align-items: center; gap: 6px; }
+.sc-mark { width: 22px; height: 22px; }
+.sc-text { font-family: ‘Bebas Neue’, sans-serif; font-size: 20px; color: var(–gold); letter-spacing: 0.1em; line-height: 1; }
+
+/* Vehicle decal strip */
+.vehicle-strip {
+background: var(–steel);
+padding: 40px 48px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 24px;
+flex-wrap: wrap;
+}
+
+.vs-logo { display: flex; align-items: center; gap: 14px; }
+.vs-mark { width: 44px; height: 44px; }
+.vs-e { font-family: ‘Bebas Neue’, sans-serif; font-size: 44px; color: var(–white); letter-spacing: 0.06em; line-height: 0.9; }
+.vs-s { font-family: ‘Barlow’, sans-serif; font-weight: 500; font-size: 8px; color: var(–gold); letter-spacing: 0.3em; text-transform: uppercase; }
+
+.vs-middle { text-align: center; }
+.vs-tag { font-family: ‘Bebas Neue’, sans-serif; font-size: 22px; color: var(–white); letter-spacing: 0.12em; }
+.vs-sub { font-size: 10px; color: var(–gold); letter-spacing: 0.25em; text-transform: uppercase; font-weight: 300; }
+
+.vs-contact { text-align: right; }
+.vs-phone { font-family: ‘Bebas Neue’, sans-serif; font-size: 28px; color: var(–gold); letter-spacing: 0.08em; }
+.vs-web { font-size: 10px; color: var(–mist); letter-spacing: 0.2em; font-weight: 300; }
+
+/* ─── BRAND VOICE ─── */
+.voice-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2px;
+}
+
+.voice-card {
+padding: 48px 40px;
+background: var(–charcoal);
+}
+
+.vc-head {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 28px;
+letter-spacing: 0.07em;
+color: var(–gold);
+margin-bottom: 24px;
+}
+
+.vc-list { list-style: none; }
+.vc-list li {
+font-size: 14px;
+font-weight: 300;
+color: var(–mist);
+padding: 10px 0;
+border-bottom: 1px solid var(–steel);
+display: flex;
+align-items: flex-start;
+gap: 12px;
+line-height: 1.5;
+}
+
+.vc-list li::before {
+content: ‘—’;
+color: var(–gold);
+flex-shrink: 0;
+font-size: 12px;
+margin-top: 1px;
+}
+
+/* ─── SOCIAL FORMAT ─── */
+.social-row {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2px;
+}
+
+.social-post {
+aspect-ratio: 1;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 28px;
+position: relative;
+overflow: hidden;
+text-align: center;
+}
+
+.sp-1 { background: var(–charcoal); }
+.sp-2 { background: var(–gold); }
+.sp-3 { background: var(–black); border: 1px solid var(–steel); }
+
+.sp-type {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 26px;
+letter-spacing: 0.06em;
+line-height: 1.1;
+margin-bottom: 8px;
+}
+
+.sp-sub {
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+opacity: 0.7;
+}
+
+.sp-price {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 48px;
+letter-spacing: 0.04em;
+line-height: 1;
+}
+
+.sp-price-label {
+font-size: 10px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+font-weight: 500;
+margin-top: 4px;
+}
+
+.sp-quote {
+font-family: ‘Playfair Display’, serif;
+font-style: italic;
+font-size: 15px;
+color: var(–mist);
+line-height: 1.5;
+margin-bottom: 12px;
+}
+
+.sp-logo-sm { display: flex; align-items: center; gap: 6px; }
+.sp-mark { width: 18px; height: 18px; }
+.sp-e { font-family: ‘Bebas Neue’, sans-serif; font-size: 18px; letter-spacing: 0.05em; }
+.sp-s { font-size: 7px; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; color: var(–gold); }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(24px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+from { opacity: 0; transform: scaleY(0); transform-origin: top; }
+to   { opacity: 1; transform: scaleY(1); }
+}
+
+/* ─── FOOTER ─── */
+.brand-footer {
+border-top: 1px solid var(–steel);
+padding: 48px 40px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 16px;
+}
+
+.bf-copy { font-size: 11px; color: var(–slate); letter-spacing: 0.15em; }
+.bf-copy strong { color: var(–gold); }
+
+.bf-tag { font-family: ‘Bebas Neue’, sans-serif; font-size: 18px; letter-spacing: 0.15em; color: var(–steel); }
+
+/* Responsive */
+@media (max-width: 768px) {
+.logo-grid, .app-grid, .voice-grid, .social-row { grid-template-columns: 1fr; }
+.type-row { grid-template-columns: 1fr; }
+.vehicle-strip { flex-direction: column; text-align: center; }
+section { padding: 60px 20px; }
+.letterhead { grid-column: 1; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     COVER
+══════════════════════════════════════════════════ -->
+
+<div class="cover">
+  <div class="cover-rule"></div>
+  <p class="cover-eyebrow">Brand Identity System · 2025</p>
+  <div class="cover-logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- House shape -->
+        <polygon points="40,6 74,34 74,74 6,74 6,34" fill="none" stroke="#C8A96E" stroke-width="3.5" stroke-linejoin="round"/>
+        <!-- Ridge cap accent -->
+        <line x1="40" y1="6" x2="40" y2="18" stroke="#C8A96E" stroke-width="3.5"/>
+        <!-- Inner stair shape — ETRA's specialty -->
+        <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" fill="none" stroke="#C8A96E" stroke-width="2.5" stroke-linejoin="round" opacity="0.55"/>
+        <!-- Corner accent dots -->
+        <circle cx="6" cy="74" r="3" fill="#C8A96E"/>
+        <circle cx="74" cy="74" r="3" fill="#C8A96E"/>
+        <circle cx="40" cy="6" r="3" fill="#C8A96E"/>
+      </svg>
+    </div>
+    <div class="cover-wordmark">
+      <span class="wordmark-etra">ETRA</span>
+      <span class="wordmark-sub">Pro Services</span>
+    </div>
+  </div>
+  <p class="cover-tagline">Where Every Step Counts.</p>
+  <div class="cover-divider"><span></span><em></em><span></span></div>
+  <p class="cover-desc">Halifax, NS · Residential · Commercial · New Builds</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     LOGO SYSTEM
+══════════════════════════════════════════════════ -->
+
+<div class="full-divider"></div>
+<section>
+  <p class="section-label">01 — Logo System</p>
+  <h2 class="section-title">THE MARK</h2>
+  <div class="section-rule"></div>
+</section>
+<div class="logo-grid" style="max-width:1200px;margin:0 auto 0;">
+
+  <!-- Dark bg — horizontal -->
+
+  <div class="logo-tile tile-dark">
+    <div class="logo-inline">
+      <svg class="logo-inline-mark" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="40,6 74,34 74,74 6,74 6,34" fill="none" stroke="#C8A96E" stroke-width="3.5" stroke-linejoin="round"/>
+        <line x1="40" y1="6" x2="40" y2="18" stroke="#C8A96E" stroke-width="3.5"/>
+        <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" fill="none" stroke="#C8A96E" stroke-width="2.5" stroke-linejoin="round" opacity="0.55"/>
+        <circle cx="6" cy="74" r="3" fill="#C8A96E"/>
+        <circle cx="74" cy="74" r="3" fill="#C8A96E"/>
+        <circle cx="40" cy="6" r="3" fill="#C8A96E"/>
+      </svg>
+      <div class="logo-inline-text">
+        <span class="li-etra" style="color:#FAFAF8;">ETRA</span>
+        <span class="li-sub" style="color:#C8A96E;">Pro Services</span>
+      </div>
+    </div>
+    <span class="logo-tile-label" style="color:#4A4A4A;">On Black — Primary</span>
+  </div>
+
+  <!-- Charcoal bg — horizontal -->
+
+  <div class="logo-tile tile-char">
+    <div class="logo-inline">
+      <svg class="logo-inline-mark" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="40,6 74,34 74,74 6,74 6,34" fill="none" stroke="#C8A96E" stroke-width="3.5" stroke-linejoin="round"/>
+        <line x1="40" y1="6" x2="40" y2="18" stroke="#C8A96E" stroke-width="3.5"/>
+        <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" fill="none" stroke="#C8A96E" stroke-width="2.5" stroke-linejoin="round" opacity="0.55"/>
+        <circle cx="6" cy="74" r="3" fill="#C8A96E"/>
+        <circle cx="74" cy="74" r="3" fill="#C8A96E"/>
+        <circle cx="40" cy="6" r="3" fill="#C8A96E"/>
+      </svg>
+      <div class="logo-inline-text">
+        <span class="li-etra" style="color:#FAFAF8;">ETRA</span>
+        <span class="li-sub" style="color:#C8A96E;">Pro Services</span>
+      </div>
+    </div>
+    <span class="logo-tile-label" style="color:#4A4A4A;">On Charcoal</span>
+  </div>
+
+  <!-- Light bg — horizontal -->
+
+  <div class="logo-tile tile-cream">
+    <div class="logo-inline">
+      <svg class="logo-inline-mark" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="40,6 74,34 74,74 6,74 6,34" fill="none" stroke="#9E7D44" stroke-width="3.5" stroke-linejoin="round"/>
+        <line x1="40" y1="6" x2="40" y2="18" stroke="#9E7D44" stroke-width="3.5"/>
+        <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" fill="none" stroke="#9E7D44" stroke-width="2.5" stroke-linejoin="round" opacity="0.55"/>
+        <circle cx="6" cy="74" r="3" fill="#9E7D44"/>
+        <circle cx="74" cy="74" r="3" fill="#9E7D44"/>
+        <circle cx="40" cy="6" r="3" fill="#9E7D44"/>
+      </svg>
+      <div class="logo-inline-text">
+        <span class="li-etra" style="color:#0D0D0D;">ETRA</span>
+        <span class="li-sub" style="color:#9E7D44;">Pro Services</span>
+      </div>
+    </div>
+    <span class="logo-tile-label" style="color:#9E7D44;">On Light — Reversed</span>
+  </div>
+
+  <!-- Gold bg — stacked icon -->
+
+  <div class="logo-tile tile-gold" style="flex-direction:row;gap:48px;">
+    <!-- Stacked -->
+    <div class="logo-stacked">
+      <svg class="logo-stacked-mark" viewBox="0 0 80 80" fill="none">
+        <polygon points="40,6 74,34 74,74 6,74 6,34" fill="none" stroke="#0D0D0D" stroke-width="3.5" stroke-linejoin="round"/>
+        <line x1="40" y1="6" x2="40" y2="18" stroke="#0D0D0D" stroke-width="3.5"/>
+        <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" fill="none" stroke="#0D0D0D" stroke-width="2.5" stroke-linejoin="round" opacity="0.6"/>
+        <circle cx="6" cy="74" r="3" fill="#0D0D0D"/>
+        <circle cx="74" cy="74" r="3" fill="#0D0D0D"/>
+        <circle cx="40" cy="6" r="3" fill="#0D0D0D"/>
+      </svg>
+      <span class="ls-etra" style="color:#0D0D0D;">ETRA</span>
+      <span class="ls-sub" style="color:#0D0D0D;opacity:0.65;">Pro Services</span>
+    </div>
+    <!-- Icon only -->
+    <svg class="logo-icon" viewBox="0 0 80 80" fill="none">
+      <polygon points="40,6 74,34 74,74 6,74 6,34" fill="none" stroke="#0D0D0D" stroke-width="3.5" stroke-linejoin="round"/>
+      <line x1="40" y1="6" x2="40" y2="18" stroke="#0D0D0D" stroke-width="3.5"/>
+      <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" fill="none" stroke="#0D0D0D" stroke-width="2.5" stroke-linejoin="round" opacity="0.6"/>
+      <circle cx="6" cy="74" r="3" fill="#0D0D0D"/>
+      <circle cx="74" cy="74" r="3" fill="#0D0D0D"/>
+      <circle cx="40" cy="6" r="3" fill="#0D0D0D"/>
+    </svg>
+    <span class="logo-tile-label" style="color:rgba(0,0,0,0.4);">On Gold · Stacked + Icon</span>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     TAGLINE BLOCK
+══════════════════════════════════════════════════ -->
+
+<div style="max-width:1200px;margin:64px auto 0;padding:0 40px;">
+  <div class="tagline-block">
+    <p class="tagline-primary">WHERE EVERY <span>STEP</span> COUNTS.</p>
+    <p class="tagline-secondary">Halifax's premier contracting partner — built on precision, finished to perfection.</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     COLOUR PALETTE
+══════════════════════════════════════════════════ -->
+
+<div class="full-divider" style="margin-top:0;"></div>
+<section>
+  <p class="section-label">02 — Colour Palette</p>
+  <h2 class="section-title">THE PALETTE</h2>
+  <div class="section-rule"></div>
+</section>
+<div style="max-width:1200px;margin:0 auto;padding:0 40px 80px;">
+  <div class="color-row">
+    <div class="color-chip" style="background:#0D0D0D;">
+      <div class="color-info"><div class="color-name">Obsidian</div><div class="color-hex">#0D0D0D · Primary BG</div></div>
+    </div>
+    <div class="color-chip" style="background:#1A1A1A;">
+      <div class="color-info"><div class="color-name">Charcoal</div><div class="color-hex">#1A1A1A · Cards</div></div>
+    </div>
+    <div class="color-chip" style="background:#2C2C2C;">
+      <div class="color-info"><div class="color-name">Steel</div><div class="color-hex">#2C2C2C · Borders</div></div>
+    </div>
+    <div class="color-chip" style="background:#C8A96E;">
+      <div class="color-info"><div class="color-name">Brushed Gold</div><div class="color-hex">#C8A96E · Accent</div></div>
+    </div>
+    <div class="color-chip" style="background:#9E7D44;">
+      <div class="color-info"><div class="color-name">Dark Gold</div><div class="color-hex">#9E7D44 · Print</div></div>
+    </div>
+    <div class="color-chip" style="background:#E2C89A;">
+      <div class="color-info"><div class="color-name">Pale Gold</div><div class="color-hex">#E2C89A · Highlight</div></div>
+    </div>
+    <div class="color-chip" style="background:#F5F1EB;">
+      <div class="color-info"><div class="color-name">Cream</div><div class="color-hex">#F5F1EB · Light BG</div></div>
+    </div>
+    <div class="color-chip" style="background:#B83A2C;">
+      <div class="color-info"><div class="color-name">Signal Red</div><div class="color-hex">#B83A2C · Alerts</div></div>
+    </div>
+  </div>
+  <p style="margin-top:24px;font-size:12px;color:#4A4A4A;letter-spacing:0.15em;font-weight:300;">
+    OBSIDIAN + BRUSHED GOLD is the signature combination — commanding, premium, and distinct in the trades market.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     TYPOGRAPHY
+══════════════════════════════════════════════════ -->
+
+<div class="full-divider"></div>
+<section>
+  <p class="section-label">03 — Typography</p>
+  <h2 class="section-title">THE TYPE</h2>
+  <div class="section-rule"></div>
+  <div class="type-specimens">
+
+```
+<div class="type-row">
+  <div class="type-meta">
+    <p class="type-face">Bebas Neue</p>
+    <p class="type-role">Display / Headlines</p>
+    <p class="type-use">Used for the logo wordmark, section headers, service names, pricing, and all large-format display text. Commands attention without shouting.</p>
+  </div>
+  <div>
+    <p class="type-sample-display">ETRA PRO<br>SERVICES</p>
+  </div>
+</div>
+
+<div class="type-row">
+  <div class="type-meta">
+    <p class="type-face">Playfair Display</p>
+    <p class="type-role">Editorial / Taglines</p>
+    <p class="type-use">Used for taglines, testimonial pull-quotes, and secondary headings where a premium, crafted tone is needed. Always in italic for best effect.</p>
+  </div>
+  <div>
+    <p class="type-sample-serif"><em>Where Every Step Counts.</em><br><em>Craftsmanship you can stand on.</em></p>
+  </div>
+</div>
+
+<div class="type-row">
+  <div class="type-meta">
+    <p class="type-face">Barlow</p>
+    <p class="type-role">Body / UI / Captions</p>
+    <p class="type-use">Used for all body copy, contact info, captions, form labels, and UI elements. Clean, modern, and legible at any size.</p>
+  </div>
+  <div>
+    <p class="type-sample-body">
+      <strong>ETRA Pro Services</strong> handles everything from your first nail to your finishing trim — flooring, drywall, siding, decks, fences, and our signature <strong>custom vinyl staircases</strong>. Based in Halifax, we serve HRM and all surrounding areas. Free quotes, honest pricing, premium results.
+    </p>
+    <div class="type-weights" style="margin-top:24px;">
+      <p class="tw" style="font-weight:300;">Barlow Light — body copy, descriptions</p>
+      <p class="tw" style="font-weight:400;">Barlow Regular — UI labels, nav</p>
+      <p class="tw" style="font-weight:600;">Barlow SemiBold — emphasis, names</p>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     SERVICES
+══════════════════════════════════════════════════ -->
+
+<div class="full-divider"></div>
+<section>
+  <p class="section-label">04 — Services</p>
+  <h2 class="section-title">WHAT WE DO</h2>
+  <div class="section-rule"></div>
+</section>
+<div style="max-width:1200px;margin:0 auto;padding:0 40px 80px;">
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">▰▰▰</span>
+      <p class="service-name">Flooring Installs</p>
+      <p class="service-desc">Vinyl plank, hardwood, tile, subfloor repair & prep. We get the foundation right so everything above it lasts.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">◻ ◻ ◻</span>
+      <p class="service-name">Drywall</p>
+      <p class="service-desc">New installations, repairs, patching, finishing. Seamless results — painted or primed to a professional standard.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">▐▐▐▐▐</span>
+      <p class="service-name">Exterior Siding</p>
+      <p class="service-desc">Vinyl, composite, and wood siding installs. Weather-tight, straight, and built to last the Nova Scotia winters.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">━━━━━</span>
+      <p class="service-name">Decks & Fences</p>
+      <p class="service-desc">Custom deck builds and fence installations. Material options to match your home, your budget, your vision.</p>
+    </div>
+    <div class="service-card" style="border-bottom:2px solid var(--gold);">
+      <span class="service-icon">↗ ↗ ↗</span>
+      <p class="service-name">Custom Vinyl Staircases</p>
+      <p class="service-desc" style="color:var(--gold-lt);">Our signature specialty. Precision-cut vinyl stair treads and full staircase transformations — available to install or purchase direct.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">⬡ ⬡ ⬡</span>
+      <p class="service-name">Carpet Stairs & Carpet</p>
+      <p class="service-desc">Wall-to-wall carpet installs and carpet stair applications. Clean lines, tight corners, quality finish.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">✦ ✦ ✦</span>
+      <p class="service-name">Repairs & Remodels</p>
+      <p class="service-desc">No job too small. Punch list items, single-room renovations, and everything in between. We show up and get it done.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">◈ ◈ ◈</span>
+      <p class="service-name">Vinyl Stair Treads — Shop</p>
+      <p class="service-desc">We sell premium vinyl stair treads directly. Professional grades available with or without installation service.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     BRAND VOICE
+══════════════════════════════════════════════════ -->
+
+<div class="full-divider"></div>
+<section>
+  <p class="section-label">05 — Brand Voice & Positioning</p>
+  <h2 class="section-title">HOW WE SPEAK</h2>
+  <div class="section-rule"></div>
+</section>
+<div style="max-width:1200px;margin:0 auto;padding:0 40px 80px;">
+  <div class="voice-grid">
+    <div class="voice-card">
+      <p class="vc-head">WE ARE</p>
+      <ul class="vc-list">
+        <li>Confident and direct — we know what we're doing</li>
+        <li>Premium without being pretentious</li>
+        <li>Local and personal — Halifax is our backyard</li>
+        <li>Specialists with a full-service range</li>
+        <li>Proud of the craft — every step, every surface</li>
+        <li>Honest about pricing upfront</li>
+      </ul>
+    </div>
+    <div class="voice-card">
+      <p class="vc-head">WE'RE NOT</p>
+      <ul class="vc-list">
+        <li>A faceless corporate outfit</li>
+        <li>Vague or salesy — we let the work speak</li>
+        <li>Cheap — and we don't pretend to be</li>
+        <li>Overloaded with industry jargon</li>
+        <li>Slow to respond or hard to reach</li>
+        <li>Satisfied with "good enough"</li>
+      </ul>
+    </div>
+    <div class="voice-card">
+      <p class="vc-head">KEY MESSAGES</p>
+      <ul class="vc-list">
+        <li>"Every step counts" — our work is built to last and built with care</li>
+        <li>We're not just contractors — we're your home's most trusted upgrade</li>
+        <li>Halifax-based. Precision-focused. Free quotes, always.</li>
+        <li>From a single stair tread to a full renovation — we handle it</li>
+      </ul>
+    </div>
+    <div class="voice-card">
+      <p class="vc-head">TONE EXAMPLES</p>
+      <ul class="vc-list">
+        <li><em>"Your floors deserve better. We'll make it happen."</em></li>
+        <li><em>"Custom vinyl staircases — precision cut, perfectly installed."</em></li>
+        <li><em>"Residential. Commercial. New builds. One number."</em></li>
+        <li><em>"Free quote. No pressure. Just craftsmanship."</em></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     BRAND APPLICATIONS
+══════════════════════════════════════════════════ -->
+
+<div class="full-divider"></div>
+<section>
+  <p class="section-label">06 — Brand Applications</p>
+  <h2 class="section-title">IN THE REAL WORLD</h2>
+  <div class="section-rule"></div>
+</section>
+<div style="max-width:1200px;margin:0 auto;padding:0 40px 80px;">
+  <div class="app-grid">
+
+```
+<!-- Business card front -->
+<div class="biz-card">
+  <div class="bc-logo">
+    <svg class="bc-mark" viewBox="0 0 80 80" fill="none">
+      <polygon points="40,6 74,34 74,74 6,74 6,34" fill="none" stroke="#C8A96E" stroke-width="4" stroke-linejoin="round"/>
+      <line x1="40" y1="6" x2="40" y2="18" stroke="#C8A96E" stroke-width="4"/>
+      <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" fill="none" stroke="#C8A96E" stroke-width="2.5" stroke-linejoin="round" opacity="0.55"/>
+      <circle cx="6" cy="74" r="3" fill="#C8A96E"/>
+      <circle cx="74" cy="74" r="3" fill="#C8A96E"/>
+      <circle cx="40" cy="6" r="3" fill="#C8A96E"/>
+    </svg>
+    <div>
+      <div class="bc-name-e">ETRA</div>
+      <div class="bc-name-s">Pro Services</div>
+    </div>
+  </div>
+  <div class="bc-person">
+    <div class="bc-person-name">OWNER NAME</div>
+    <div class="bc-person-title">Owner · Lead Contractor</div>
+  </div>
+  <div class="bc-info">
+    <span>📞 <em>(902) 000-0000</em></span>
+    <span>✉ <em>info@etrapro.ca</em></span>
+    <span>🌐 <em>etrapro.ca</em></span>
+    <span>📍 <em>Halifax, NS · HRM & Area</em></span>
+  </div>
+</div>
+
+<!-- Business card back -->
+<div class="biz-card-back">
+  <div class="bcb-e">ETRA</div>
+  <div class="bcb-s">Pro Services</div>
+</div>
+
+<!-- Letterhead -->
+<div class="letterhead">
+  <div class="lh-top">
+    <div class="lh-logo">
+      <svg class="lh-mark" viewBox="0 0 80 80" fill="none">
+        <polygon points="40,6 74,34 74,74 6,74 6,34" fill="none" stroke="#9E7D44" stroke-width="4" stroke-linejoin="round"/>
+        <line x1="40" y1="6" x2="40" y2="18" stroke="#9E7D44" stroke-width="4"/>
+        <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" fill="none" stroke="#9E7D44" stroke-width="2.5" stroke-linejoin="round" opacity="0.55"/>
+        <circle cx="6" cy="74" r="3" fill="#9E7D44"/>
+        <circle cx="74" cy="74" r="3" fill="#9E7D44"/>
+        <circle cx="40" cy="6" r="3" fill="#9E7D44"/>
+      </svg>
+      <div>
+        <div class="lh-e">ETRA</div>
+        <div class="lh-s">Pro Services</div>
+      </div>
+    </div>
+    <div class="lh-contact">
+      <span><strong>etrapro.ca</strong></span>
+      <span>info@etrapro.ca</span>
+      <span>(902) 000-0000</span>
+      <span>Halifax, NS — HRM & Surrounding Areas</span>
+    </div>
+  </div>
+  <div class="lh-body">
+    <p class="lh-date">January 15, 2025</p>
+    <div class="lh-text">
+      <p>Dear [Client Name],</p>
+      <p>Thank you for reaching out to ETRA Pro Services. We're pleased to provide the following estimate for your upcoming project at [address].</p>
+      <p>Our team specializes in flooring, drywall, siding, custom vinyl staircases, decks, and complete renovations. Every project is handled with the same standard of precision and care — residential, commercial, or new build.</p>
+      <p>Please don't hesitate to call or message with any questions. We look forward to working with you.</p>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+
+  <!-- Vehicle wrap strip -->
+
+  <div style="margin-top:2px;">
+    <div class="vehicle-strip">
+      <div class="vs-logo">
+        <svg class="vs-mark" viewBox="0 0 80 80" fill="none">
+          <polygon points="40,6 74,34 74,74 6,74 6,34" fill="none" stroke="#C8A96E" stroke-width="4" stroke-linejoin="round"/>
+          <line x1="40" y1="6" x2="40" y2="18" stroke="#C8A96E" stroke-width="4"/>
+          <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" fill="none" stroke="#C8A96E" stroke-width="2.5" stroke-linejoin="round" opacity="0.55"/>
+          <circle cx="6" cy="74" r="3" fill="#C8A96E"/>
+          <circle cx="74" cy="74" r="3" fill="#C8A96E"/>
+          <circle cx="40" cy="6" r="3" fill="#C8A96E"/>
+        </svg>
+        <div>
+          <div class="vs-e">ETRA</div>
+          <div class="vs-s">Pro Services</div>
+        </div>
+      </div>
+      <div class="vs-middle">
+        <div class="vs-tag">FLOORING · DRYWALL · SIDING · DECKS · STAIRS</div>
+        <div class="vs-sub">Residential · Commercial · New Builds · Halifax, NS</div>
+      </div>
+      <div class="vs-contact">
+        <div class="vs-phone">(902) 000-0000</div>
+        <div class="vs-web">etrapro.ca</div>
+      </div>
+    </div>
+    <p style="text-align:right;font-size:11px;color:#2C2C2C;padding:8px 48px;background:#1A1A1A;letter-spacing:0.15em;">↑ Vehicle Wrap / Decal Strip</p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SOCIAL MEDIA FORMATS
+══════════════════════════════════════════════════ -->
+
+<div class="full-divider"></div>
+<section>
+  <p class="section-label">07 — Social Media</p>
+  <h2 class="section-title">CONTENT FORMATS</h2>
+  <div class="section-rule"></div>
+</section>
+<div style="max-width:900px;margin:0 auto;padding:0 40px 80px;">
+  <div class="social-row">
+
+```
+<div class="social-post sp-1">
+  <p class="sp-type" style="color:var(--white);">KITCHEN FLOOR<br>PACKAGE</p>
+  <p class="sp-sub" style="color:var(--gold);">Materials Included</p>
+  <div style="width:40px;height:1px;background:var(--gold);margin:12px auto;opacity:0.5;"></div>
+  <div class="sp-logo-sm">
+    <svg class="sp-mark" viewBox="0 0 80 80" fill="none">
+      <polygon points="40,6 74,34 74,74 6,74 6,34" fill="none" stroke="#C8A96E" stroke-width="5"/>
+      <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" fill="none" stroke="#C8A96E" stroke-width="3.5" opacity="0.6"/>
+    </svg>
+    <div>
+      <div class="sp-e" style="color:var(--white);">ETRA</div>
+      <div class="sp-s">Pro Services</div>
+    </div>
+  </div>
+</div>
+
+<div class="social-post sp-2">
+  <p class="sp-sub" style="color:var(--black);opacity:0.6;">Starting at</p>
+  <p class="sp-price" style="color:var(--black);">$849</p>
+  <p class="sp-price-label" style="color:var(--black);opacity:0.7;">Bathroom Vinyl Package</p>
+  <div style="width:40px;height:2px;background:var(--black);margin:14px auto;opacity:0.3;"></div>
+  <div class="sp-logo-sm" style="gap:8px;">
+    <svg class="sp-mark" viewBox="0 0 80 80" fill="none">
+      <polygon points="40,6 74,34 74,74 6,74 6,34" fill="none" stroke="#0D0D0D" stroke-width="5"/>
+      <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" fill="none" stroke="#0D0D0D" stroke-width="3.5" opacity="0.6"/>
+    </svg>
+    <div>
+      <div class="sp-e" style="color:var(--black);">ETRA</div>
+      <div class="sp-s" style="color:rgba(0,0,0,0.6);">Pro Services</div>
+    </div>
+  </div>
+</div>
+
+<div class="social-post sp-3">
+  <p class="sp-quote">"The staircase completely transformed our home. ETRA nailed every detail."</p>
+  <p class="sp-sub" style="color:var(--gold);margin-bottom:12px;">— Halifax Homeowner</p>
+  <div class="sp-logo-sm">
+    <svg class="sp-mark" viewBox="0 0 80 80" fill="none">
+      <polygon points="40,6 74,34 74,74 6,74 6,34" fill="none" stroke="#C8A96E" stroke-width="5"/>
+      <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" fill="none" stroke="#C8A96E" stroke-width="3.5" opacity="0.6"/>
+    </svg>
+    <div>
+      <div class="sp-e" style="color:var(--white);">ETRA</div>
+      <div class="sp-s">Pro Services</div>
+    </div>
+  </div>
+</div>
+```
+
+  </div>
+  <p style="margin-top:16px;font-size:11px;color:#4A4A4A;letter-spacing:0.15em;">
+    INSTAGRAM / FACEBOOK post templates — maintain the dark-gold palette across all content.
+  </p>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════ -->
+
+<div class="full-divider"></div>
+<div class="brand-footer" style="max-width:100%;">
+  <p class="bf-copy"><strong>ETRA Pro Services</strong> — Brand Identity System · Halifax, NS · 2025</p>
+  <p class="bf-tag">WHERE EVERY STEP COUNTS.</p>
+</div>
+
+</body>
+</html>
