@@ -868,7 +868,6 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
       <h2 class="stairs-h">CUSTOM<br>VINYL<br>STAIRCASES.</h2>
       <div class="gold-rule"></div>
       <p class="stairs-p">Your staircase is the first thing people see when they walk into your home. ETRA Pro Services specializes in precision vinyl stair installations — turning dated, worn stairs into a premium focal point that elevates your entire space.</p>
-      <p class="stairs-p">We carry nosing profiles in both <strong style="color:var(--mist);">Female Click</strong> (vinyl floor application, no cutting required) and <strong style="color:var(--mist);">Male Click / Deco Model</strong> configurations to suit any stair type.</p>
       <div class="stairs-features">
         <div class="stair-feat">Precision-cut vinyl tread installation</div>
         <div class="stair-feat">Full staircase transformations & remodels</div>
@@ -1055,31 +1054,33 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
       </div>
     </div>
 
-    <div id="quote-form">
+    <form id="quote-form" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="quote-request">
+      <p style="display:none"><label>Don't fill this: <input name="bot-field"></label></p>
       <div class="form-title">FREE QUOTE REQUEST</div>
       <div class="form-row">
         <div class="form-group">
           <label for="fname">First Name</label>
-          <input type="text" id="fname" placeholder="John">
+          <input type="text" id="fname" name="first-name" placeholder="John" required>
         </div>
         <div class="form-group">
           <label for="lname">Last Name</label>
-          <input type="text" id="lname" placeholder="Smith">
+          <input type="text" id="lname" name="last-name" placeholder="Smith" required>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label for="fphone">Phone</label>
-          <input type="tel" id="fphone" placeholder="(782) 000-0000">
+          <input type="tel" id="fphone" name="phone" placeholder="(782) 000-0000">
         </div>
         <div class="form-group">
           <label for="femail">Email</label>
-          <input type="email" id="femail" placeholder="you@email.com">
+          <input type="email" id="femail" name="email" placeholder="you@email.com" required>
         </div>
       </div>
       <div class="form-group">
         <label for="fservice">Service Needed</label>
-        <select id="fservice">
+        <select id="fservice" name="service" required>
           <option value="" disabled selected>Select a service...</option>
           <option>Flooring Installation</option>
           <option>Custom Vinyl Staircase</option>
@@ -1095,15 +1096,15 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
       </div>
       <div class="form-group">
         <label for="flocation">Project Location / Area</label>
-        <input type="text" id="flocation" placeholder="e.g. Bedford, NS or full address">
+        <input type="text" id="flocation" name="location" placeholder="e.g. Bedford, NS or full address">
       </div>
       <div class="form-group">
         <label for="fmessage">Tell Us About Your Project</label>
-        <textarea id="fmessage" placeholder="Describe what you're looking for — size, scope, any photos you can share. Anything helps!"></textarea>
+        <textarea id="fmessage" name="message" placeholder="Describe what you're looking for — size, scope, any photos you can share. Anything helps!"></textarea>
       </div>
-      <button class="form-submit" id="formSubmit" type="button">Send My Quote Request →</button>
+      <button class="form-submit" id="formSubmit" type="submit">Send My Quote Request →</button>
       <p class="form-note">100% free &nbsp;·&nbsp; No commitment &nbsp;·&nbsp; We respond fast</p>
-    </div>
+    </form>
   </div>
 </section>
 
@@ -1228,16 +1229,45 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 // ── FORM SUBMIT ──
-document.getElementById('formSubmit').addEventListener('click', function() {
-  const btn = this;
-  btn.textContent = '✓  Request Sent! We\'ll be in touch soon.';
-  btn.style.background = '#2A5C3A';
-  btn.style.color = '#A8DDB8';
-  setTimeout(() => {
-    btn.textContent = 'Send My Quote Request →';
-    btn.style.background = '';
-    btn.style.color = '';
-  }, 4500);
+document.getElementById('quote-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = this;
+  const btn = document.getElementById('formSubmit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    });
+
+    if (response.ok) {
+      btn.textContent = '✓  Request Sent! We\'ll be in touch soon.';
+      btn.style.background = '#2A5C3A';
+      btn.style.color = '#A8DDB8';
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = 'Send My Quote Request →';
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+      }, 4500);
+    } else {
+      throw new Error('Submission failed');
+    }
+  } catch (err) {
+    btn.textContent = 'Something went wrong — please try again.';
+    btn.style.background = '#5C2A2A';
+    btn.style.color = '#DBA8A8';
+    setTimeout(() => {
+      btn.textContent = 'Send My Quote Request →';
+      btn.style.background = '';
+      btn.style.color = '';
+      btn.disabled = false;
+    }, 4500);
+  }
 });
 </script>
 </body>
