@@ -382,30 +382,6 @@ button { font-family: inherit; cursor: pointer; }
 }
 .stair-feat::before { content: '◈'; color: var(--gold); font-size: 9px; flex-shrink: 0; }
 
-/* Nosing diagrams panel */
-.nosing-panel {
-  display: flex; flex-direction: column; gap: 3px;
-}
-
-.nosing-card {
-  background: var(--char2); border: 1px solid var(--steel);
-  padding: 28px 32px;
-  position: relative; overflow: hidden;
-}
-.nosing-card-label {
-  font-size: 9px; font-weight: 700; letter-spacing: .38em;
-  text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
-  display: flex; align-items: center; gap: 10px;
-}
-.nosing-card-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); flex-shrink: 0; }
-
-/* SVG diagrams are inline below */
-.nosing-note {
-  font-size: 11px; color: var(--slate); margin-top: 14px; line-height: 1.6;
-  font-style: italic;
-}
-.nosing-note strong { color: var(--ash); font-style: normal; }
-
 /* ─────────────────────────────────────────
    PROCESS
 ───────────────────────────────────────── */
@@ -585,6 +561,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .form-submit:hover { background: var(--gold-lt); transform: translateY(-1px); }
 .form-note { font-size: 11px; color: var(--slate); margin-top: 10px; text-align: center; letter-spacing: .06em; }
+#quote-form { scroll-margin-top: var(--nav-h); }
 
 /* ─────────────────────────────────────────
    FOOTER
@@ -668,10 +645,10 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
 
 <!-- ══════ MOBILE NAV ══════ -->
 <nav class="mobile-nav" id="mobileNav">
-  <a href="#about"         onclick="closeMobile()">About</a>
+  <a href="Index.html"          onclick="closeMobile()">Home</a>
   <a href="#services"      onclick="closeMobile()">Services</a>
   <a href="#stairs"        onclick="closeMobile()">Staircases</a>
-  <a href="#shop"          onclick="closeMobile()">Shop</a>
+  <a href="stair-nosings.html" onclick="closeMobile()">Shop Nosings</a>
   <a href="#areas"         onclick="closeMobile()">Areas</a>
   <a href="#contact"       onclick="closeMobile()">Contact</a>
 </nav>
@@ -697,11 +674,11 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#stairs">Staircases</a>
-    <a href="#shop">Shop</a>
+    <a href="stair-nosings.html">Shop Nosings</a>
     <a href="#areas">Areas</a>
   </div>
 
-  <button class="nav-quote" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Free Quote</button>
+  <button class="nav-quote" onclick="document.querySelector('#quote-form').scrollIntoView({behavior:'smooth'})">Free Quote</button>
   <button class="burger" id="burger" onclick="toggleMobile()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -729,14 +706,14 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
     <p class="hero-tagline">One call. Every trade. Zero compromise.</p>
 
     <div class="hero-actions">
-      <a href="#contact" class="btn-gold">Get a Free Quote &nbsp;→</a>
+      <a href="#quote-form" class="btn-gold">Get a Free Quote &nbsp;→</a>
       <a href="#services" class="btn-ghost">View Services →</a>
     </div>
   </div>
 
   <div class="hero-stats">
     <div>
-      <div class="h-stat-num">8<span>+</span></div>
+      <div class="h-stat-num">7<span>+</span></div>
       <div class="h-stat-lbl">Services Offered</div>
     </div>
     <div>
@@ -787,7 +764,7 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
       <p class="about-body">ETRA Pro Services is Halifax's go-to contracting team for residential, commercial, and new build projects. We handle everything from a single repair to a full renovation, bringing the same level of care and precision to every job.</p>
       <p class="about-body">Based in HRM, we serve Halifax and all surrounding areas. Every quote is free, every price is honest, and every project is treated like it's our own home.</p>
       <br>
-      <a href="#contact" class="btn-gold">Get Your Free Quote &nbsp;→</a>
+      <a href="#quote-form" class="btn-gold">Get Your Free Quote &nbsp;→</a>
     </div>
     <div>
       <div class="about-card">
@@ -878,11 +855,6 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
       <div class="svc-name">Repairs & Remodels</div>
       <p class="svc-desc">Punch-list items, single-room renovations, and everything in between. No job too small — we show up.</p>
     </div>
-    <div class="svc-card">
-      <div class="svc-num">08</div>
-      <div class="svc-name">Vinyl Stair Treads</div>
-      <p class="svc-desc">Premium vinyl stair treads sold directly. Professional grades available with or without installation.</p>
-    </div>
   </div>
 </section>
 
@@ -890,94 +862,8 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
 <section id="stairs">
   <div class="stairs-grid">
 
-    <!-- Nosing diagrams -->
-    <div class="nosing-panel">
-      <!-- Card 1: Female Click / Vinyl Floor Application -->
-      <div class="nosing-card">
-        <div class="nosing-card-label">Vinyl Floor Application — Female Click</div>
-        <svg viewBox="0 0 420 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;">
-          <!-- Background -->
-          <rect width="420" height="200" fill="#1C1C1C"/>
-          <!-- Stair body (wood-look) -->
-          <rect x="20" y="40" width="270" height="68" fill="#2A2218" stroke="#3A3020" stroke-width="1"/>
-          <!-- Wood grain lines -->
-          <line x1="20" y1="55" x2="290" y2="55" stroke="#362C1A" stroke-width="1"/>
-          <line x1="20" y1="70" x2="290" y2="70" stroke="#362C1A" stroke-width="1"/>
-          <line x1="20" y1="85" x2="290" y2="85" stroke="#362C1A" stroke-width="1"/>
-          <line x1="20" y1="100" x2="290" y2="100" stroke="#362C1A" stroke-width="1"/>
-          <!-- Riser body -->
-          <rect x="258" y="108" width="52" height="72" fill="#2A2218" stroke="#3A3020" stroke-width="1"/>
-          <!-- Wood grain riser -->
-          <line x1="262" y1="120" x2="306" y2="120" stroke="#362C1A" stroke-width="1"/>
-          <line x1="262" y1="135" x2="306" y2="135" stroke="#362C1A" stroke-width="1"/>
-          <line x1="262" y1="150" x2="306" y2="150" stroke="#362C1A" stroke-width="1"/>
-          <line x1="262" y1="165" x2="306" y2="165" stroke="#362C1A" stroke-width="1"/>
-          <!-- Nosing cap (the product) -->
-          <path d="M20,40 L290,40 Q310,40 310,60 L310,115 Q310,120 305,120 L260,120 L260,108" stroke="#C8A96E" stroke-width="3" fill="none" stroke-linejoin="round"/>
-          <!-- Tread surface highlight -->
-          <rect x="20" y="36" width="270" height="6" fill="#C8A96E" opacity=".15"/>
-          <!-- Female click detail -->
-          <rect x="20" y="36" width="40" height="8" fill="#141414" stroke="#C8A96E" stroke-width="1" rx="1"/>
-          <rect x="30" y="38" width="20" height="4" fill="#C8A96E" opacity=".4" rx="1"/>
-          <!-- Dimension line -->
-          <line x1="340" y1="40" x2="340" y2="120" stroke="#C8A96E" stroke-width="1" stroke-dasharray="3,3" opacity=".7"/>
-          <line x1="332" y1="40"  x2="348" y2="40"  stroke="#C8A96E" stroke-width="1.5" opacity=".7"/>
-          <line x1="332" y1="120" x2="348" y2="120" stroke="#C8A96E" stroke-width="1.5" opacity=".7"/>
-          <text x="358" y="86" font-family="'Bebas Neue',Impact,sans-serif" font-size="26" fill="#C8A96E" font-weight="bold">2"</text>
-          <!-- Labels -->
-          <line x1="50" y1="36" x2="50" y2="18" stroke="#C8A96E" stroke-width="1" opacity=".5"/>
-          <text x="56" y="14" font-family="'Barlow',Verdana,sans-serif" font-size="10" fill="#C8A96E" letter-spacing="1" opacity=".8">FEMALE CLICK</text>
-          <text x="22" y="192" font-family="'Barlow',Verdana,sans-serif" font-size="10" fill="#585858" letter-spacing="1">No cutting or scoring required in vinyl floor application</text>
-        </svg>
-        <p class="nosing-note">In the <strong>Vinyl Floor Application</strong> we don't cut or score the material — the female click simply locks into the nosing profile.</p>
-      </div>
-
-      <!-- Card 2: Male Click / Deco Model -->
-      <div class="nosing-card">
-        <div class="nosing-card-label">Deco Model Application — Male Click</div>
-        <svg viewBox="0 0 420 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;">
-          <!-- Background -->
-          <rect width="420" height="200" fill="#1C1C1C"/>
-          <!-- Stair body -->
-          <rect x="20" y="40" width="270" height="68" fill="#2A2218" stroke="#3A3020" stroke-width="1"/>
-          <line x1="20" y1="55" x2="290" y2="55" stroke="#362C1A" stroke-width="1"/>
-          <line x1="20" y1="70" x2="290" y2="70" stroke="#362C1A" stroke-width="1"/>
-          <line x1="20" y1="85" x2="290" y2="85" stroke="#362C1A" stroke-width="1"/>
-          <line x1="20" y1="100" x2="290" y2="100" stroke="#362C1A" stroke-width="1"/>
-          <!-- Riser body -->
-          <rect x="258" y="108" width="52" height="72" fill="#2A2218" stroke="#3A3020" stroke-width="1"/>
-          <line x1="262" y1="120" x2="306" y2="120" stroke="#362C1A" stroke-width="1"/>
-          <line x1="262" y1="135" x2="306" y2="135" stroke="#362C1A" stroke-width="1"/>
-          <line x1="262" y1="150" x2="306" y2="150" stroke="#362C1A" stroke-width="1"/>
-          <!-- Fill zone (overhang filler - hatched) -->
-          <rect x="260" y="107" width="20" height="14" fill="none" stroke="#C8A96E" stroke-width="1" opacity=".4"/>
-          <line x1="260" y1="109" x2="268" y2="107" stroke="#C8A96E" stroke-width=".8" opacity=".4"/>
-          <line x1="260" y1="113" x2="274" y2="107" stroke="#C8A96E" stroke-width=".8" opacity=".4"/>
-          <line x1="260" y1="117" x2="278" y2="107" stroke="#C8A96E" stroke-width=".8" opacity=".4"/>
-          <line x1="262" y1="121" x2="280" y2="107" stroke="#C8A96E" stroke-width=".8" opacity=".4"/>
-          <!-- Nosing cap -->
-          <path d="M20,40 L290,40 Q312,40 312,62 L312,118 Q312,122 308,122 L260,122 L260,108" stroke="#C8A96E" stroke-width="3" fill="none" stroke-linejoin="round"/>
-          <!-- Male click detail -->
-          <rect x="20" y="36" width="40" height="8" fill="#141414" stroke="#C8A96E" stroke-width="1" rx="1"/>
-          <path d="M32,38 L44,38 L44,42 L48,42 L48,44 L32,44 Z" fill="#C8A96E" opacity=".5"/>
-          <!-- Dimension line -->
-          <line x1="342" y1="40"  x2="342" y2="122" stroke="#C8A96E" stroke-width="1" stroke-dasharray="3,3" opacity=".7"/>
-          <line x1="334" y1="40"  x2="350" y2="40"  stroke="#C8A96E" stroke-width="1.5" opacity=".7"/>
-          <line x1="334" y1="122" x2="350" y2="122" stroke="#C8A96E" stroke-width="1.5" opacity=".7"/>
-          <text x="356" y="88" font-family="'Bebas Neue',Impact,sans-serif" font-size="22" fill="#C8A96E" font-weight="bold">2.25"</text>
-          <!-- Labels -->
-          <line x1="50" y1="36" x2="50" y2="18" stroke="#C8A96E" stroke-width="1" opacity=".5"/>
-          <text x="56" y="14" font-family="'Barlow',Verdana,sans-serif" font-size="10" fill="#C8A96E" letter-spacing="1" opacity=".8">MALE CLICK</text>
-          <!-- Fill label -->
-          <line x1="270" y1="114" x2="318" y2="138" stroke="#C8A96E" stroke-width="1" opacity=".5"/>
-          <text x="316" y="152" font-family="'Barlow',Verdana,sans-serif" font-size="9.5" fill="#C8A96E" opacity=".7">Fill overhang</text>
-        </svg>
-        <p class="nosing-note">In the <strong>Deco Model</strong> application the stair overhang must be filled before installation to achieve a seamless, flush result.</p>
-      </div>
-    </div>
-
     <!-- Content -->
-    <div class="stairs-content">
+    <div class="stairs-content" style="grid-column: 1 / -1; max-width: 680px;">
       <div class="stairs-tag"><span>★ Our Signature Specialty</span></div>
       <h2 class="stairs-h">CUSTOM<br>VINYL<br>STAIRCASES.</h2>
       <div class="gold-rule"></div>
@@ -1082,7 +968,8 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
       <p class="shop-p">Purchase our premium vinyl stair treads directly — professional and consumer grades available, with or without installation service.</p>
     </div>
     <div class="shop-actions">
-      <a href="#contact" class="btn-dark">Inquire About Products &nbsp;→</a>
+      <a href="stair-nosings.html" class="btn-dark">Browse Stair Nosings &nbsp;→</a>
+      <a href="#contact" class="btn-dark" style="background:transparent;border:1px solid var(--black);color:var(--black);">Inquire About Products &nbsp;→</a>
       <p class="shop-note">Sold direct &nbsp;·&nbsp; Install available separately<br>Professional & consumer grades in stock</p>
     </div>
   </div>
@@ -1122,7 +1009,7 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
         <span class="areas-note-icon">📍</span>
         <p class="areas-note-text">Not sure if we cover your area? <strong>Send us a message</strong> — we'll let you know right away and won't leave you hanging.</p>
       </div>
-      <a href="#contact" class="btn-gold">Get a Free Quote &nbsp;→</a>
+      <a href="#quote-form" class="btn-gold">Get a Free Quote &nbsp;→</a>
     </div>
   </div>
 </section>
@@ -1137,13 +1024,6 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
       <p class="contact-intro">"Every project starts with a conversation. Reach out — we'll get back to you fast."</p>
 
       <div class="contact-items">
-        <div class="c-item">
-          <span class="c-icon">📞</span>
-          <div>
-            <div class="c-label">Phone / Text</div>
-            <div class="c-val"><a href="tel:7824461992">(782) 446-1992</a></div>
-          </div>
-        </div>
         <div class="c-item">
           <span class="c-icon">✉</span>
           <div>
@@ -1172,17 +1052,10 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
             <div class="c-val"><a href="https://instagram.com/etra_hfx" target="_blank">@etra_hfx</a></div>
           </div>
         </div>
-        <div class="c-item">
-          <span class="c-icon">🌐</span>
-          <div>
-            <div class="c-label">Website</div>
-            <div class="c-val"><a href="https://etra.ca">etra.ca</a></div>
-          </div>
-        </div>
       </div>
     </div>
 
-    <div>
+    <div id="quote-form">
       <div class="form-title">FREE QUOTE REQUEST</div>
       <div class="form-row">
         <div class="form-group">
@@ -1276,7 +1149,8 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
     <div class="ft-col">
       <h4>Shop</h4>
       <ul>
-        <li><a href="#shop">Vinyl Stair Treads</a></li>
+        <li><a href="stair-nosings.html">Stair Nosings</a></li>
+        <li><a href="stair-nosings.html#models">Nosing Models</a></li>
         <li><a href="#contact">Product Inquiry</a></li>
         <li><a href="#contact">Install + Supply</a></li>
       </ul>
