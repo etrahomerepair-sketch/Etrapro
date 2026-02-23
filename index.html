@@ -6,6 +6,64 @@
 <title>ETRA Pro Services | etra.ca — Premium Contracting, Halifax NS</title>
 <meta name="description" content="Halifax's premier contracting company. Visit etra.ca — Flooring, drywall, siding, decks, custom vinyl staircases & more. Free quotes always.">
 <link rel="canonical" href="https://etra.ca">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "ETRA Pro Services",
+  "url": "https://etra.ca",
+  "telephone": "+17824461992",
+  "email": "etraproservices@gmail.com",
+  "description": "Halifax's premier contracting company offering flooring installation, custom vinyl staircases, drywall, siding, decks, fences, carpet, and renovations across HRM.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Halifax",
+    "addressRegion": "NS",
+    "addressCountry": "CA"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Halifax, Nova Scotia"},
+    {"@type": "City", "name": "Dartmouth, Nova Scotia"},
+    {"@type": "City", "name": "Bedford, Nova Scotia"},
+    {"@type": "Place", "name": "Sackville, Nova Scotia"},
+    {"@type": "Place", "name": "Fall River, Nova Scotia"},
+    {"@type": "Place", "name": "Cole Harbour, Nova Scotia"},
+    {"@type": "Place", "name": "Eastern Passage, Nova Scotia"},
+    {"@type": "Place", "name": "Timberlea, Nova Scotia"},
+    {"@type": "Place", "name": "Hammonds Plains, Nova Scotia"},
+    {"@type": "Place", "name": "Tantallon, Nova Scotia"},
+    {"@type": "Place", "name": "Enfield, Nova Scotia"},
+    {"@type": "Place", "name": "Elmsdale, Nova Scotia"},
+    {"@type": "Place", "name": "Waverley, Nova Scotia"},
+    {"@type": "Place", "name": "Porters Lake, Nova Scotia"},
+    {"@type": "Place", "name": "Wellington, Nova Scotia"},
+    {"@type": "AdministrativeArea", "name": "Halifax Regional Municipality"}
+  ],
+  "sameAs": [
+    "https://instagram.com/etra_hfx"
+  ],
+  "priceRange": "$$",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Contracting Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Flooring Installation", "url": "https://etra.ca/flooring-installation-halifax"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Vinyl Staircases", "url": "https://etra.ca/custom-vinyl-staircases-halifax"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Drywall Installation & Repair", "url": "https://etra.ca/drywall-services-halifax"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Siding", "url": "https://etra.ca/exterior-siding-halifax"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Decks & Fences", "url": "https://etra.ca/decks-fences-halifax"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Carpet & Carpet Stairs", "url": "https://etra.ca/carpet-installation-halifax"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Repairs & Renovations", "url": "https://etra.ca/repairs-renovations-halifax"}}
+    ]
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,400;1,600&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -322,18 +380,34 @@ button { font-family: inherit; cursor: pointer; }
   gap: 1px; background: var(--steel);
 }
 .svc-card {
-  background: var(--char2); padding: 32px 26px;
+  background-color: var(--char2); padding: 32px 26px;
   position: relative; overflow: hidden;
-  transition: background .28s;
+  transition: background-color .28s;
 }
+.svc-card-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0;
+}
+.svc-card .svc-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,.55) 0%, rgba(10,10,10,.65) 55%, rgba(10,10,10,.78) 100%);
+  z-index: 1;
+  transition: background .35s ease;
+}
+.svc-card:hover .svc-overlay {
+  background: linear-gradient(180deg, rgba(10,10,10,.25) 0%, rgba(10,10,10,.4) 50%, rgba(10,10,10,.6) 100%);
+}
+.svc-card > *:not(.svc-overlay):not(.svc-card-img) { position: relative; z-index: 2; }
 .svc-card::after {
   content: ''; position: absolute; bottom: 0; left: 0;
   width: 0; height: 2px; background: var(--gold);
   transition: width .38s cubic-bezier(.16,1,.3,1);
+  z-index: 3;
 }
-.svc-card:hover { background: var(--char); }
 .svc-card:hover::after { width: 100%; }
-.svc-card.star { background: var(--char); border: 1px solid rgba(200,169,110,.28); }
+.svc-card[data-service] { cursor: pointer; }
+a.svc-card { display: block; text-decoration: none; color: inherit; }
+.svc-card.star { border: 1px solid rgba(200,169,110,.28); }
 
 .svc-badge {
   display: inline-block; font-size: 7.5px; font-weight: 700;
@@ -341,10 +415,10 @@ button { font-family: inherit; cursor: pointer; }
   background: rgba(200,169,110,.1); border: 1px solid rgba(200,169,110,.3);
   padding: 3px 9px; margin-bottom: 14px;
 }
-.svc-num  { font-family: 'Bebas Neue', Impact, sans-serif; font-size: 44px; color: rgba(200,169,110,.1); line-height: 1; margin-bottom: 12px; letter-spacing: .04em; }
+.svc-num  { font-family: 'Bebas Neue', Impact, sans-serif; font-size: 44px; color: rgba(200,169,110,.15); line-height: 1; margin-bottom: 12px; letter-spacing: .04em; }
 .svc-name { font-family: 'Bebas Neue', Impact, sans-serif; font-size: 19px; color: var(--white); letter-spacing: .07em; margin-bottom: 8px; }
 .svc-card.star .svc-name { color: var(--gold-lt); }
-.svc-desc { font-size: 12px; color: var(--slate); line-height: 1.7; }
+.svc-desc { font-size: 12px; color: var(--ash); line-height: 1.7; }
 
 /* ─────────────────────────────────────────
    STAIRCASE FEATURE
@@ -782,42 +856,56 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
   </div>
 
   <div class="services-grid">
-    <div class="svc-card">
+    <a href="flooring-installation-halifax.html" class="svc-card" data-service="Flooring Installation">
+      <img class="svc-card-img" src="images/IMG_9465.jpeg" alt="Flooring Installation">
+      <div class="svc-overlay"></div>
       <div class="svc-num">01</div>
       <div class="svc-name">Flooring Installs</div>
       <p class="svc-desc">Vinyl plank, LVP, hardwood, tile, and subfloor repair & prep. We get the foundation right so everything above lasts.</p>
-    </div>
-    <div class="svc-card">
+    </a>
+    <a href="drywall-services-halifax.html" class="svc-card" data-service="Drywall Install or Repair">
+      <img class="svc-card-img" src="images/IMG_9467.webp" alt="Drywall Services">
+      <div class="svc-overlay"></div>
       <div class="svc-num">02</div>
       <div class="svc-name">Drywall</div>
       <p class="svc-desc">New installations, repairs, patching, and professional finishing. Seamless results, ready to paint.</p>
-    </div>
-    <div class="svc-card">
+    </a>
+    <a href="exterior-siding-halifax.html" class="svc-card" data-service="Exterior Siding">
+      <img class="svc-card-img" src="images/IMG_9468.jpeg" alt="Exterior Siding">
+      <div class="svc-overlay"></div>
       <div class="svc-num">03</div>
       <div class="svc-name">Exterior Siding</div>
       <p class="svc-desc">Vinyl, composite, and wood siding installs. Weather-tight and built to stand up to Nova Scotia winters.</p>
-    </div>
-    <div class="svc-card">
+    </a>
+    <a href="decks-fences-halifax.html" class="svc-card" data-service="Deck or Fence">
+      <img class="svc-card-img" src="images/IMG_9470.jpeg" alt="Decks and Fences">
+      <div class="svc-overlay"></div>
       <div class="svc-num">04</div>
       <div class="svc-name">Decks & Fences</div>
       <p class="svc-desc">Custom deck builds and fence installations. Materials matched to your home and budget.</p>
-    </div>
-    <div class="svc-card star">
+    </a>
+    <a href="custom-vinyl-staircases-halifax.html" class="svc-card star" data-service="Custom Vinyl Staircase">
+      <img class="svc-card-img" src="images/IMG_9466.png" alt="Custom Vinyl Staircases">
+      <div class="svc-overlay"></div>
       <div class="svc-badge">★ Signature Specialty</div>
       <div class="svc-num">05</div>
       <div class="svc-name">Custom Vinyl Staircases</div>
       <p class="svc-desc">Precision vinyl stair tread installs and full staircase transformations. From carpet removal to a premium vinyl finish.</p>
-    </div>
-    <div class="svc-card">
+    </a>
+    <a href="carpet-installation-halifax.html" class="svc-card" data-service="Carpet / Carpet Stairs">
+      <img class="svc-card-img" src="images/IMG_9471.webp" alt="Carpet Installation">
+      <div class="svc-overlay"></div>
       <div class="svc-num">06</div>
       <div class="svc-name">Carpet & Carpet Stairs</div>
       <p class="svc-desc">Wall-to-wall carpet installs and carpet stair applications. Clean lines, tight corners, quality finish.</p>
-    </div>
-    <div class="svc-card">
+    </a>
+    <a href="repairs-renovations-halifax.html" class="svc-card" data-service="Repair or Remodel">
+      <img class="svc-card-img" src="images/IMG_9473.webp" alt="Repairs and Remodels">
+      <div class="svc-overlay"></div>
       <div class="svc-num">07</div>
       <div class="svc-name">Repairs & Remodels</div>
       <p class="svc-desc">Punch-list items, single-room renovations, and everything in between. No job too small — we show up.</p>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -837,7 +925,7 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
         <div class="stair-feat">Carpet removal & vinyl replacement</div>
         <div class="stair-feat">Free in-home measurement & quote</div>
       </div>
-      <a href="#contact" class="btn-gold">Book a Staircase Consult &nbsp;→</a>
+      <a href="#quote-form" class="btn-gold" id="staircase-consult-btn">Book a Staircase Consult &nbsp;→</a>
     </div>
   </div>
 </section>
@@ -1081,13 +1169,13 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
     <div class="ft-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#services">Flooring Installs</a></li>
-        <li><a href="#services">Drywall</a></li>
-        <li><a href="#services">Exterior Siding</a></li>
-        <li><a href="#services">Decks & Fences</a></li>
-        <li><a href="#stairs">Custom Staircases</a></li>
-        <li><a href="#services">Carpet Stairs</a></li>
-        <li><a href="#services">Repairs & Remodels</a></li>
+        <li><a href="flooring-installation-halifax.html">Flooring Installs</a></li>
+        <li><a href="drywall-services-halifax.html">Drywall</a></li>
+        <li><a href="exterior-siding-halifax.html">Exterior Siding</a></li>
+        <li><a href="decks-fences-halifax.html">Decks & Fences</a></li>
+        <li><a href="custom-vinyl-staircases-halifax.html">Custom Staircases</a></li>
+        <li><a href="carpet-installation-halifax.html">Carpet Stairs</a></li>
+        <li><a href="repairs-renovations-halifax.html">Repairs & Remodels</a></li>
       </ul>
     </div>
 
@@ -1164,6 +1252,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
+});
+
+// ── STAIRCASE CONSULT BUTTON → AUTO-FILL FORM ──
+document.getElementById('staircase-consult-btn').addEventListener('click', function(e) {
+  e.preventDefault();
+  const select = document.getElementById('fservice');
+  const form = document.getElementById('quote-form');
+  select.value = 'Custom Vinyl Staircase';
+  form.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 // ── FORM SUBMIT ──
