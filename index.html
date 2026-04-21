@@ -6,6 +6,52 @@
 <title>ETRA Pro Services | etra.ca — Premium Contracting, Halifax NS</title>
 <meta name="description" content="Halifax's premier contracting company. Visit etra.ca — Flooring, drywall, siding, decks, custom vinyl staircases & more. Free quotes always.">
 <link rel="canonical" href="https://etra.ca">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://etra.ca">
+<meta property="og:title" content="ETRA Pro Services — Halifax's Premier Contracting Company">
+<meta property="og:description" content="Halifax's premier contracting company. Flooring, drywall, siding, decks, custom vinyl staircases & more. Free quotes always.">
+<meta property="og:site_name" content="ETRA Pro Services">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ETRA Pro Services — Halifax's Premier Contracting Company">
+<meta name="twitter:description" content="Halifax's premier contracting company. Flooring, drywall, siding, decks, custom vinyl staircases & more. Free quotes always.">
+<meta name="theme-color" content="#0D0D0D">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='80' height='80' fill='%230D0D0D'/%3E%3Cpolygon points='40,6 74,34 74,74 6,74 6,34' stroke='%23C8A96E' stroke-width='4' stroke-linejoin='round' fill='none'/%3E%3Cline x1='40' y1='6' x2='40' y2='18' stroke='%23C8A96E' stroke-width='4'/%3E%3Cpolyline points='22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74' stroke='%23C8A96E' stroke-width='2.5' stroke-linejoin='round' fill='none' opacity='.6'/%3E%3Ccircle cx='6' cy='74' r='3' fill='%23C8A96E'/%3E%3Ccircle cx='74' cy='74' r='3' fill='%23C8A96E'/%3E%3Ccircle cx='40' cy='6' r='3' fill='%23C8A96E'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "ETRA Pro Services",
+  "description": "Halifax's premier contracting company. Flooring, drywall, siding, decks, custom vinyl staircases & more.",
+  "url": "https://etra.ca",
+  "telephone": "+17824461992",
+  "email": "etraproservices@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Halifax",
+    "addressRegion": "NS",
+    "addressCountry": "CA"
+  },
+  "areaServed": {
+    "@type": "AdministrativeArea",
+    "name": "Halifax Regional Municipality, Nova Scotia"
+  },
+  "sameAs": ["https://www.instagram.com/etra_hfx"],
+  "priceRange": "$$",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Contracting Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Flooring Installation"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Vinyl Staircases"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Drywall Installation & Repair"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Siding"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Decks & Fences"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Carpet & Carpet Stairs"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Repairs & Remodels"}}
+    ]
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,400;1,600&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,7 +64,7 @@
 html { scroll-behavior: smooth; }
 
 :root {
-  --black:   #0A0A0A;
+  --black:   #0D0D0D;
   --char:    #141414;
   --char2:   #1C1C1C;
   --steel:   #282828;
@@ -363,7 +409,17 @@ button { font-family: inherit; cursor: pointer; }
   gap: 80px; align-items: center; position: relative; z-index: 1;
 }
 
-.stairs-content { }
+.stairs-content { grid-column: 1 / -1; max-width: 680px; }
+
+.process-intro { font-size: 14.5px; color: var(--ash); max-width: 520px; line-height: 1.9; }
+
+#contact .section-title { margin-bottom: 20px; }
+
+.ft-info-box { margin-top: 22px; padding: 14px 18px; background: var(--steel); border-left: 2px solid var(--gold); }
+.ft-info-text { font-size: 11.5px; color: var(--ash); line-height: 1.75; }
+.ft-info-text span { color: var(--gold); }
+
+#hero, #about, #services, #stairs, #process, #testimonials, #areas, #contact { scroll-margin-top: var(--nav-h); }
 .stairs-tag {
   display: inline-flex; align-items: center; gap: 10px;
   background: rgba(200,169,110,.09); border: 1px solid rgba(200,169,110,.28);
@@ -612,11 +668,11 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
 
 <!-- ══════ MOBILE NAV ══════ -->
 <nav class="mobile-nav" id="mobileNav">
-  <a href="Index.html"          onclick="closeMobile()">Home</a>
-  <a href="#services"      onclick="closeMobile()">Services</a>
-  <a href="#stairs"        onclick="closeMobile()">Staircases</a>
-  <a href="#areas"         onclick="closeMobile()">Areas</a>
-  <a href="#contact"       onclick="closeMobile()">Contact</a>
+  <a href="#">Home</a>
+  <a href="#services">Services</a>
+  <a href="#stairs">Staircases</a>
+  <a href="#areas">Areas</a>
+  <a href="#contact">Contact</a>
 </nav>
 
 <!-- ══════ NAV ══════ -->
@@ -643,8 +699,8 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
     <a href="#areas">Areas</a>
   </div>
 
-  <button class="nav-quote" onclick="document.querySelector('#quote-form').scrollIntoView({behavior:'smooth'})">Free Quote</button>
-  <button class="burger" id="burger" onclick="toggleMobile()" aria-label="Menu">
+  <button class="nav-quote" id="navQuote">Free Quote</button>
+  <button class="burger" id="burger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNav">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -826,7 +882,7 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
   <div class="stairs-grid">
 
     <!-- Content -->
-    <div class="stairs-content" style="grid-column: 1 / -1; max-width: 680px;">
+    <div class="stairs-content">
       <div class="stairs-tag"><span>★ Our Signature Specialty</span></div>
       <h2 class="stairs-h">CUSTOM<br>VINYL<br>STAIRCASES.</h2>
       <div class="gold-rule"></div>
@@ -847,7 +903,7 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
   <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">How It Works</span></div>
   <h2 class="section-title">OUR PROCESS</h2>
   <div class="gold-rule"></div>
-  <p style="font-size:14.5px;color:var(--ash);max-width:520px;line-height:1.9;">Simple, transparent, and built around you — here's what to expect from the moment you reach out.</p>
+  <p class="process-intro">Simple, transparent, and built around you — here's what to expect from the moment you reach out.</p>
 
   <div class="process-grid">
     <div class="process-step">
@@ -963,7 +1019,7 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
   <div class="contact-grid">
     <div>
       <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">Get In Touch</span></div>
-      <h2 class="section-title" style="margin-bottom:20px;">LET'S BUILD<br>SOMETHING.</h2>
+      <h2 class="section-title">LET'S BUILD<br>SOMETHING.</h2>
       <div class="gold-rule"></div>
       <p class="contact-intro">"Every project starts with a conversation. Reach out — we'll get back to you fast."</p>
 
@@ -993,7 +1049,7 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
           <span class="c-icon">📸</span>
           <div>
             <div class="c-label">Instagram</div>
-            <div class="c-val"><a href="https://instagram.com/etra_hfx" target="_blank">@etra_hfx</a></div>
+            <div class="c-val"><a href="https://instagram.com/etra_hfx" target="_blank" rel="noopener noreferrer">@etra_hfx</a></div>
           </div>
         </div>
       </div>
@@ -1016,7 +1072,7 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
       <div class="form-row">
         <div class="form-group">
           <label for="fphone">Phone</label>
-          <input type="tel" id="fphone" name="phone" placeholder="(782) 000-0000">
+          <input type="tel" id="fphone" name="phone" placeholder="(782) 000-0000" required>
         </div>
         <div class="form-group">
           <label for="femail">Email</label>
@@ -1072,9 +1128,8 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
       </div>
       <p class="ft-tagline">"Where every step counts."</p>
       <div class="ft-socials">
-        <a href="https://instagram.com/etra_hfx" target="_blank" class="ft-soc">IG</a>
-        <a href="#" class="ft-soc">FB</a>
-        <a href="tel:7824461992" class="ft-soc">☎</a>
+        <a href="https://instagram.com/etra_hfx" target="_blank" rel="noopener noreferrer" class="ft-soc" aria-label="Follow us on Instagram">IG</a>
+        <a href="tel:7824461992" class="ft-soc" aria-label="Call us">☎</a>
       </div>
     </div>
 
@@ -1107,11 +1162,11 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
         <li><a href="tel:7824461992">(782) 446-1992</a></li>
         <li><a href="mailto:etraproservices@gmail.com">etraproservices@gmail.com</a></li>
         <li><a href="#contact">Free Quote Request</a></li>
-        <li><a href="https://instagram.com/etra_hfx" target="_blank">@etra_hfx</a></li>
-        <li><a href="https://etra.ca">etra.ca</a></li>
+        <li><a href="https://instagram.com/etra_hfx" target="_blank" rel="noopener noreferrer">@etra_hfx</a></li>
+        <li><a href="https://etra.ca" rel="noopener noreferrer">etra.ca</a></li>
       </ul>
-      <div style="margin-top:22px;padding:14px 18px;background:var(--steel);border-left:2px solid var(--gold);">
-        <p style="font-size:11.5px;color:var(--ash);line-height:1.75;">Halifax, NS<br>HRM & Surrounding Areas<br><span style="color:var(--gold);">Residential · Commercial · New Builds</span></p>
+      <div class="ft-info-box">
+        <p class="ft-info-text">Halifax, NS<br>HRM & Surrounding Areas<br><span>Residential · Commercial · New Builds</span></p>
       </div>
     </div>
   </div>
@@ -1119,8 +1174,8 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
   <div class="footer-bar">
     <p class="footer-bar-copy">© 2025 <strong>ETRA Pro Services</strong> · <strong>etra.ca</strong> · Halifax, NS. All rights reserved.</p>
     <div class="footer-bar-links">
-      <a href="#">Privacy</a>
-      <a href="#">Terms</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Reviews</a>
       <a href="#contact">Get a Quote</a>
     </div>
   </div>
@@ -1128,7 +1183,7 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
 
 <!-- ══════ SCRIPTS ══════ -->
 <script>
-// ── NAV ──
+// ── NAV SCROLL ──
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('solid', window.scrollY > 30);
@@ -1139,24 +1194,53 @@ const burger    = document.getElementById('burger');
 const mobileNav = document.getElementById('mobileNav');
 let menuOpen = false;
 
-function toggleMobile() {
-  menuOpen = !menuOpen;
-  mobileNav.classList.toggle('open', menuOpen);
-  burger.classList.toggle('open', menuOpen);
-  document.body.style.overflow = menuOpen ? 'hidden' : '';
+function openMobile() {
+  menuOpen = true;
+  mobileNav.classList.add('open');
+  burger.classList.add('open');
+  burger.setAttribute('aria-expanded', 'true');
+  burger.setAttribute('aria-label', 'Close navigation menu');
+  document.body.style.overflow = 'hidden';
 }
+
 function closeMobile() {
   menuOpen = false;
   mobileNav.classList.remove('open');
   burger.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  burger.setAttribute('aria-label', 'Open navigation menu');
   document.body.style.overflow = '';
 }
+
+burger.addEventListener('click', () => {
+  menuOpen ? closeMobile() : openMobile();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && menuOpen) closeMobile();
+});
+
+document.addEventListener('click', (e) => {
+  if (menuOpen && !mobileNav.contains(e.target) && !burger.contains(e.target)) {
+    closeMobile();
+  }
+});
+
+// ── FREE QUOTE BUTTON (NAV) ──
+document.getElementById('navQuote').addEventListener('click', () => {
+  document.getElementById('quote-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
 
 // ── SMOOTH SCROLL ──
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const id = a.getAttribute('href');
-    if (id === '#') return;
+    if (id === '#') {
+      e.preventDefault();
+      closeMobile();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const target = document.querySelector(id);
     if (target) {
       e.preventDefault();
@@ -1170,40 +1254,35 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 document.getElementById('quote-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const form = this;
-  const btn = document.getElementById('formSubmit');
+  const btn  = document.getElementById('formSubmit');
   btn.textContent = 'Sending...';
   btn.disabled = true;
 
   try {
-    const response = await fetch('/', {
-      method: 'POST',
+    const res = await fetch('/', {
+      method:  'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form)).toString()
+      body:    new URLSearchParams(new FormData(form)).toString()
     });
 
-    if (response.ok) {
+    if (res.ok) {
       btn.textContent = '✓  Request Sent! We\'ll be in touch soon.';
       btn.style.background = '#2A5C3A';
-      btn.style.color = '#A8DDB8';
+      btn.style.color      = '#A8DDB8';
       form.reset();
-      setTimeout(() => {
-        btn.textContent = 'Send My Quote Request →';
-        btn.style.background = '';
-        btn.style.color = '';
-        btn.disabled = false;
-      }, 4500);
     } else {
-      throw new Error('Submission failed');
+      throw new Error('non-ok response');
     }
-  } catch (err) {
+  } catch {
     btn.textContent = 'Something went wrong — please try again.';
     btn.style.background = '#5C2A2A';
-    btn.style.color = '#DBA8A8';
+    btn.style.color      = '#DBA8A8';
+  } finally {
     setTimeout(() => {
-      btn.textContent = 'Send My Quote Request →';
+      btn.textContent      = 'Send My Quote Request →';
       btn.style.background = '';
-      btn.style.color = '';
-      btn.disabled = false;
+      btn.style.color      = '';
+      btn.disabled         = false;
     }, 4500);
   }
 });
