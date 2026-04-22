@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home Repairs & Renovations Halifax NS | Remodels & Handyman | ETRA Pro Services</title>
 <meta name="description" content="Professional home repairs and renovations in Halifax, Dartmouth, Bedford & HRM. Bathroom remodels, kitchen updates, handyman services, water damage repair & more. Free quotes from ETRA Pro Services.">
+<link rel="preload" as="image" href="images/IMG_9473.webp">
 <link rel="canonical" href="https://etra.ca/repairs-renovations-halifax">
 <script type="application/ld+json">
 {
@@ -23,7 +24,7 @@
       "addressRegion": "NS",
       "addressCountry": "CA"
     },
-    "sameAs": ["https://instagram.com/etra_hfx", "https://share.google/c7wafraCdd6FNFF1p"]
+    "sameAs": ["https://instagram.com/etra_hfx", "https://share.google/KIVhi3IgFIuN7J17T"]
   },
   "serviceType": "Home Repairs and Renovations",
   "description": "Professional home repairs, renovations, bathroom remodels, kitchen updates, handyman services, water damage repair, and trim work throughout Halifax Regional Municipality.",
@@ -47,6 +48,55 @@
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Trim and Finishing Work"}}
     ]
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": "Repairs and Renovations Halifax FAQ",
+  "mainEntity": [
+  {
+    "@type": "Question",
+    "name": "What kinds of repairs does ETRA Pro Services handle?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We handle a wide range of residential repairs — drywall patches, flooring repairs, trim and baseboard, cabinet adjustments, door and window trim, small tile fixes, caulking, and general punch-list work. If you're not sure if we cover something, just ask — we're happy to help."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How do I get a quote for a repair project?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Contact us by phone or through the form below. For most repairs we can give a rough estimate over the phone; for larger or more complex jobs we'll schedule a free on-site visit to give you an accurate quote."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Can you do a single-room renovation?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Absolutely. We take on single-room projects all the time — a bedroom refresh, a bathroom update, a basement finish, or a kitchen touch-up. No project is too small, and every job gets the same level of care."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "What areas do you cover for repair and renovation work?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "We serve all of Halifax Regional Municipality — Halifax, Dartmouth, Bedford, Sackville, Cole Harbour, Fall River, Eastern Passage, Timberlea, Hammonds Plains, Tantallon, Waverley, Enfield, Elmsdale, Porters Lake, and surrounding communities."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How quickly can ETRA start on a repair project?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "It depends on our current schedule, but we work hard to accommodate timely repairs. Contact us and let us know what you need — we'll give you an honest timeline and do our best to fit you in quickly."
+    }
+  }
+  ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -538,6 +588,29 @@ footer { background: var(--black); border-top: 1px solid var(--steel); }
   .hero-actions { flex-direction: column; align-items: center; }
 }
 
+/* ─────────────────────────────────────────
+   FAQ SECTION
+───────────────────────────────────────── */
+.faq-section { background: var(--black); padding: 110px 56px; }
+.faq-list { max-width: 860px; margin: 48px auto 0; }
+.faq-item { border-bottom: 1px solid var(--steel); }
+.faq-item:first-child { border-top: 1px solid var(--steel); }
+.faq-q {
+  width: 100%; background: none; border: none;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 20px; padding: 22px 0; cursor: pointer;
+  font-family: 'Barlow', sans-serif; font-weight: 600;
+  font-size: 15px; color: var(--mist); letter-spacing: .02em;
+  text-align: left; transition: color .2s;
+}
+.faq-q:hover { color: var(--gold); }
+.faq-icon { font-size: 26px; color: var(--gold); flex-shrink: 0; line-height: 1; transition: transform .3s ease; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+.faq-item.open .faq-a { max-height: 600px; }
+.faq-a-inner { padding: 0 0 22px; font-size: 14px; color: var(--ash); line-height: 1.85; max-width: 720px; }
+@media (max-width: 820px) { .faq-section { padding: 72px 24px; } }
+
 </style>
 </head>
 <body>
@@ -727,6 +800,36 @@ footer { background: var(--black); border-top: 1px solid var(--steel); }
   </div>
 </section>
 
+
+<!-- ══════ FAQ ══════ -->
+<section class="faq-section">
+  <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">Common Questions</span></div>
+  <h2 class="section-title">FREQUENTLY<br>ASKED<br>QUESTIONS.</h2>
+  <div class="gold-rule"></div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q">What kinds of repairs does ETRA Pro Services handle?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">We handle a wide range of residential repairs — drywall patches, flooring repairs, trim and baseboard, cabinet adjustments, door and window trim, small tile fixes, caulking, and general punch-list work. If you're not sure if we cover something, just ask — we're happy to help.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do I get a quote for a repair project?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Contact us by phone or through the form below. For most repairs we can give a rough estimate over the phone; for larger or more complex jobs we'll schedule a free on-site visit to give you an accurate quote.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can you do a single-room renovation?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">Absolutely. We take on single-room projects all the time — a bedroom refresh, a bathroom update, a basement finish, or a kitchen touch-up. No project is too small, and every job gets the same level of care.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What areas do you cover for repair and renovation work?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">We serve all of Halifax Regional Municipality — Halifax, Dartmouth, Bedford, Sackville, Cole Harbour, Fall River, Eastern Passage, Timberlea, Hammonds Plains, Tantallon, Waverley, Enfield, Elmsdale, Porters Lake, and surrounding communities.</div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How quickly can ETRA start on a repair project?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><div class="faq-a-inner">It depends on our current schedule, but we work hard to accommodate timely repairs. Contact us and let us know what you need — we'll give you an honest timeline and do our best to fit you in quickly.</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- ══════ OTHER SERVICES ══════ -->
 <section id="other-services">
   <div class="eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">More From ETRA</span></div>
@@ -736,7 +839,7 @@ footer { background: var(--black); border-top: 1px solid var(--steel); }
 
   <div class="other-services-grid">
     <a href="flooring-installation-halifax.html" class="os-card">
-      <img class="os-card-img" src="images/IMG_9465.jpeg" alt="Flooring Installation">
+      <img class="os-card-img" src="images/IMG_9465.webp" alt="Flooring Installation">
       <div class="os-overlay"></div>
       <div class="os-name">Flooring Installation</div>
       <p class="os-desc">Vinyl plank, LVP, hardwood, tile, and subfloor prep. Professional installation across Halifax and HRM.</p>
@@ -757,14 +860,14 @@ footer { background: var(--black); border-top: 1px solid var(--steel); }
       <span class="os-link">Learn More &rarr;</span>
     </a>
     <a href="decks-fences-halifax.html" class="os-card">
-      <img class="os-card-img" src="images/IMG_9470.jpeg" alt="Decks and Fences">
+      <img class="os-card-img" src="images/IMG_9470.webp" alt="Decks and Fences">
       <div class="os-overlay"></div>
       <div class="os-name">Decks & Fences</div>
       <p class="os-desc">Custom deck builds and fence installations. Materials matched to your home and budget.</p>
       <span class="os-link">Learn More &rarr;</span>
     </a>
     <a href="custom-vinyl-staircases-halifax.html" class="os-card">
-      <img class="os-card-img" src="images/IMG_9466.png" alt="Custom Vinyl Staircases">
+      <img class="os-card-img" src="images/IMG_9466.webp" alt="Custom Vinyl Staircases">
       <div class="os-overlay"></div>
       <div class="os-name">Custom Vinyl Staircases</div>
       <p class="os-desc">Precision vinyl stair tread installs and full staircase transformations. Our signature specialty.</p>
@@ -895,7 +998,7 @@ footer { background: var(--black); border-top: 1px solid var(--steel); }
       <p class="ft-tagline">"Where every step counts."</p>
       <div class="ft-socials">
         <a href="https://instagram.com/etra_hfx" target="_blank" class="ft-soc">IG</a>
-        <a href="https://share.google/c7wafraCdd6FNFF1p" target="_blank" class="ft-soc">G</a>
+        <a href="https://share.google/KIVhi3IgFIuN7J17T" target="_blank" class="ft-soc">G</a>
         <a href="#" class="ft-soc">FB</a>
         <a href="tel:7824461992" class="ft-soc">&#9742;</a>
       </div>
@@ -1033,6 +1136,16 @@ document.getElementById('quote-form').addEventListener('submit', async function(
     }, 4500);
   }
 });
+// ── FAQ ACCORDION ──
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
 </script>
 </body>
 </html>

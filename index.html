@@ -52,6 +52,7 @@
   }
 }
 </script>
+<link rel="preload" as="image" href="images/IMG_9466.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@1,400;1,600&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -649,6 +650,43 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
 .footer-bar-links a:hover { color: var(--ash); }
 
 /* ─────────────────────────────────────────
+   TRUST STRIP
+───────────────────────────────────────── */
+.trust-strip {
+  background: var(--char2);
+  border-top: 1px solid var(--steel);
+  border-bottom: 1px solid var(--steel);
+  padding: 0 56px;
+}
+.trust-strip-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  divide-x: 1px solid var(--steel);
+}
+.trust-badge {
+  display: flex; align-items: center; gap: 16px;
+  padding: 28px 24px;
+  border-right: 1px solid var(--steel);
+  position: relative;
+}
+.trust-badge:last-child { border-right: none; }
+.trust-badge-icon {
+  width: 42px; height: 42px; flex-shrink: 0;
+  border: 1px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--gold);
+}
+.trust-badge-title {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: 15px; color: var(--white);
+  letter-spacing: .06em; line-height: 1.1; margin-bottom: 3px;
+}
+.trust-badge-sub {
+  font-size: 11px; color: var(--slate);
+  letter-spacing: .04em; line-height: 1.4;
+}
+
+/* ─────────────────────────────────────────
    SCROLL ANIMATIONS
 ───────────────────────────────────────── */
 .fade-up {
@@ -744,7 +782,7 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
 }
 .cta-banner-bg {
   position: absolute; inset: 0;
-  background-image: url('images/IMG_9466.png');
+  background-image: url('images/IMG_9466.webp');
   background-size: cover; background-position: center 30%;
   opacity: .12;
 }
@@ -791,11 +829,19 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
   .cta-banner { padding: 72px 24px; }
   .reviews-cta { padding: 20px 24px; flex-direction: column; align-items: flex-start; }
   .reviews-cta-divider { display: none; }
+  .trust-strip { padding: 0 24px; }
+  .trust-strip-inner { grid-template-columns: 1fr 1fr; }
+  .trust-badge { border-right: none; border-bottom: 1px solid var(--steel); padding: 22px 12px; }
+  .trust-badge:nth-child(odd) { border-right: 1px solid var(--steel); }
+  .trust-badge:nth-last-child(-n+2) { border-bottom: none; }
 }
 @media (max-width: 520px) {
   .stats-bar { grid-template-columns: 1fr 1fr; }
   .gallery-grid { grid-template-columns: 1fr 1fr; }
   .gallery-item { height: 160px; }
+  .trust-strip-inner { grid-template-columns: 1fr; }
+  .trust-badge { border-right: none !important; border-bottom: 1px solid var(--steel); }
+  .trust-badge:last-child { border-bottom: none; }
 }
 
 /* ─────────────────────────────────────────
@@ -1020,6 +1066,40 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
   </div>
 </section>
 
+<!-- ══════ TRUST STRIP ══════ -->
+<div class="trust-strip" aria-label="Why choose ETRA">
+  <div class="trust-strip-inner">
+    <div class="trust-badge fade-up">
+      <div class="trust-badge-icon">✓</div>
+      <div>
+        <div class="trust-badge-title">Licensed &amp; Insured</div>
+        <div class="trust-badge-sub">Fully covered on every job site in Nova Scotia</div>
+      </div>
+    </div>
+    <div class="trust-badge fade-up d1">
+      <div class="trust-badge-icon">⌂</div>
+      <div>
+        <div class="trust-badge-title">Local to Halifax</div>
+        <div class="trust-badge-sub">Born and based in HRM — we know these communities</div>
+      </div>
+    </div>
+    <div class="trust-badge fade-up d2">
+      <div class="trust-badge-icon">$</div>
+      <div>
+        <div class="trust-badge-title">100% Free Quotes</div>
+        <div class="trust-badge-sub">No obligation, no pressure — ever</div>
+      </div>
+    </div>
+    <div class="trust-badge fade-up d3">
+      <div class="trust-badge-icon">★</div>
+      <div>
+        <div class="trust-badge-title">5-Star Rated</div>
+        <div class="trust-badge-sub">Satisfaction guaranteed on every project</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ══════ SERVICES ══════ -->
 <section id="services">
   <div class="services-intro">
@@ -1032,35 +1112,35 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
 
   <div class="services-grid">
     <a href="flooring-installation-halifax.html" class="svc-card" data-service="Flooring Installation">
-      <img class="svc-card-img" src="images/IMG_9465.jpeg" alt="Flooring Installation">
+      <img class="svc-card-img" src="images/IMG_9465.webp" alt="Flooring Installation" loading="lazy">
       <div class="svc-overlay"></div>
       <div class="svc-num">01</div>
       <div class="svc-name">Flooring Installs</div>
       <p class="svc-desc">Vinyl plank, LVP, hardwood, tile, and subfloor repair & prep. We get the foundation right so everything above lasts.</p>
     </a>
     <a href="drywall-services-halifax.html" class="svc-card" data-service="Drywall Install or Repair">
-      <img class="svc-card-img" src="images/IMG_9467.webp" alt="Drywall Services">
+      <img class="svc-card-img" src="images/IMG_9467.webp" alt="Drywall Services" loading="lazy">
       <div class="svc-overlay"></div>
       <div class="svc-num">02</div>
       <div class="svc-name">Drywall</div>
       <p class="svc-desc">New installations, repairs, patching, and professional finishing. Seamless results, ready to paint.</p>
     </a>
     <a href="exterior-siding-halifax.html" class="svc-card" data-service="Exterior Siding">
-      <img class="svc-card-img" src="images/IMG_9468.jpeg" alt="Exterior Siding">
+      <img class="svc-card-img" src="images/IMG_9468.jpeg" alt="Exterior Siding" loading="lazy">
       <div class="svc-overlay"></div>
       <div class="svc-num">03</div>
       <div class="svc-name">Exterior Siding</div>
       <p class="svc-desc">Vinyl, composite, and wood siding installs. Weather-tight and built to stand up to Nova Scotia winters.</p>
     </a>
     <a href="decks-fences-halifax.html" class="svc-card" data-service="Deck or Fence">
-      <img class="svc-card-img" src="images/IMG_9470.jpeg" alt="Decks and Fences">
+      <img class="svc-card-img" src="images/IMG_9470.webp" alt="Decks and Fences" loading="lazy">
       <div class="svc-overlay"></div>
       <div class="svc-num">04</div>
       <div class="svc-name">Decks & Fences</div>
       <p class="svc-desc">Custom deck builds and fence installations. Materials matched to your home and budget.</p>
     </a>
     <a href="custom-vinyl-staircases-halifax.html" class="svc-card star" data-service="Custom Vinyl Staircase">
-      <img class="svc-card-img" src="images/IMG_9466.png" alt="Custom Vinyl Staircases">
+      <img class="svc-card-img" src="images/IMG_9466.webp" alt="Custom Vinyl Staircases" loading="lazy">
       <div class="svc-overlay"></div>
       <div class="svc-badge">★ Signature Specialty</div>
       <div class="svc-num">05</div>
@@ -1068,14 +1148,14 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
       <p class="svc-desc">Precision vinyl stair tread installs and full staircase transformations. From carpet removal to a premium vinyl finish.</p>
     </a>
     <a href="carpet-installation-halifax.html" class="svc-card" data-service="Carpet / Carpet Stairs">
-      <img class="svc-card-img" src="images/IMG_9471.webp" alt="Carpet Installation">
+      <img class="svc-card-img" src="images/IMG_9471.webp" alt="Carpet Installation" loading="lazy">
       <div class="svc-overlay"></div>
       <div class="svc-num">06</div>
       <div class="svc-name">Carpet & Carpet Stairs</div>
       <p class="svc-desc">Wall-to-wall carpet installs and carpet stair applications. Clean lines, tight corners, quality finish.</p>
     </a>
     <a href="repairs-renovations-halifax.html" class="svc-card" data-service="Repair or Remodel">
-      <img class="svc-card-img" src="images/IMG_9473.webp" alt="Repairs and Remodels">
+      <img class="svc-card-img" src="images/IMG_9473.webp" alt="Repairs and Remodels" loading="lazy">
       <div class="svc-overlay"></div>
       <div class="svc-num">07</div>
       <div class="svc-name">Repairs & Remodels</div>
@@ -1113,11 +1193,11 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
 
   <div class="gallery-grid">
     <div class="gallery-item tall">
-      <img src="images/IMG_9466.png" alt="Custom vinyl staircase installation — ETRA Pro Services Halifax" loading="lazy">
+      <img src="images/IMG_9466.webp" alt="Custom vinyl staircase installation — ETRA Pro Services Halifax" loading="lazy">
       <div class="gallery-item-label">Custom Staircases</div>
     </div>
     <div class="gallery-item">
-      <img src="images/IMG_9465.jpeg" alt="Vinyl plank flooring installation Halifax" loading="lazy">
+      <img src="images/IMG_9465.webp" alt="Vinyl plank flooring installation Halifax" loading="lazy">
       <div class="gallery-item-label">Flooring</div>
     </div>
     <div class="gallery-item">
@@ -1125,11 +1205,11 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
       <div class="gallery-item-label">Exterior Siding</div>
     </div>
     <div class="gallery-item">
-      <img src="images/IMG_9470.jpeg" alt="Custom deck construction Halifax" loading="lazy">
+      <img src="images/IMG_9470.webp" alt="Custom deck construction Halifax" loading="lazy">
       <div class="gallery-item-label">Decks & Fences</div>
     </div>
     <div class="gallery-item">
-      <img src="images/IMG_9476.png" alt="ETRA Pro Services completed project" loading="lazy">
+      <img src="images/IMG_9476.webp" alt="ETRA Pro Services completed project" loading="lazy">
       <div class="gallery-item-label">Completed Project</div>
     </div>
   </div>
