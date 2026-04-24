@@ -894,12 +894,9 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
 
 /* ═══════════════════════════════════════════
    DARK SECTION OVERRIDES
-   Hero, ticker, stairs, gallery, CTA banner,
-   footer stay in the original dark palette.
+   Only gallery, CTA banner and footer stay dark.
+   Hero + ticker + stairs now use the light theme.
 ═══════════════════════════════════════════ */
-#hero,
-.ticker-wrap,
-#stairs,
 #gallery,
 .cta-banner,
 footer,
@@ -914,19 +911,45 @@ footer,
   --mist:   var(--dk-text);
   --white:  var(--dk-head);
 }
-#hero         { background: var(--dk-bg); color: var(--dk-text); }
-.ticker-wrap  { background: var(--dk-bg); }
-#stairs       { background: var(--dk-bg2); }
 #gallery      { background: var(--dk-bg); }
 .cta-banner   { background: var(--dk-bg); }
 footer        { background: var(--dk-bg2); border-top-color: var(--dk-brd); }
 
-/* Nav: force dark regardless of scroll state */
-#nav          { background: transparent; }
-#nav.solid    {
-  background: rgba(13,13,13,.95);
-  border-bottom-color: rgba(200,123,58,.15);
+/* Nav: transparent on cream hero → cream blur when scrolled */
+#nav { background: transparent; }
+#nav.solid {
+  background: rgba(237,235,229,.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(200,123,58,.18);
 }
+/* Nav text on light bg */
+#nav.solid .nav-links a { color: var(--ash); }
+#nav.solid .nav-links a:hover { color: var(--white); }
+#nav.solid .nav-quote { border-color: var(--gold); color: var(--gold); }
+#nav.solid .nav-quote:hover { background: var(--gold); color: #1A1612; }
+
+/* ── Hero: cream bg, dark text ── */
+#hero { background: var(--black); color: var(--mist); }
+.hero-h1 { color: var(--white); }
+.hero-h1 .outline {
+  -webkit-text-stroke: 2px var(--gold);
+  color: transparent;
+}
+.hero-tagline { color: var(--ash); }
+.h-stat-num   { color: var(--white); }
+.hero-bg-word { color: rgba(200,123,58,.07); }
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(200,123,58,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,123,58,.055) 1px, transparent 1px);
+}
+
+/* ── Ticker: orange strip (its base CSS already sets background: var(--gold)) ── */
+.ticker-item { color: #1A1612; }
+
+/* ── Stairs section: cream bg, dark text ── */
+#stairs { background: var(--char); }
 
 /* ═══════════════════════════════════════════
    BUTTON FIXES
