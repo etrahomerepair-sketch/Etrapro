@@ -104,19 +104,29 @@
 html { scroll-behavior: smooth; }
 
 :root {
-  --black:   #0A0A0A;
-  --char:    #141414;
-  --char2:   #1C1C1C;
-  --steel:   #282828;
-  --steel2:  #363636;
-  --slate:   #585858;
-  --ash:     #909090;
-  --mist:    #DEDAD4;
-  --cream:   #F0EBE3;
-  --white:   #F7F4EF;
-  --gold:    #C8A96E;
-  --gold-lt: #DFBF88;
-  --gold-dk: #9B7840;
+  /* ── Light cream theme ── */
+  --black:   #EDEBE5;
+  --char:    #F5F2ED;
+  --char2:   #FFFFFF;
+  --steel:   #E2DDD7;
+  --steel2:  #D0CAC2;
+  --slate:   #9A908A;
+  --ash:     #5C544C;
+  --mist:    #2E2820;
+  --cream:   #1C1814;
+  --white:   #0F0D0A;
+  --gold:    #C87B3A;
+  --gold-lt: #DA9554;
+  --gold-dk: #9B5B22;
+  --dk-bg:   #0A0A0A;
+  --dk-bg2:  #141414;
+  --dk-bg3:  #1C1C1C;
+  --dk-brd:  #282828;
+  --dk-brd2: #363636;
+  --dk-muted:#585858;
+  --dk-body: #909090;
+  --dk-text: #DEDAD4;
+  --dk-head: #F7F4EF;
   --nav-h:   72px;
 }
 
@@ -203,7 +213,7 @@ button { font-family: inherit; cursor: pointer; }
   background: rgba(10,10,10,.94);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border-bottom-color: rgba(200,169,110,.13);
+  border-bottom-color: rgba(200,123,58,.13);
 }
 
 .nav-logo { display: flex; align-items: center; gap: 11px; }
@@ -286,15 +296,15 @@ button { font-family: inherit; cursor: pointer; }
 .hero-glow {
   position: absolute; inset: 0; pointer-events: none; z-index: 1;
   background:
-    radial-gradient(ellipse 65% 70% at 95% 55%, rgba(200,169,110,.06) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 5% 20%,  rgba(200,169,110,.03) 0%, transparent 55%);
+    radial-gradient(ellipse 65% 70% at 95% 55%, rgba(200,123,58,.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 5% 20%,  rgba(200,123,58,.03) 0%, transparent 55%);
 }
 
 .hero-bg-word {
   position: absolute; right: -40px; bottom: -40px;
   font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: clamp(140px, 20vw, 280px);
-  color: rgba(200,169,110,.035);
+  color: rgba(200,123,58,.035);
   letter-spacing: .05em; line-height: 1;
   pointer-events: none; user-select: none; z-index: 1;
 }
@@ -423,7 +433,7 @@ button { font-family: inherit; cursor: pointer; }
   transition: border-color .22s, color .22s;
 }
 .mat-tag:hover { border-color: var(--gold); color: var(--gold); }
-.mat-tag.highlight { border-color: var(--gold); color: var(--gold); background: rgba(200,169,110,.07); }
+.mat-tag.highlight { border-color: var(--gold); color: var(--gold); background: rgba(200,123,58,.07); }
 
 /* -----------------------------------------
    WHY ETRA / PROCESS
@@ -431,7 +441,7 @@ button { font-family: inherit; cursor: pointer; }
 #why-etra { background: var(--char); padding: 100px 56px; position: relative; overflow: hidden; }
 #why-etra::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse 55% 55% at 50% 110%, rgba(200,169,110,.06) 0%, transparent 55%);
+  background: radial-gradient(ellipse 55% 55% at 50% 110%, rgba(200,123,58,.06) 0%, transparent 55%);
 }
 
 .why-grid {
@@ -451,7 +461,7 @@ button { font-family: inherit; cursor: pointer; }
 .why-card:hover::after { width: 100%; }
 .why-num {
   font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: 48px; color: rgba(200,169,110,.12); line-height: 1;
+  font-size: 48px; color: rgba(200,123,58,.12); line-height: 1;
   margin-bottom: 14px; letter-spacing: .04em;
 }
 .why-title {
@@ -497,7 +507,7 @@ button { font-family: inherit; cursor: pointer; }
 .other-card > *:not(.other-overlay):not(.other-card-img) { position: relative; z-index: 2; }
 .other-num {
   font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: 40px; color: rgba(200,169,110,.12); line-height: 1;
+  font-size: 40px; color: rgba(200,123,58,.12); line-height: 1;
   margin-bottom: 10px; letter-spacing: .04em;
 }
 .other-name {
@@ -518,7 +528,7 @@ button { font-family: inherit; cursor: pointer; }
 #contact { background: var(--char); padding: 100px 56px; position: relative; overflow: hidden; }
 #contact::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse 55% 55% at 50% 110%, rgba(200,169,110,.07) 0%, transparent 55%);
+  background: radial-gradient(ellipse 55% 55% at 50% 110%, rgba(200,123,58,.07) 0%, transparent 55%);
 }
 
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; position: relative; z-index: 1; }
@@ -554,7 +564,7 @@ button { font-family: inherit; cursor: pointer; }
 .form-group textarea:focus { border-color: var(--gold); }
 .form-group textarea { min-height: 116px; resize: vertical; }
 .form-group select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C8A96E' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C87B3A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: right 14px center; padding-right: 38px;
 }
 .form-group select option { background: var(--char2); }
@@ -676,6 +686,69 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
 .faq-a-inner { padding: 0 0 22px; font-size: 14px; color: var(--ash); line-height: 1.85; max-width: 720px; }
 @media (max-width: 820px) { .faq-section { padding: 72px 24px; } }
 
+/* ═══════════════════════════════════════════
+   DARK SECTION OVERRIDES
+═══════════════════════════════════════════ */
+.svc-hero,
+footer,
+.mobile-nav {
+  --black:  var(--dk-bg);
+  --char:   var(--dk-bg2);
+  --char2:  var(--dk-bg3);
+  --steel:  var(--dk-brd);
+  --steel2: var(--dk-brd2);
+  --slate:  var(--dk-muted);
+  --ash:    var(--dk-body);
+  --mist:   var(--dk-text);
+  --white:  var(--dk-head);
+}
+.svc-hero { color: var(--dk-text); }
+footer    { background: var(--dk-bg2); border-top-color: var(--dk-brd); }
+
+#nav { background: transparent; }
+#nav.solid {
+  background: rgba(10,10,10,.95);
+  border-bottom-color: rgba(200,123,58,.15);
+}
+
+/* ═══════════════════════════════════════════
+   BUTTON FIX
+═══════════════════════════════════════════ */
+.btn-gold       { color: #1A1612; }
+.btn-gold:hover { color: #1A1612; }
+
+/* ═══════════════════════════════════════════
+   CARD UPGRADES
+═══════════════════════════════════════════ */
+.why-card        { border-radius: 14px; box-shadow: 0 2px 20px rgba(0,0,0,.06); }
+.svc-type-card   { border-radius: 12px; box-shadow: 0 2px 16px rgba(0,0,0,.05); }
+.areas-callout   { border-radius: 10px; }
+.other-card      { border-radius: 12px; }
+.faq-item        { border-radius: 0; }
+
+/* Form on light bg */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  border-radius: 8px;
+  background: #FFFFFF;
+  border-color: var(--steel);
+  color: var(--mist);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); }
+
+/* Footer text fix */
+footer .ft-col li a    { color: var(--dk-body); }
+footer .ft-col li a:hover { color: var(--dk-text); }
+footer .ft-tagline     { color: var(--dk-body); }
+footer .ft-soc         { border-color: var(--dk-brd2); color: var(--dk-body); }
+footer .ft-soc:hover   { border-color: var(--gold); color: var(--gold); }
+footer .footer-bar-copy  { color: var(--dk-muted); }
+footer .footer-bar-links a { color: var(--dk-muted); }
+footer .footer-bar-links a:hover { color: var(--dk-body); }
+
 </style>
 </head>
 <body>
@@ -692,12 +765,12 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
 <nav id="nav">
   <a href="index.html" class="nav-logo">
     <svg class="nav-mark" viewBox="0 0 80 80" fill="none">
-      <polygon points="40,6 74,34 74,74 6,74 6,34" stroke="#C8A96E" stroke-width="4" stroke-linejoin="round" fill="none"/>
-      <line x1="40" y1="6" x2="40" y2="18" stroke="#C8A96E" stroke-width="4"/>
-      <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" stroke="#C8A96E" stroke-width="2.5" stroke-linejoin="round" fill="none" opacity=".6"/>
-      <circle cx="6"  cy="74" r="3" fill="#C8A96E"/>
-      <circle cx="74" cy="74" r="3" fill="#C8A96E"/>
-      <circle cx="40" cy="6"  r="3" fill="#C8A96E"/>
+      <polygon points="40,6 74,34 74,74 6,74 6,34" stroke="#C87B3A" stroke-width="4" stroke-linejoin="round" fill="none"/>
+      <line x1="40" y1="6" x2="40" y2="18" stroke="#C87B3A" stroke-width="4"/>
+      <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" stroke="#C87B3A" stroke-width="2.5" stroke-linejoin="round" fill="none" opacity=".6"/>
+      <circle cx="6"  cy="74" r="3" fill="#C87B3A"/>
+      <circle cx="74" cy="74" r="3" fill="#C87B3A"/>
+      <circle cx="40" cy="6"  r="3" fill="#C87B3A"/>
     </svg>
     <div class="nav-words">
       <div class="nav-etra">ETRA</div>
@@ -1120,12 +1193,12 @@ footer { background: var(--char); border-top: 1px solid var(--steel); }
     <div>
       <div class="ft-brand-mark">
         <svg width="34" height="34" viewBox="0 0 80 80" fill="none">
-          <polygon points="40,6 74,34 74,74 6,74 6,34" stroke="#C8A96E" stroke-width="4" stroke-linejoin="round" fill="none"/>
-          <line x1="40" y1="6" x2="40" y2="18" stroke="#C8A96E" stroke-width="4"/>
-          <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" stroke="#C8A96E" stroke-width="2.5" stroke-linejoin="round" fill="none" opacity=".6"/>
-          <circle cx="6"  cy="74" r="3" fill="#C8A96E"/>
-          <circle cx="74" cy="74" r="3" fill="#C8A96E"/>
-          <circle cx="40" cy="6"  r="3" fill="#C8A96E"/>
+          <polygon points="40,6 74,34 74,74 6,74 6,34" stroke="#C87B3A" stroke-width="4" stroke-linejoin="round" fill="none"/>
+          <line x1="40" y1="6" x2="40" y2="18" stroke="#C87B3A" stroke-width="4"/>
+          <polyline points="22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74" stroke="#C87B3A" stroke-width="2.5" stroke-linejoin="round" fill="none" opacity=".6"/>
+          <circle cx="6"  cy="74" r="3" fill="#C87B3A"/>
+          <circle cx="74" cy="74" r="3" fill="#C87B3A"/>
+          <circle cx="40" cy="6"  r="3" fill="#C87B3A"/>
         </svg>
         <div>
           <div class="ft-etra">ETRA</div>
