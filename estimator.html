@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instant Quote Estimate — ETRA Pro Services Halifax</title>
+<meta name="description" content="Get an instant ballpark estimate for your flooring, staircase, drywall, or deck project in Halifax. Free, no obligation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: #0A0A0A; color: #DEDAD4;
+  font-family: 'Barlow', sans-serif; font-weight: 300;
+  line-height: 1.65; min-height: 100vh;
+}
+
+/* Header */
+.hdr { background: #141414; padding: 16px 24px; border-bottom: 1px solid rgba(200,169,110,.13); }
+.hdr-inner { max-width: 640px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.hdr-logo { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: #F7F4EF; letter-spacing: .07em; }
+.hdr-logo span { color: #C8A96E; }
+.hdr-back { font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #909090; text-decoration: none; }
+.hdr-back:hover { color: #C8A96E; }
+
+/* Progress */
+.prog { height: 3px; background: rgba(60,60,67,.1); }
+.prog-fill { height: 100%; background: #C8A96E; transition: width .3s ease; width: 0%; }
+
+/* Container */
+.container { max-width: 640px; margin: 0 auto; padding: 32px 24px 80px; }
+
+/* Step */
+.step { display: none; }
+.step.active { display: block; }
+
+.step-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #C8A96E; margin-bottom: 8px;
+}
+.step-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 32px;
+  color: #F7F4EF; letter-spacing: .03em; margin-bottom: 24px;
+  line-height: 1.1;
+}
+
+/* Service cards */
+.svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+.svc-card {
+  background: #1C1C1C; border: 2px solid #282828; border-radius: 14px;
+  padding: 20px 16px; cursor: pointer; text-align: center;
+  transition: all .15s;
+}
+.svc-card:hover, .svc-card.sel { border-color: #C8A96E; background: #1C1C1C; }
+.svc-card.sel { box-shadow: 0 0 0 1px #C8A96E; }
+.svc-icon { font-size: 28px; margin-bottom: 8px; }
+.svc-name { font-size: 13px; font-weight: 700; color: #DEDAD4; }
+
+/* Inputs */
+.field { margin-bottom: 20px; }
+.field label {
+  display: block; font-size: 11px; font-weight: 700;
+  letter-spacing: .28em; text-transform: uppercase;
+  color: #909090; margin-bottom: 8px;
+}
+.field input, .field select, .field textarea {
+  width: 100%; background: #1C1C1C; border: 1.5px solid #282828;
+  color: #DEDAD4; font-family: 'Barlow', sans-serif; font-size: 16px;
+  padding: 14px 16px; border-radius: 12px; outline: none;
+  transition: border-color .2s;
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color: #C8A96E; }
+.field .hint { font-size: 12px; color: #585858; margin-top: 6px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* Buttons */
+.btn-row { display: flex; gap: 10px; margin-top: 28px; }
+.btn {
+  flex: 1; padding: 15px 20px; border-radius: 13px;
+  font-size: 14px; font-weight: 700; cursor: pointer; border: none;
+  transition: all .15s; font-family: 'Barlow', sans-serif;
+}
+.btn:active { transform: scale(.97); }
+.btn-primary { background: #C8A96E; color: #0A0A0A; }
+.btn-primary:disabled { opacity: .4; cursor: default; }
+.btn-ghost { background: rgba(60,60,67,.08); color: #909090; }
+
+/* Estimate result */
+.est-result {
+  background: linear-gradient(135deg, #1C1C1C 0%, #2A1A0A 100%);
+  border: 1px solid rgba(200,169,110,.3); border-radius: 20px;
+  padding: 36px 28px; text-align: center; margin-bottom: 24px;
+}
+.est-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .34em;
+  text-transform: uppercase; color: #C8A96E; margin-bottom: 12px;
+}
+.est-range {
+  font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 10vw, 80px);
+  color: #F7F4EF; letter-spacing: .03em; line-height: 1; margin-bottom: 8px;
+}
+.est-range span { color: #C8A96E; }
+.est-note { font-size: 13px; color: #909090; line-height: 1.6; margin-bottom: 20px; }
+.est-disclaimer {
+  font-size: 11px; color: #585858; line-height: 1.6;
+  background: rgba(200,169,110,.05); border: 1px solid rgba(200,169,110,.1);
+  border-radius: 10px; padding: 14px 16px; margin-top: 20px;
+}
+
+/* CTA */
+.cta-card {
+  background: #141414; border: 1px solid #282828; border-radius: 16px;
+  padding: 28px 24px; text-align: center;
+}
+.cta-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 24px;
+  color: #F7F4EF; letter-spacing: .04em; margin-bottom: 8px;
+}
+.cta-body { font-size: 13px; color: #909090; margin-bottom: 20px; }
+.btn-gold {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #C8A96E; color: #0A0A0A;
+  font-family: 'Barlow', sans-serif; font-weight: 700;
+  font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
+  padding: 15px 32px; border: none; cursor: pointer;
+  transition: background .2s; text-decoration: none;
+}
+.btn-gold:hover { background: #DFBF88; }
+
+@media (max-width: 500px) {
+  .svc-grid { grid-template-columns: 1fr; }
+  .field-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-inner">
+    <a href="/" class="hdr-back">← Back to etra.ca</a>
+    <div class="hdr-logo">ETRA <span>PRO</span></div>
+  </div>
+</div>
+<div class="prog"><div class="prog-fill" id="pf"></div></div>
+
+<div class="container">
+
+  <!-- STEP 1: Service -->
+  <div class="step active" id="s1">
+    <div class="step-label">Step 1 of 3</div>
+    <div class="step-title">What type of work do you need?</div>
+    <div class="svc-grid">
+      <div class="svc-card" onclick="pickSvc('flooring',this)">
+        <div class="svc-icon">🪵</div>
+        <div class="svc-name">Flooring</div>
+      </div>
+      <div class="svc-card" onclick="pickSvc('stairs',this)">
+        <div class="svc-icon">🪜</div>
+        <div class="svc-name">Staircase</div>
+      </div>
+      <div class="svc-card" onclick="pickSvc('drywall',this)">
+        <div class="svc-icon">🧱</div>
+        <div class="svc-name">Drywall</div>
+      </div>
+      <div class="svc-card" onclick="pickSvc('deck',this)">
+        <div class="svc-icon">🏗️</div>
+        <div class="svc-name">Deck / Fence</div>
+      </div>
+      <div class="svc-card" onclick="pickSvc('siding',this)">
+        <div class="svc-icon">🏠</div>
+        <div class="svc-name">Exterior Siding</div>
+      </div>
+      <div class="svc-card" onclick="pickSvc('carpet',this)">
+        <div class="svc-icon">🟫</div>
+        <div class="svc-name">Carpet</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Details -->
+  <div class="step" id="s2">
+    <div class="step-label">Step 2 of 3</div>
+    <div class="step-title" id="s2-title">Tell us about your project</div>
+    <div id="s2-fields"></div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" onclick="goBack()">← Back</button>
+      <button class="btn btn-primary" onclick="calcEstimate()">Get Estimate →</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Result -->
+  <div class="step" id="s3">
+    <div class="step-label">Your Ballpark Estimate</div>
+    <div class="est-result">
+      <div class="est-label">Estimated Range</div>
+      <div class="est-range"><span>$</span><span id="est-low">0</span> – <span>$</span><span id="est-high">0</span></div>
+      <div class="est-note" id="est-note"></div>
+    </div>
+    <div class="est-disclaimer">
+      ⚠️ This is a ballpark estimate based on typical Halifax pricing. Actual costs depend on site conditions, materials selected, and project specifics. <strong>A free in-home quote gives you exact pricing.</strong>
+    </div>
+    <div class="cta-card" style="margin-top:24px;">
+      <div class="cta-title">WANT EXACT PRICING?</div>
+      <div class="cta-body">Book a free in-home quote. We'll measure, assess, and give you a detailed price — no obligation.</div>
+      <a href="https://app.etra.ca/intake.html" class="btn-gold">Book a Free Quote →</a>
+    </div>
+    <div class="btn-row" style="margin-top:16px;">
+      <button class="btn btn-ghost" onclick="reset()">Start Over</button>
+      <a href="tel:7824461992" class="btn btn-primary" style="text-align:center;text-decoration:none;color:#0A0A0A;">Call (782) 446-1992</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const SB_URL = 'https://qgydijfjkntkgpnuylev.supabase.co';
+const SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFneWRpamZqa250a2dwbnV5bGV2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxNDc1NDYsImV4cCI6MjA4NzcyMzU0Nn0.Ell8giAbiYCAh6JfdfZ8plCbQZRhMzqHoY-SyTaM3yM';
+
+let svc = '';
+let step = 1;
+
+// ETRA pricing (Halifax market rates)
+const PRICING = {
+  flooring: {
+    title: 'Flooring Installation',
+    fields: [
+      { id: 'type', label: 'Flooring Type', type: 'select', opts: ['Vinyl Plank (LVP)', 'Hardwood', 'Laminate', 'Engineered Hardwood', 'Not sure'], hint: 'LVP is most popular in Halifax' },
+      { id: 'sqft', label: 'Square Footage', type: 'number', placeholder: 'e.g. 500', hint: 'Rough estimate is fine' },
+    ],
+    calc: (d) => {
+      const sqft = parseInt(d.sqft) || 400;
+      const rates = { 'Vinyl Plank (LVP)': [4.5, 7], 'Hardwood': [7, 12], 'Laminate': [3.5, 6], 'Engineered Hardwood': [6, 10], 'Not sure': [4, 8] };
+      const [lo, hi] = rates[d.type] || [4, 8];
+      return { low: sqft * lo, high: sqft * hi, note: `Based on ${sqft} sq ft of ${d.type || 'flooring'} at $${lo}–$${hi}/sq ft installed. Includes materials and labour. Subfloor prep may add cost.` };
+    }
+  },
+  stairs: {
+    title: 'Custom Vinyl Staircase',
+    fields: [
+      { id: 'steps', label: 'Number of Steps', type: 'number', placeholder: 'e.g. 13', hint: 'Count all steps including landings' },
+      { id: 'style', label: 'Style', type: 'select', opts: ['Full vinyl wrap (tread + riser)', 'Tread only (keep existing risers)', 'Not sure'], hint: '' },
+    ],
+    calc: (d) => {
+      const steps = parseInt(d.steps) || 12;
+      const perStep = d.style === 'Tread only (keep existing risers)' ? [85, 120] : [130, 180];
+      return { low: steps * perStep[0], high: steps * perStep[1], note: `Based on ${steps} steps at $${perStep[0]}–$${perStep[1]}/step. Includes nosing, treads, and labour. Carpet removal adds ~$8–12/step.` };
+    }
+  },
+  drywall: {
+    title: 'Drywall Services',
+    fields: [
+      { id: 'scope', label: 'Scope', type: 'select', opts: ['Single room (hang + tape + finish)', 'Multiple rooms', 'Patch / repair only', 'Full basement'], hint: '' },
+      { id: 'sqft', label: 'Approximate Wall/Ceiling Sq Ft', type: 'number', placeholder: 'e.g. 400', hint: 'Wall + ceiling area' },
+    ],
+    calc: (d) => {
+      const sqft = parseInt(d.sqft) || 300;
+      if (d.scope === 'Patch / repair only') return { low: 200, high: 600, note: 'Small patch and repair jobs. Larger repairs may cost more depending on damage.' };
+      const rates = { 'Single room (hang + tape + finish)': [3, 5], 'Multiple rooms': [2.5, 4.5], 'Full basement': [2.5, 4.5] };
+      const [lo, hi] = rates[d.scope] || [2.5, 5];
+      return { low: sqft * lo, high: sqft * hi, note: `Based on ${sqft} sq ft at $${lo}–$${hi}/sq ft. Includes board, tape, mud, and finishing. Primer/paint not included.` };
+    }
+  },
+  deck: {
+    title: 'Deck / Fence Build',
+    fields: [
+      { id: 'type', label: 'Project Type', type: 'select', opts: ['Composite deck', 'Pressure-treated deck', 'Fence', 'Deck + Fence combo'], hint: '' },
+      { id: 'sqft', label: 'Approximate Square Footage', type: 'number', placeholder: 'e.g. 200', hint: 'Length × width for decks' },
+    ],
+    calc: (d) => {
+      const sqft = parseInt(d.sqft) || 200;
+      const rates = { 'Composite deck': [35, 55], 'Pressure-treated deck': [22, 38], 'Fence': [25, 40], 'Deck + Fence combo': [28, 45] };
+      const [lo, hi] = rates[d.type] || [25, 45];
+      return { low: sqft * lo, high: sqft * hi, note: `Based on ${sqft} sq ft at $${lo}–$${hi}/sq ft. Includes materials and labour. Railing, stairs, and footings may add cost.` };
+    }
+  },
+  siding: {
+    title: 'Exterior Siding',
+    fields: [
+      { id: 'type', label: 'Siding Type', type: 'select', opts: ['Vinyl siding', 'Fibre cement (Hardie)', 'Not sure'], hint: '' },
+      { id: 'sqft', label: 'Approximate Exterior Sq Ft', type: 'number', placeholder: 'e.g. 1000', hint: 'Total wall area to be sided' },
+    ],
+    calc: (d) => {
+      const sqft = parseInt(d.sqft) || 800;
+      const rates = { 'Vinyl siding': [6, 10], 'Fibre cement (Hardie)': [10, 16], 'Not sure': [7, 12] };
+      const [lo, hi] = rates[d.type] || [7, 12];
+      return { low: sqft * lo, high: sqft * hi, note: `Based on ${sqft} sq ft at $${lo}–$${hi}/sq ft. Includes materials, installation, and trim. Old siding removal may add cost.` };
+    }
+  },
+  carpet: {
+    title: 'Carpet Installation',
+    fields: [
+      { id: 'area', label: 'Area', type: 'select', opts: ['Bedroom(s)', 'Basement', 'Stair runner / carpet stairs', 'Multiple rooms'], hint: '' },
+      { id: 'sqft', label: 'Approximate Square Footage', type: 'number', placeholder: 'e.g. 300', hint: '' },
+    ],
+    calc: (d) => {
+      const sqft = parseInt(d.sqft) || 250;
+      if (d.area === 'Stair runner / carpet stairs') {
+        const steps = Math.round(sqft / 3); // rough conversion
+        return { low: steps * 45, high: steps * 75, note: `Based on ~${steps} steps at $45–$75/step. Includes carpet and installation.` };
+      }
+      return { low: sqft * 3, high: sqft * 5.5, note: `Based on ${sqft} sq ft at $3–$5.50/sq ft installed. Carpet and underpad included.` };
+    }
+  }
+};
+
+function pickSvc(s, el) {
+  svc = s;
+  document.querySelectorAll('.svc-card').forEach(c => c.classList.remove('sel'));
+  el.classList.add('sel');
+  setTimeout(() => showStep(2), 200);
+}
+
+function showStep(n) {
+  step = n;
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('s' + n).classList.add('active');
+  document.getElementById('pf').style.width = (n / 3 * 100) + '%';
+
+  if (n === 2) {
+    const cfg = PRICING[svc];
+    document.getElementById('s2-title').textContent = cfg.title;
+    let html = '';
+    cfg.fields.forEach(f => {
+      html += `<div class="field"><label>${f.label}</label>`;
+      if (f.type === 'select') {
+        html += `<select id="f-${f.id}"><option value="" disabled selected>Select…</option>`;
+        f.opts.forEach(o => html += `<option value="${o}">${o}</option>`);
+        html += `</select>`;
+      } else {
+        html += `<input type="${f.type}" id="f-${f.id}" placeholder="${f.placeholder || ''}">`;
+      }
+      if (f.hint) html += `<div class="hint">${f.hint}</div>`;
+      html += `</div>`;
+    });
+    document.getElementById('s2-fields').innerHTML = html;
+  }
+
+  if (n === 3) {
+    const cfg = PRICING[svc];
+    const data = {};
+    cfg.fields.forEach(f => { data[f.id] = document.getElementById('f-' + f.id).value; });
+    const est = cfg.calc(data);
+    document.getElementById('est-low').textContent = Math.round(est.low / 50) * 50;
+    document.getElementById('est-high').textContent = Math.round(est.high / 50) * 50;
+    document.getElementById('est-note').textContent = est.note;
+  }
+}
+
+function goBack() { showStep(1); }
+
+function calcEstimate() {
+  const cfg = PRICING[svc];
+  const firstField = cfg.fields[0];
+  const val = document.getElementById('f-' + firstField.id).value;
+  if (!val) { alert('Please fill in the required field.'); return; }
+  showStep(3);
+}
+
+function reset() {
+  svc = '';
+  document.querySelectorAll('.svc-card').forEach(c => c.classList.remove('sel'));
+  showStep(1);
+}
+</script>
+</body>
+</html>
