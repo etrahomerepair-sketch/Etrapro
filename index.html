@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ETRA Pro Services | etra.ca — Premium Contracting, Halifax NS</title>
-<meta name="description" content="Halifax's premier contracting company. Visit etra.ca — Flooring, drywall, siding, decks, custom vinyl staircases & more. Free quotes always.">
+<title>ETRA Pro Services — Flooring, Stairs & Interior Finishing | Halifax NS</title>
+<meta name="description" content="Halifax's interior finishing specialists — flooring installation, custom vinyl staircases, tile and trim. Unit turnovers for property managers & co-ops. Free quotes.">
 <link rel="canonical" href="https://etra.ca">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://etra.ca">
-<meta property="og:title" content="ETRA Pro Services — Halifax's Premier Contracting Company">
-<meta property="og:description" content="Halifax's premier contracting company. Flooring, drywall, siding, decks, custom vinyl staircases & more. Free quotes always.">
+<meta property="og:title" content="ETRA Pro Services — Flooring, Stairs & Interior Finishing | Halifax NS">
+<meta property="og:description" content="Halifax's interior finishing specialists — flooring installation, custom vinyl staircases, tile and trim. Unit turnovers for property managers & co-ops. Free quotes.">
 <meta property="og:site_name" content="ETRA Pro Services">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ETRA Pro Services — Halifax's Premier Contracting Company">
-<meta name="twitter:description" content="Halifax's premier contracting company. Flooring, drywall, siding, decks, custom vinyl staircases & more. Free quotes always.">
+<meta name="twitter:title" content="ETRA Pro Services — Flooring, Stairs & Interior Finishing | Halifax NS">
+<meta name="twitter:description" content="Halifax's interior finishing specialists — flooring installation, custom vinyl staircases, tile and trim. Unit turnovers for property managers & co-ops. Free quotes.">
 <meta name="theme-color" content="#0D0D0D">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg viewBox='0 0 80 80' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='80' height='80' fill='%230D0D0D'/%3E%3Cpolygon points='40,6 74,34 74,74 6,74 6,34' stroke='%23C87B3A' stroke-width='4' stroke-linejoin='round' fill='none'/%3E%3Cline x1='40' y1='6' x2='40' y2='18' stroke='%23C87B3A' stroke-width='4'/%3E%3Cpolyline points='22,74 22,52 34,52 34,38 46,38 46,26 58,26 58,74' stroke='%23C87B3A' stroke-width='2.5' stroke-linejoin='round' fill='none' opacity='.6'/%3E%3Ccircle cx='6' cy='74' r='3' fill='%23C87B3A'/%3E%3Ccircle cx='74' cy='74' r='3' fill='%23C87B3A'/%3E%3Ccircle cx='40' cy='6' r='3' fill='%23C87B3A'/%3E%3C/svg%3E">
 <script type="application/ld+json">
@@ -21,7 +21,7 @@
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "name": "ETRA Pro Services",
-  "description": "Halifax's premier contracting company. Flooring, drywall, siding, decks, custom vinyl staircases & more.",
+  "description": "Halifax's interior finishing specialists — flooring installation, custom vinyl staircases, tile and trim. Unit turnovers for property managers & co-ops.",
   "url": "https://etra.ca",
   "telephone": "+17824461992",
   "email": "etraproservices@gmail.com",
@@ -39,15 +39,14 @@
   "priceRange": "$$",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Contracting Services",
+    "name": "Interior Finishing Services",
     "itemListElement": [
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Flooring Installation"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Vinyl Staircases"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Drywall Installation & Repair"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Siding"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Decks & Fences"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Carpet & Carpet Stairs"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Repairs & Remodels"}}
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Unit Turnovers for Rentals & Co-ops"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tile & Bathrooms"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Trim & Finish Carpentry"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Decks & Fences"}}
     ]
   }
 }
@@ -499,6 +498,7 @@ ul { list-style: none; }
   background: var(--dark2);
   border-color: var(--dark-brd);
   min-height: 220px;
+  grid-column: span 2;
 }
 .svc-cta-label {
   font-size: 11px;
@@ -521,6 +521,7 @@ ul { list-style: none; }
 }
 @media (max-width: 520px) {
   .svc-grid { grid-template-columns: 1fr; }
+  .svc-card--cta { grid-column: auto; }
 }
 
 /* ─────────────────────────────────
@@ -647,6 +648,40 @@ ul { list-style: none; }
 @media (max-width: 480px) {
   .port-grid { grid-template-columns: 1fr; }
   .port-item { height: 220px; }
+}
+
+/* ─────────────────────────────────
+   PROPERTY MANAGERS & CO-OPS
+───────────────────────────────── */
+#property-managers {
+  background: var(--dark);
+  padding: 80px 0 90px;
+}
+.b2b-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+.b2b-h2 {
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  letter-spacing: .04em;
+  color: #F7F4EF;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+.b2b-sub {
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(255,255,255,.72);
+  margin-bottom: 32px;
+}
+.b2b-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* ─────────────────────────────────
@@ -1032,8 +1067,8 @@ footer {
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge">Halifax &amp; HRM Nova Scotia</div>
-    <h1 class="hero-h1">BUILT TO<br><span>LAST</span>.<br>FINISHED TO<br><span>PERFECTION</span>.</h1>
-    <p class="hero-sub">One call. Every trade. Zero compromise. Halifax's most trusted home renovation contractor.</p>
+    <h1 class="hero-h1">FLOORS DONE<br><span>RIGHT</span>.<br>STAIRS DONE<br><span>BETTER</span>.</h1>
+    <p class="hero-sub">Halifax's interior finishing specialists — flooring, custom vinyl staircases, tile &amp; trim. For homeowners, property managers, and housing co-ops across HRM.</p>
     <div class="hero-actions">
       <a href="https://app.etra.ca/intake.html" target="_blank" rel="noopener noreferrer" class="btn-primary">Explore Services &nbsp;→</a>
       <a href="#portfolio" class="btn-outline">View Our Work</a>
@@ -1043,7 +1078,7 @@ footer {
     <div class="hero-stats-inner">
       <div class="hero-stat"><div class="hero-stat-num">500+</div><div class="hero-stat-label">Projects Completed</div></div>
       <div class="hero-stat"><div class="hero-stat-num">10+</div><div class="hero-stat-label">Years Experience</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">7</div><div class="hero-stat-label">Core Services</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">6</div><div class="hero-stat-label">Core Services</div></div>
       <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Free Estimates</div></div>
     </div>
   </div>
@@ -1059,7 +1094,7 @@ footer {
     <div class="svc-header">
       <span class="section-tag">What We Do</span>
       <h2 class="section-h2">Our Services</h2>
-      <p class="section-sub">Expert craftsmanship across every trade — from floors to rooflines.</p>
+      <p class="section-sub">Interior finishing done by specialists — floors, stairs, tile and trim.</p>
     </div>
     <!-- cards grid -->
     <div class="svc-grid">
@@ -1067,14 +1102,17 @@ footer {
       <a href="flooring-installation-halifax.html" class="svc-card">
         <div class="svc-icon">
           <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="14" height="14" rx="1"/>
-            <rect x="21" y="3" width="14" height="14" rx="1"/>
-            <rect x="3" y="21" width="14" height="14" rx="1"/>
-            <rect x="21" y="21" width="14" height="14" rx="1"/>
+            <rect x="3" y="8" width="32" height="22" rx="1"/>
+            <line x1="3" y1="30" x2="3" y2="34"/>
+            <line x1="35" y1="30" x2="35" y2="34"/>
+            <line x1="9" y1="8" x2="9" y2="30"/>
+            <line x1="16" y1="8" x2="16" y2="30"/>
+            <line x1="22" y1="8" x2="22" y2="30"/>
+            <line x1="29" y1="8" x2="29" y2="30"/>
           </svg>
         </div>
         <h3 class="svc-name">Flooring Installation</h3>
-        <p class="svc-desc">LVP, hardwood, tile, and laminate — precisely installed to last decades.</p>
+        <p class="svc-desc">LVP, hardwood, laminate &amp; engineered — installed to last decades.</p>
         <span class="svc-link">Learn More →</span>
       </a>
 
@@ -1091,33 +1129,46 @@ footer {
         <span class="svc-link">Learn More →</span>
       </a>
 
-      <a href="drywall-services-halifax.html" class="svc-card">
+      <a href="#property-managers" class="svc-card">
         <div class="svc-icon">
           <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="10" width="32" height="22" rx="1"/>
-            <line x1="3" y1="19" x2="35" y2="19"/>
-            <line x1="19" y1="10" x2="19" y2="32"/>
-            <polyline points="8,6 19,3 30,6"/>
+            <path d="M32,15 A14,14 0 0 0 8,10"/>
+            <polyline points="8,3 8,10 15,10"/>
+            <path d="M6,23 A14,14 0 0 0 30,28"/>
+            <polyline points="30,35 30,28 23,28"/>
           </svg>
         </div>
-        <h3 class="svc-name">Drywall Services</h3>
-        <p class="svc-desc">New installs, patching, taping and finishing — flawless results every time.</p>
+        <h3 class="svc-name">Unit Turnovers for Rentals &amp; Co-ops</h3>
+        <p class="svc-desc">Flooring, trim, doors and paint-ready prep between tenants — including drywall patching. Flat per-unit rates, photo-documented. Currently serving multi-unit co-op housing in HRM.</p>
         <span class="svc-link">Learn More →</span>
       </a>
 
-      <a href="exterior-siding-halifax.html" class="svc-card">
+      <a href="https://app.etra.ca/intake.html" target="_blank" rel="noopener noreferrer" class="svc-card">
         <div class="svc-icon">
           <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="4,18 19,5 34,18"/>
-            <polyline points="8,18 8,34 30,34 30,18"/>
-            <line x1="4" y1="20" x2="34" y2="20"/>
-            <line x1="4" y1="25" x2="34" y2="25"/>
-            <line x1="4" y1="30" x2="34" y2="30"/>
+            <rect x="3" y="3" width="14" height="14" rx="1"/>
+            <rect x="21" y="3" width="14" height="14" rx="1"/>
+            <rect x="3" y="21" width="14" height="14" rx="1"/>
+            <rect x="21" y="21" width="14" height="14" rx="1"/>
           </svg>
         </div>
-        <h3 class="svc-name">Exterior Siding</h3>
-        <p class="svc-desc">Vinyl and fibre-cement siding that protects your home for years to come.</p>
-        <span class="svc-link">Learn More →</span>
+        <h3 class="svc-name">Tile &amp; Bathrooms</h3>
+        <p class="svc-desc">Bathroom floors, showers and backsplashes — tiled clean, level and watertight.</p>
+        <span class="svc-link">Get a Quote →</span>
+      </a>
+
+      <a href="https://app.etra.ca/intake.html" target="_blank" rel="noopener noreferrer" class="svc-card">
+        <div class="svc-icon">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8,30 L28,10"/>
+            <circle cx="10" cy="28" r="5"/>
+            <path d="M28,10 L30,6 L34,8 L30,12 Z"/>
+            <line x1="22" y1="16" x2="26" y2="20"/>
+          </svg>
+        </div>
+        <h3 class="svc-name">Trim &amp; Finish Carpentry</h3>
+        <p class="svc-desc">Baseboards, casing, doors and detail work — the finishing that makes it feel done.</p>
+        <span class="svc-link">Get a Quote →</span>
       </a>
 
       <a href="decks-fences-halifax.html" class="svc-card">
@@ -1134,37 +1185,6 @@ footer {
         </div>
         <h3 class="svc-name">Decks &amp; Fences</h3>
         <p class="svc-desc">Custom-built outdoor structures designed for Nova Scotia weather.</p>
-        <span class="svc-link">Learn More →</span>
-      </a>
-
-      <a href="carpet-installation-halifax.html" class="svc-card">
-        <div class="svc-icon">
-          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="8" width="32" height="22" rx="1"/>
-            <line x1="3" y1="30" x2="3" y2="34"/>
-            <line x1="35" y1="30" x2="35" y2="34"/>
-            <line x1="9" y1="8" x2="9" y2="30"/>
-            <line x1="16" y1="8" x2="16" y2="30"/>
-            <line x1="22" y1="8" x2="22" y2="30"/>
-            <line x1="29" y1="8" x2="29" y2="30"/>
-          </svg>
-        </div>
-        <h3 class="svc-name">Carpet Installation</h3>
-        <p class="svc-desc">Bedrooms, basements, and stair runners — supply and install available.</p>
-        <span class="svc-link">Learn More →</span>
-      </a>
-
-      <a href="repairs-renovations-halifax.html" class="svc-card">
-        <div class="svc-icon">
-          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M8,30 L28,10"/>
-            <circle cx="10" cy="28" r="5"/>
-            <path d="M28,10 L30,6 L34,8 L30,12 Z"/>
-            <line x1="22" y1="16" x2="26" y2="20"/>
-          </svg>
-        </div>
-        <h3 class="svc-name">Repairs &amp; Renovations</h3>
-        <p class="svc-desc">No job too small. Trusted repairs and remodels throughout HRM.</p>
         <span class="svc-link">Learn More →</span>
       </a>
 
@@ -1275,6 +1295,22 @@ footer {
     </div>
     <div class="port-cta">
       <a href="https://app.etra.ca/intake.html" target="_blank" rel="noopener noreferrer" class="btn-primary">Start Your Project →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─────────────────────────────────
+     PROPERTY MANAGERS & CO-OPS
+───────────────────────────────── -->
+<section id="property-managers">
+  <div class="b2b-wrap">
+    <span class="section-tag">Property Managers &amp; Co-ops</span>
+    <h2 class="b2b-h2">We Keep Units Turning</h2>
+    <p class="b2b-sub">Flat-rate turnover packages, same-week quotes, and a photo record of every unit — no site visit needed. References available from multi-unit co-op housing in HRM.</p>
+    <div class="b2b-actions">
+      <a href="tel:+17824461992" class="btn-primary">Call (782) 446-1992</a>
+      <a href="https://app.etra.ca/intake.html" target="_blank" rel="noopener noreferrer" class="btn-outline">Request a Quote</a>
     </div>
   </div>
 </section>
@@ -1456,11 +1492,10 @@ footer {
       <ul class="footer-links">
         <li><a href="flooring-installation-halifax.html">Flooring Installation</a></li>
         <li><a href="custom-vinyl-staircases-halifax.html">Custom Vinyl Staircases</a></li>
-        <li><a href="drywall-services-halifax.html">Drywall Services</a></li>
-        <li><a href="exterior-siding-halifax.html">Exterior Siding</a></li>
+        <li><a href="#property-managers">Unit Turnovers</a></li>
+        <li><a href="https://app.etra.ca/intake.html" target="_blank" rel="noopener noreferrer">Tile &amp; Bathrooms</a></li>
+        <li><a href="https://app.etra.ca/intake.html" target="_blank" rel="noopener noreferrer">Trim &amp; Finish Carpentry</a></li>
         <li><a href="decks-fences-halifax.html">Decks &amp; Fences</a></li>
-        <li><a href="carpet-installation-halifax.html">Carpet Installation</a></li>
-        <li><a href="repairs-renovations-halifax.html">Repairs &amp; Renovations</a></li>
       </ul>
     </div>
 
