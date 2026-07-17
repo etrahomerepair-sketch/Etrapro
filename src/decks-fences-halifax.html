@@ -109,7 +109,7 @@ permalink: decks-fences-halifax.html
   --ash:     #5C544C;
   --mist:    #2E2820;
   --cream:   #1C1814;
-  --ink:     #0F0D0A;
+  --ink-legacy:     #0F0D0A;
   --dk-bg:   #0A0A0A;
   --dk-bg2:  #141414;
   --dk-bg3:  #1C1C1C;
@@ -118,7 +118,7 @@ permalink: decks-fences-halifax.html
   --dk-muted:#585858;
   --dk-body: #909090;
   --dk-text: #DEDAD4;
-  --dk-head: #F7F4EF;
+  --dk-head: var(--bone);
 }
 
 img { display: block; max-width: 100%; }
@@ -134,41 +134,41 @@ button { font-family: inherit; cursor: pointer; }
 .eyebrow {
   display: flex; align-items: center; gap: 14px; margin-bottom: 14px;
 }
-.eyebrow-line { width: 32px; height: 1px; background: var(--gold); flex-shrink: 0; }
-.eyebrow-text { font-size: 10px; font-weight: 600; letter-spacing: 0.42em; text-transform: uppercase; color: var(--gold); }
+.eyebrow-line { width: 32px; height: 1px; background: var(--copper); flex-shrink: 0; }
+.eyebrow-text { font-size: 10px; font-weight: 600; letter-spacing: 0.42em; text-transform: uppercase; color: var(--copper); }
 
 .section-title {
   font-family: 'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
   font-size: clamp(46px, 6vw, 78px);
-  color: var(--ink);
+  color: var(--ink-legacy);
   letter-spacing: 0.03em;
   line-height: 1;
 }
 
-.gold-rule { width: 44px; height: 2px; background: var(--gold); margin: 20px 0 32px; }
+.gold-rule { width: 44px; height: 2px; background: var(--copper); margin: 20px 0 32px; }
 
 .btn-gold {
   display: inline-flex; align-items: center; gap: 12px;
-  background: var(--gold); color: var(--black);
+  background: var(--copper); color: var(--black);
   font-family: 'Barlow', sans-serif; font-weight: 700;
   font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
   padding: 15px 34px; border: none;
   transition: background .22s, transform .22s;
   cursor: pointer;
 }
-.btn-gold:hover { background: var(--gold-lt); transform: translateY(-2px); }
+.btn-gold:hover { background: var(--copper-light); transform: translateY(-2px); }
 
 .btn-outline {
   display: inline-flex; align-items: center; gap: 10px;
-  background: transparent; color: var(--gold);
-  border: 1px solid var(--gold);
+  background: transparent; color: var(--copper);
+  border: 1px solid var(--copper);
   font-family: 'Barlow', sans-serif; font-weight: 600;
   font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;
   padding: 15px 34px;
   transition: background .22s, color .22s;
   cursor: pointer;
 }
-.btn-outline:hover { background: var(--gold); color: var(--black); }
+.btn-outline:hover { background: var(--copper); color: var(--black); }
 
 .btn-ghost {
   display: inline-flex; align-items: center; gap: 10px;
@@ -177,7 +177,7 @@ button { font-family: inherit; cursor: pointer; }
   transition: color .2s; border: none; background: none; padding: 0;
   cursor: pointer;
 }
-.btn-ghost:hover { color: var(--gold); }
+.btn-ghost:hover { color: var(--copper); }
 
 /* -----------------------------------------
    HERO
@@ -197,21 +197,21 @@ button { font-family: inherit; cursor: pointer; }
 }
 .hero-bg::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(10,10,10,.82) 0%, rgba(10,10,10,.72) 40%, rgba(10,10,10,.92) 100%);
+  background: linear-gradient(180deg, rgba(20,20,20,.82) 0%, rgba(20,20,20,.72) 40%, rgba(20,20,20,.92) 100%);
 }
 
 .hero-glow {
   position: absolute; inset: 0; pointer-events: none; z-index: 1;
   background:
-    radial-gradient(ellipse 65% 70% at 95% 55%, rgba(200,123,58,.06) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 5% 20%,  rgba(200,123,58,.03) 0%, transparent 55%);
+    radial-gradient(ellipse 65% 70% at 95% 55%, rgba(189,127,70,.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 5% 20%,  rgba(189,127,70,.03) 0%, transparent 55%);
 }
 
 .hero-bg-word {
   position: absolute; right: -40px; bottom: -40px;
-  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-family: var(--display);
   font-size: clamp(140px, 20vw, 280px);
-  color: rgba(200,123,58,.035);
+  color: rgba(189,127,70,.035);
   letter-spacing: .05em; line-height: 1;
   pointer-events: none; user-select: none; z-index: 1;
 }
@@ -222,17 +222,17 @@ button { font-family: inherit; cursor: pointer; }
   display: inline-flex; align-items: center; gap: 12px;
   margin-bottom: 28px;
 }
-.hero-badge-line { width: 36px; height: 1px; background: var(--gold); }
-.hero-badge-text { font-size: 10px; font-weight: 600; letter-spacing: .42em; text-transform: uppercase; color: var(--gold); }
+.hero-badge-line { width: 36px; height: 1px; background: var(--copper); }
+.hero-badge-text { font-size: 10px; font-weight: 600; letter-spacing: .42em; text-transform: uppercase; color: var(--copper); }
 
 .hero-h1 {
   font-family: 'Bebas Neue', Impact, 'Arial Narrow', sans-serif;
   font-size: clamp(64px, 10vw, 130px);
   line-height: .92; letter-spacing: .03em;
-  color: var(--ink); margin-bottom: 24px;
+  color: var(--ink-legacy); margin-bottom: 24px;
 }
 .hero-h1 .outline {
-  -webkit-text-stroke: 1.5px var(--gold);
+  -webkit-text-stroke: 1.5px var(--copper);
   color: transparent;
 }
 
@@ -258,9 +258,9 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 11px; color: var(--slate); letter-spacing: .1em;
 }
 .breadcrumb-trail a { color: var(--ash); transition: color .2s; }
-.breadcrumb-trail a:hover { color: var(--gold); }
+.breadcrumb-trail a:hover { color: var(--copper); }
 .breadcrumb-trail .sep { color: var(--steel2); }
-.breadcrumb-trail .current { color: var(--gold); }
+.breadcrumb-trail .current { color: var(--copper); }
 
 /* -----------------------------------------
    SERVICE INTRO
@@ -281,7 +281,7 @@ button { font-family: inherit; cursor: pointer; }
   font-size: clamp(19px, 2.4vw, 28px);
   color: var(--mist); line-height: 1.45; margin-bottom: 20px;
 }
-.intro-editorial em { font-style: normal; color: var(--gold); }
+.intro-editorial em { font-style: normal; color: var(--copper); }
 
 /* -----------------------------------------
    DETAIL SECTIONS
@@ -296,9 +296,9 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .detail-h {
-  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-family: var(--display);
   font-size: clamp(40px, 5vw, 64px);
-  color: var(--ink); letter-spacing: .03em; line-height: 1;
+  color: var(--ink-legacy); letter-spacing: .03em; line-height: 1;
   margin-bottom: 18px;
 }
 
@@ -311,7 +311,7 @@ button { font-family: inherit; cursor: pointer; }
   padding: 13px 0; border-bottom: 1px solid var(--steel);
   font-size: 13.5px; color: var(--mist);
 }
-.feature-item::before { content: '\25C8'; color: var(--gold); font-size: 9px; flex-shrink: 0; }
+.feature-item::before { content: '\25C8'; color: var(--copper); font-size: 9px; flex-shrink: 0; }
 
 /* Info cards */
 .info-card {
@@ -320,15 +320,15 @@ button { font-family: inherit; cursor: pointer; }
 }
 .info-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--gold-dk), var(--gold), var(--gold-dk));
+  background: linear-gradient(90deg, var(--copper-deep), var(--copper), var(--copper-deep));
 }
 .info-card-item {
   display: flex; gap: 18px; padding: 20px 28px;
   border-bottom: 1px solid var(--steel);
 }
 .info-card-item:last-child { border-bottom: none; }
-.info-card-icon { color: var(--gold); font-size: 15px; flex-shrink: 0; margin-top: 2px; }
-.info-card-title { font-size: 13px; font-weight: 600; color: var(--ink); letter-spacing: .05em; margin-bottom: 3px; }
+.info-card-icon { color: var(--copper); font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+.info-card-title { font-size: 13px; font-weight: 600; color: var(--ink-legacy); letter-spacing: .05em; margin-bottom: 3px; }
 .info-card-body  { font-size: 12.5px; color: var(--slate); line-height: 1.65; }
 
 /* Material tags */
@@ -339,8 +339,8 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--ash); text-transform: uppercase;
   transition: border-color .22s, color .22s;
 }
-.mat-tag:hover { border-color: var(--gold); color: var(--gold); }
-.mat-tag.highlight { border-color: var(--gold); color: var(--gold); background: rgba(200,123,58,.07); }
+.mat-tag:hover { border-color: var(--copper); color: var(--copper); }
+.mat-tag.highlight { border-color: var(--copper); color: var(--copper); background: rgba(189,127,70,.07); }
 
 /* -----------------------------------------
    WHY ETRA / PROCESS
@@ -348,7 +348,7 @@ button { font-family: inherit; cursor: pointer; }
 #why-etra { background: var(--char); padding: 100px 56px; position: relative; overflow: hidden; }
 #why-etra::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse 55% 55% at 50% 110%, rgba(200,123,58,.06) 0%, transparent 55%);
+  background: radial-gradient(ellipse 55% 55% at 50% 110%, rgba(189,127,70,.06) 0%, transparent 55%);
 }
 
 .why-grid {
@@ -362,18 +362,18 @@ button { font-family: inherit; cursor: pointer; }
 }
 .why-card::after {
   content: ''; position: absolute; bottom: 0; left: 0;
-  width: 0; height: 2px; background: var(--gold);
+  width: 0; height: 2px; background: var(--copper);
   transition: width .38s cubic-bezier(.16,1,.3,1);
 }
 .why-card:hover::after { width: 100%; }
 .why-num {
-  font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: 48px; color: rgba(200,123,58,.12); line-height: 1;
+  font-family: var(--display);
+  font-size: 48px; color: rgba(189,127,70,.12); line-height: 1;
   margin-bottom: 14px; letter-spacing: .04em;
 }
 .why-title {
-  font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: 19px; color: var(--ink); letter-spacing: .06em; margin-bottom: 10px;
+  font-family: var(--display);
+  font-size: 19px; color: var(--ink-legacy); letter-spacing: .06em; margin-bottom: 10px;
 }
 .why-body { font-size: 12.5px; color: var(--slate); line-height: 1.75; }
 
@@ -398,36 +398,36 @@ button { font-family: inherit; cursor: pointer; }
 }
 .other-card::after {
   content: ''; position: absolute; bottom: 0; left: 0;
-  width: 0; height: 2px; background: var(--gold);
+  width: 0; height: 2px; background: var(--copper);
   transition: width .38s cubic-bezier(.16,1,.3,1);
 }
 .other-card:hover::after { width: 100%; }
 .other-card .other-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(10,10,10,.55) 0%, rgba(10,10,10,.65) 55%, rgba(10,10,10,.78) 100%);
+  background: linear-gradient(180deg, rgba(20,20,20,.55) 0%, rgba(20,20,20,.65) 55%, rgba(20,20,20,.78) 100%);
   z-index: 1;
   transition: background .35s ease;
 }
 .other-card:hover .other-overlay {
-  background: linear-gradient(180deg, rgba(10,10,10,.25) 0%, rgba(10,10,10,.4) 50%, rgba(10,10,10,.6) 100%);
+  background: linear-gradient(180deg, rgba(20,20,20,.25) 0%, rgba(20,20,20,.4) 50%, rgba(20,20,20,.6) 100%);
 }
 .other-card > *:not(.other-overlay):not(.other-card-img) { position: relative; z-index: 2; }
 .other-num {
-  font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: 40px; color: rgba(200,123,58,.12); line-height: 1;
+  font-family: var(--display);
+  font-size: 40px; color: rgba(189,127,70,.12); line-height: 1;
   margin-bottom: 10px; letter-spacing: .04em;
 }
 .other-name {
-  font-family: 'Bebas Neue', Impact, sans-serif;
-  font-size: 18px; color: var(--ink); letter-spacing: .06em; margin-bottom: 8px;
+  font-family: var(--display);
+  font-size: 18px; color: var(--ink-legacy); letter-spacing: .06em; margin-bottom: 8px;
 }
 .other-desc { font-size: 12px; color: var(--ash); line-height: 1.7; margin-bottom: 14px; }
 .other-link {
   font-size: 10px; font-weight: 600; letter-spacing: .22em;
-  text-transform: uppercase; color: var(--gold);
+  text-transform: uppercase; color: var(--copper);
   transition: color .2s;
 }
-.other-card:hover .other-link { color: var(--gold-lt); }
+.other-card:hover .other-link { color: var(--copper-light); }
 
 /* -----------------------------------------
    CONTACT / FORM
@@ -435,7 +435,7 @@ button { font-family: inherit; cursor: pointer; }
 #contact { background: var(--char); padding: 100px 56px; position: relative; overflow: hidden; }
 #contact::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(ellipse 55% 55% at 50% 110%, rgba(200,123,58,.07) 0%, transparent 55%);
+  background: radial-gradient(ellipse 55% 55% at 50% 110%, rgba(189,127,70,.07) 0%, transparent 55%);
 }
 
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; position: relative; z-index: 1; }
@@ -447,14 +447,14 @@ button { font-family: inherit; cursor: pointer; }
 .contact-items { display: flex; flex-direction: column; }
 .c-item { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--steel); }
 .c-item:last-child { border-bottom: none; }
-.c-icon  { font-size: 18px; color: var(--gold); flex-shrink: 0; width: 26px; }
+.c-icon  { font-size: 18px; color: var(--copper); flex-shrink: 0; width: 26px; }
 .c-label { font-size: 9px; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: var(--slate); margin-bottom: 4px; }
-.c-val   { font-size: 15px; color: var(--ink); font-weight: 300; }
-.c-val a { color: var(--ink); transition: color .2s; }
-.c-val a:hover { color: var(--gold); }
+.c-val   { font-size: 15px; color: var(--ink-legacy); font-weight: 300; }
+.c-val a { color: var(--ink-legacy); transition: color .2s; }
+.c-val a:hover { color: var(--copper); }
 
 /* Form */
-.form-title { font-family: 'Bebas Neue', Impact, sans-serif; font-size: 34px; color: var(--ink); letter-spacing: .05em; margin-bottom: 28px; }
+.form-title { font-family: var(--display); font-size: 34px; color: var(--ink-legacy); letter-spacing: .05em; margin-bottom: 28px; }
 .form-row   { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .form-group { margin-bottom: 14px; }
 .form-group label { display: block; font-size: 9px; font-weight: 600; letter-spacing: .34em; text-transform: uppercase; color: var(--slate); margin-bottom: 7px; }
@@ -468,7 +468,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus { border-color: var(--gold); }
+.form-group textarea:focus { border-color: var(--copper); }
 .form-group textarea { min-height: 116px; resize: vertical; }
 .form-group select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C87B3A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
@@ -476,19 +476,19 @@ button { font-family: inherit; cursor: pointer; }
 }
 .form-group select option { background: var(--char2); }
 .form-submit {
-  width: 100%; background: var(--gold); color: var(--black);
+  width: 100%; background: var(--copper); color: var(--black);
   font-family: 'Barlow', sans-serif; font-weight: 700;
   font-size: 11px; letter-spacing: .3em; text-transform: uppercase;
   border: none; padding: 17px; margin-top: 6px;
   transition: background .22s, transform .2s; cursor: pointer;
 }
-.form-submit:hover { background: var(--gold-lt); transform: translateY(-1px); }
+.form-submit:hover { background: var(--copper-light); transform: translateY(-1px); }
 .form-note { font-size: 11px; color: var(--slate); margin-top: 10px; text-align: center; letter-spacing: .06em; }
 #quote-form { scroll-margin-top: var(--nav-h); }
 
 .ft-brand-mark { display: flex; align-items: center; gap: 11px; margin-bottom: 18px; }
-.ft-etra { font-family: 'Bebas Neue', Impact, sans-serif; font-size: 28px; color: var(--ink); letter-spacing: .06em; }
-.ft-sub  { font-size: 7.5px; font-weight: 600; letter-spacing: .36em; text-transform: uppercase; color: var(--gold); margin-top: 3px; }
+.ft-etra { font-family: var(--display); font-size: 28px; color: var(--ink-legacy); letter-spacing: .06em; }
+.ft-sub  { font-size: 7.5px; font-weight: 600; letter-spacing: .36em; text-transform: uppercase; color: var(--copper); margin-top: 3px; }
 .ft-tagline { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 13px; color: var(--ash); line-height: 1.6; margin-bottom: 22px; }
 .ft-socials { display: flex; gap: 10px; }
 .ft-soc {
@@ -497,13 +497,13 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 12px; color: var(--ash); font-weight: 600; letter-spacing: .06em;
   transition: border-color .2s, color .2s;
 }
-.ft-soc:hover { border-color: var(--gold); color: var(--gold); }
+.ft-soc:hover { border-color: var(--copper); color: var(--copper); }
 
-.ft-col h4 { font-size: 9.5px; font-weight: 700; letter-spacing: .36em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+.ft-col h4 { font-size: 9.5px; font-weight: 700; letter-spacing: .36em; text-transform: uppercase; color: var(--copper); margin-bottom: 18px; }
 .ft-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
 .ft-col li a { font-size: 13px; color: var(--ash); transition: color .2s; }
 .ft-col li a:hover { color: var(--mist); }
-.ft-col li a.current-page { color: var(--gold); }
+.ft-col li a.current-page { color: var(--copper); }
 
 /* -----------------------------------------
    RESPONSIVE
@@ -560,8 +560,8 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 15px; color: var(--mist); letter-spacing: .02em;
   text-align: left; transition: color .2s;
 }
-.faq-q:hover { color: var(--gold); }
-.faq-icon { font-size: 26px; color: var(--gold); flex-shrink: 0; line-height: 1; transition: transform .3s ease; }
+.faq-q:hover { color: var(--copper); }
+.faq-icon { font-size: 26px; color: var(--copper); flex-shrink: 0; line-height: 1; transition: transform .3s ease; }
 .faq-item.open .faq-icon { transform: rotate(45deg); }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
 .faq-item.open .faq-a { max-height: 600px; }
@@ -582,7 +582,7 @@ footer,
   --slate:  var(--dk-muted);
   --ash:    var(--dk-body);
   --mist:   var(--dk-text);
-  --ink:  var(--dk-head);
+  --ink-legacy:  var(--dk-head);
 }
 .svc-hero { color: var(--dk-text); }
 
@@ -612,7 +612,7 @@ footer,
 }
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus { border-color: var(--gold); }
+.form-group textarea:focus { border-color: var(--copper); }
 </style>
 {% endblock %}
 
@@ -822,7 +822,7 @@ footer,
           </div>
         </div>
       </div>
-      <div style="margin-top:28px; padding:22px 28px; background:var(--char2); border:1px solid var(--steel); border-left:2px solid var(--gold);">
+      <div style="margin-top:28px; padding:22px 28px; background:var(--char2); border:1px solid var(--steel); border-left:2px solid var(--copper);">
         <p style="font-size:12.5px; color:var(--ash); line-height:1.75;"><strong style="color:var(--mist);">Serving all of HRM:</strong> We handle deck and fence repairs in Halifax, Dartmouth, Bedford, Sackville, Fall River, Cole Harbour, Eastern Passage, Timberlea, Hammonds Plains, and surrounding communities.</p>
       </div>
     </div>
