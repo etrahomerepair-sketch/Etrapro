@@ -70,7 +70,10 @@
       "images/IMG_9471.webp",
       "images/IMG_9473.webp"
     ],
-    "draft": false
+    "draft": false,
+    "show_calculator": true,
+    "calculator_key": "flooring",
+    "testimonials": []
   },
   {
     "slug": "custom-vinyl-staircases-halifax",
@@ -139,7 +142,10 @@
       "images/IMG_9471.webp",
       "images/IMG_9473.webp"
     ],
-    "draft": false
+    "draft": false,
+    "show_calculator": true,
+    "calculator_key": "stairs",
+    "testimonials": []
   },
   {
     "slug": "drywall-services-halifax",
@@ -214,7 +220,10 @@
       "images/IMG_9471.webp",
       "images/IMG_9473.webp"
     ],
-    "draft": false
+    "draft": false,
+    "show_calculator": false,
+    "calculator_key": null,
+    "testimonials": []
   },
   {
     "slug": "exterior-siding-halifax",
@@ -286,7 +295,10 @@
       "images/IMG_9471.webp",
       "images/IMG_9473.webp"
     ],
-    "draft": false
+    "draft": false,
+    "show_calculator": false,
+    "calculator_key": null,
+    "testimonials": []
   },
   {
     "slug": "decks-fences-halifax",
@@ -370,7 +382,10 @@
       "images/IMG_9471.webp",
       "images/IMG_9473.webp"
     ],
-    "draft": false
+    "draft": false,
+    "show_calculator": true,
+    "calculator_key": "deck",
+    "testimonials": []
   },
   {
     "slug": "carpet-installation-halifax",
@@ -438,7 +453,10 @@
       "images/IMG_9466.webp",
       "images/IMG_9473.webp"
     ],
-    "draft": false
+    "draft": false,
+    "show_calculator": false,
+    "calculator_key": null,
+    "testimonials": []
   },
   {
     "slug": "repairs-renovations-halifax",
@@ -517,6 +535,9 @@
       "images/IMG_9466.webp",
       "images/IMG_9471.webp"
     ],
-    "draft": false
+    "draft": false,
+    "show_calculator": false,
+    "calculator_key": null,
+    "testimonials": []
   }
 ]
