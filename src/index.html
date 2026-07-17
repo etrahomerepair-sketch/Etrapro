@@ -4,23 +4,23 @@ permalink: index.html
 {% extends "base.njk" %}
 
 {% block head %}
-<title>ETRA Pro Services — Flooring, Stairs & Interior Finishing | Halifax NS</title>
-<meta name="description" content="Halifax's interior finishing specialists — flooring installation, custom vinyl staircases, tile and trim. Unit turnovers for property managers & co-ops. Free quotes.">
+<title>ETRA Pro Services — Interior Finishing & Exterior Restoration | Halifax NS</title>
+<meta name="description" content="Interior finishing & exterior restoration across Halifax & HRM — flooring, drywall, siding, decks, staircases and more. Unit turnovers for property managers & co-ops. Free quotes.">
 <link rel="canonical" href="https://etra.ca">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://etra.ca">
-<meta property="og:title" content="ETRA Pro Services — Flooring, Stairs & Interior Finishing | Halifax NS">
-<meta property="og:description" content="Halifax's interior finishing specialists — flooring installation, custom vinyl staircases, tile and trim. Unit turnovers for property managers & co-ops. Free quotes.">
+<meta property="og:title" content="ETRA Pro Services — Interior Finishing & Exterior Restoration | Halifax NS">
+<meta property="og:description" content="Interior finishing & exterior restoration across Halifax & HRM — flooring, drywall, siding, decks, staircases and more. Unit turnovers for property managers & co-ops. Free quotes.">
 <meta property="og:site_name" content="ETRA Pro Services">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ETRA Pro Services — Flooring, Stairs & Interior Finishing | Halifax NS">
-<meta name="twitter:description" content="Halifax's interior finishing specialists — flooring installation, custom vinyl staircases, tile and trim. Unit turnovers for property managers & co-ops. Free quotes.">
+<meta name="twitter:title" content="ETRA Pro Services — Interior Finishing & Exterior Restoration | Halifax NS">
+<meta name="twitter:description" content="Interior finishing & exterior restoration across Halifax & HRM — flooring, drywall, siding, decks, staircases and more. Unit turnovers for property managers & co-ops. Free quotes.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "name": "ETRA Pro Services",
-  "description": "Halifax's interior finishing specialists — flooring installation, custom vinyl staircases, tile and trim. Unit turnovers for property managers & co-ops.",
+  "description": "Interior finishing & exterior restoration across Halifax & HRM — flooring, drywall, siding, decks, staircases and more. Unit turnovers for property managers & co-ops.",
   "url": "https://etra.ca",
   "telephone": "+17824461992",
   "email": "etraproservices@gmail.com",
@@ -38,14 +38,18 @@ permalink: index.html
   "priceRange": "$$",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Interior Finishing Services",
+    "name": "Interior Finishing & Exterior Restoration",
     "itemListElement": [
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Flooring Installation"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Vinyl Staircases"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Unit Turnovers for Rentals & Co-ops"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tile & Bathrooms"}},
       {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Trim & Finish Carpentry"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Decks & Fences"}}
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Drywall Services"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Exterior Siding"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Decks & Fences"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Carpet Installation"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Repairs & Renovations"}}
     ]
   }
 }
@@ -82,9 +86,9 @@ permalink: index.html
   inset: 0;
   background: linear-gradient(
     105deg,
-    rgba(10,8,6,.78) 0%,
-    rgba(10,8,6,.55) 55%,
-    rgba(10,8,6,.30) 100%
+    rgba(20,20,20,.78) 0%,
+    rgba(20,20,20,.55) 55%,
+    rgba(20,20,20,.30) 100%
   );
   z-index: 1;
 }
@@ -102,9 +106,9 @@ permalink: index.html
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(200,123,58,.15);
-  border: 1px solid rgba(200,123,58,.35);
-  color: var(--gold-lt);
+  background: rgba(189,127,70,.15);
+  border: 1px solid rgba(189,127,70,.35);
+  color: var(--copper-light);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: .18em;
@@ -117,21 +121,21 @@ permalink: index.html
   content: '';
   width: 6px;
   height: 6px;
-  background: var(--gold);
+  background: var(--copper);
   border-radius: 50%;
   flex-shrink: 0;
 }
 
 .hero-h1 {
-  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-family: var(--display);
   font-size: clamp(52px, 8vw, 96px);
   line-height: 1.0;
-  letter-spacing: .03em;
-  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  color: var(--bone);
   margin-bottom: 22px;
   max-width: 640px;
 }
-.hero-h1 span { color: var(--gold); }
+.hero-h1 span { color: var(--copper); }
 
 .hero-sub {
   font-size: clamp(16px, 2vw, 19px);
@@ -149,8 +153,8 @@ permalink: index.html
 }
 
 .btn-primary {
-  background: var(--gold);
-  color: #1A1612;
+  background: var(--copper);
+  color: var(--ink);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .18em;
@@ -162,11 +166,11 @@ permalink: index.html
   align-items: center;
   gap: 10px;
 }
-.btn-primary:hover { background: var(--gold-lt); transform: translateY(-1px); }
+.btn-primary:hover { background: var(--copper-light); transform: translateY(-1px); }
 
 .btn-outline {
   background: transparent;
-  color: #FFFFFF;
+  color: var(--bone);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: .14em;
@@ -185,9 +189,9 @@ permalink: index.html
   position: absolute;
   bottom: 0; left: 0; right: 0;
   z-index: 3;
-  background: rgba(10,8,6,.72);
+  background: rgba(20,20,20,.72);
   backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(200,123,58,.18);
+  border-top: 1px solid rgba(189,127,70,.18);
   display: flex;
   justify-content: center;
 }
@@ -200,13 +204,13 @@ permalink: index.html
   flex: 1;
   padding: 22px 0;
   text-align: center;
-  border-right: 1px solid rgba(200,123,58,.12);
+  border-right: 1px solid rgba(189,127,70,.12);
 }
 .hero-stat:last-child { border-right: none; }
 .hero-stat-num {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--display);
   font-size: 32px;
-  color: var(--gold);
+  color: var(--copper);
   line-height: 1;
   letter-spacing: .04em;
 }
@@ -222,8 +226,8 @@ permalink: index.html
 @media (max-width: 640px) {
   .hero-content { padding-bottom: 180px; }
   .hero-stats-inner { flex-wrap: wrap; }
-  .hero-stat { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(200,123,58,.12); }
-  .hero-stat:nth-child(odd) { border-right: 1px solid rgba(200,123,58,.12); }
+  .hero-stat { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(189,127,70,.12); }
+  .hero-stat:nth-child(odd) { border-right: 1px solid rgba(189,127,70,.12); }
   .hero-stat:last-child { border-bottom: none; }
 }
 
@@ -231,7 +235,7 @@ permalink: index.html
    SERVICE CARDS
 ───────────────────────────────── */
 #services {
-  background: var(--light);
+  background: var(--bone);
   padding: 80px 0 100px;
 }
 .svc-wrap {
@@ -248,8 +252,8 @@ permalink: index.html
   gap: 20px;
 }
 .svc-card {
-  background: var(--white);
-  border: 1px solid #E8E4DF;
+  background: var(--bone);
+  border: var(--rule-w) solid var(--rule);
   border-radius: var(--radius);
   padding: 32px 28px;
   display: flex;
@@ -261,43 +265,28 @@ permalink: index.html
 .svc-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(200,123,58,.25);
+  border-color: rgba(189,127,70,.25);
 }
 .svc-icon {
-  color: var(--gold);
+  color: var(--copper);
   width: 52px;
   height: 52px;
-  background: rgba(200,123,58,.08);
+  background: rgba(189,127,70,.08);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.svc-featured-tag {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  background: rgba(200,123,58,.10);
-  padding: 4px 10px;
-  border-radius: 2px;
-  width: fit-content;
-}
-.svc-card--featured {
-  border-color: rgba(200,123,58,.3);
-  background: linear-gradient(135deg, #FFFCF8 0%, #FFF8EF 100%);
-}
 .svc-name {
   font-size: 16px;
   font-weight: 700;
-  color: #0F0D0A;
+  color: var(--ink);
   line-height: 1.3;
 }
 .svc-desc {
   font-size: 13.5px;
-  color: var(--body);
+  color: var(--ink);
   line-height: 1.6;
   flex: 1;
 }
@@ -305,14 +294,14 @@ permalink: index.html
   font-size: 12px;
   font-weight: 600;
   letter-spacing: .08em;
-  color: var(--gold);
+  color: var(--copper);
   margin-top: 4px;
 }
 .svc-card--cta {
-  background: var(--dark2);
-  border-color: var(--dark-brd);
+  background: var(--ink);
+  border-color: var(--rule);
   min-height: 220px;
-  grid-column: span 2;
+  grid-column: 1 / -1;
 }
 .svc-cta-label {
   font-size: 11px;
@@ -322,10 +311,10 @@ permalink: index.html
   color: rgba(255,255,255,.45);
 }
 .svc-cta-h {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: var(--display);
   font-size: 28px;
-  letter-spacing: .04em;
-  color: #F7F4EF;
+  letter-spacing: -0.01em;
+  color: var(--bone);
   line-height: 1.15;
   flex: 1;
 }
@@ -335,14 +324,13 @@ permalink: index.html
 }
 @media (max-width: 520px) {
   .svc-grid { grid-template-columns: 1fr; }
-  .svc-card--cta { grid-column: auto; }
 }
 
 /* ─────────────────────────────────
    WHY CHOOSE
 ───────────────────────────────── */
 #about {
-  background: var(--white);
+  background: var(--bone);
   padding: 80px 0 100px;
 }
 .why-wrap {
@@ -363,7 +351,7 @@ permalink: index.html
 .why-card {
   text-align: center;
   padding: 36px 24px 32px;
-  border: 1px solid #E8E4DF;
+  border: var(--rule-w) solid var(--rule);
   border-radius: var(--radius);
   transition: box-shadow .2s, transform .2s;
 }
@@ -371,23 +359,23 @@ permalink: index.html
 .why-icon {
   width: 62px;
   height: 62px;
-  background: rgba(200,123,58,.08);
+  background: rgba(189,127,70,.08);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 20px;
-  color: var(--gold);
+  color: var(--copper);
 }
 .why-title {
   font-size: 15px;
   font-weight: 700;
-  color: #0F0D0A;
+  color: var(--ink);
   margin-bottom: 10px;
 }
 .why-body {
   font-size: 13.5px;
-  color: var(--body);
+  color: var(--ink);
   line-height: 1.65;
 }
 
@@ -402,7 +390,7 @@ permalink: index.html
    PORTFOLIO
 ───────────────────────────────── */
 #portfolio {
-  background: var(--light);
+  background: var(--bone);
   padding: 80px 0 100px;
 }
 .port-wrap {
@@ -423,7 +411,7 @@ permalink: index.html
   position: relative;
   overflow: hidden;
   border-radius: var(--radius);
-  background: #D0CBC4;
+  background: var(--muted);
 }
 .port-item--tall {
   grid-row: 1 / 3;
@@ -439,12 +427,22 @@ permalink: index.html
   position: absolute;
   bottom: 0; left: 0; right: 0;
   padding: 28px 16px 14px;
-  background: linear-gradient(0deg, rgba(10,8,6,.7) 0%, transparent 100%);
-  color: #FFFFFF;
+  background: linear-gradient(0deg, rgba(20,20,20,.7) 0%, transparent 100%);
+  color: var(--bone);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
+}
+.port-spec {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--copper-light);
 }
 .port-cta {
   text-align: center;
@@ -468,7 +466,7 @@ permalink: index.html
    PROPERTY MANAGERS & CO-OPS
 ───────────────────────────────── */
 #property-managers {
-  background: var(--dark);
+  background: var(--ink);
   padding: 80px 0 90px;
 }
 .b2b-wrap {
@@ -478,10 +476,10 @@ permalink: index.html
   text-align: center;
 }
 .b2b-h2 {
-  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-family: var(--display);
   font-size: clamp(32px, 5vw, 52px);
-  letter-spacing: .04em;
-  color: #F7F4EF;
+  letter-spacing: -0.01em;
+  color: var(--bone);
   line-height: 1.05;
   margin-bottom: 18px;
 }
@@ -502,7 +500,7 @@ permalink: index.html
    TESTIMONIALS
 ───────────────────────────────── */
 #reviews {
-  background: var(--white);
+  background: var(--bone);
   padding: 80px 0 100px;
 }
 .reviews-wrap {
@@ -519,7 +517,7 @@ permalink: index.html
   gap: 12px;
   margin-top: 14px;
 }
-.stars { color: #F5A623; font-size: 20px; letter-spacing: 2px; }
+.stars { color: var(--copper-deep); font-size: 20px; letter-spacing: 2px; }
 .reviews-meta {
   font-size: 13px;
   color: var(--muted);
@@ -531,18 +529,18 @@ permalink: index.html
   gap: 24px;
 }
 .review-card {
-  background: var(--light);
-  border: 1px solid #E8E4DF;
+  background: var(--bone);
+  border: var(--rule-w) solid var(--rule);
   border-radius: var(--radius);
   padding: 32px 28px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.review-stars { color: #F5A623; font-size: 16px; letter-spacing: 2px; }
+.review-stars { color: var(--copper-deep); font-size: 16px; letter-spacing: 2px; }
 .review-text {
   font-size: 14px;
-  color: var(--body);
+  color: var(--ink);
   line-height: 1.7;
   font-style: italic;
   flex: 1;
@@ -556,8 +554,8 @@ permalink: index.html
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--gold);
-  color: #1A1612;
+  background: var(--copper);
+  color: var(--ink);
   font-weight: 700;
   font-size: 16px;
   display: flex;
@@ -568,7 +566,7 @@ permalink: index.html
 .review-name {
   font-size: 13px;
   font-weight: 700;
-  color: #0F0D0A;
+  color: var(--ink);
 }
 .review-loc {
   font-size: 12px;
@@ -583,8 +581,8 @@ permalink: index.html
   align-items: center;
   gap: 8px;
   background: transparent;
-  color: var(--gold);
-  border: 1.5px solid rgba(200,123,58,.4);
+  color: var(--copper);
+  border: 1.5px solid rgba(189,127,70,.4);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .14em;
@@ -593,7 +591,7 @@ permalink: index.html
   border-radius: 3px;
   transition: border-color .2s, background .2s;
 }
-.btn-outline-dark:hover { border-color: var(--gold); background: rgba(200,123,58,.05); }
+.btn-outline-dark:hover { border-color: var(--copper); background: rgba(189,127,70,.05); }
 
 @media (max-width: 860px) {
   .reviews-grid { grid-template-columns: 1fr 1fr; }
@@ -608,9 +606,9 @@ permalink: index.html
    QUICK ESTIMATE + AVAILABILITY
 ───────────────────────────────── */
 .availability-strip {
-  background: linear-gradient(90deg, rgba(200,123,58,.18), rgba(200,123,58,.04));
-  border-top: 1px solid rgba(200,123,58,.22);
-  border-bottom: 1px solid rgba(200,123,58,.18);
+  background: linear-gradient(90deg, rgba(189,127,70,.18), rgba(189,127,70,.04));
+  border-top: 1px solid rgba(189,127,70,.22);
+  border-bottom: 1px solid rgba(189,127,70,.18);
   padding: 18px 5%;
 }
 .availability-inner {
@@ -627,7 +625,7 @@ permalink: index.html
   font-weight: 800;
   letter-spacing: .2em;
   text-transform: uppercase;
-  color: var(--gold-lt);
+  color: var(--copper-light);
 }
 .availability-copy { color: rgba(255,255,255,.72); font-size: 14px; }
 #estimate {
@@ -662,16 +660,16 @@ permalink: index.html
   margin-top: 20px;
   padding: 20px;
   border-radius: var(--radius);
-  background: rgba(200,123,58,.10);
-  border: 1px solid rgba(200,123,58,.24);
+  background: rgba(189,127,70,.10);
+  border: 1px solid rgba(189,127,70,.24);
   display: none;
 }
 .estimate-result.show { display: block; }
 .estimate-range {
-  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-family: var(--display);
   font-size: clamp(32px, 5vw, 52px);
-  color: var(--gold-lt);
-  letter-spacing: .04em;
+  color: var(--copper-light);
+  letter-spacing: -0.01em;
   line-height: 1;
   margin-bottom: 8px;
 }
@@ -681,10 +679,39 @@ permalink: index.html
 @media (max-width: 560px) { .estimate-grid { grid-template-columns: 1fr; } }
 
 /* ─────────────────────────────────
+   AREAS WE SERVE
+───────────────────────────────── */
+#areas {
+  background: var(--bone);
+  padding: 80px 0 90px;
+  scroll-margin-top: var(--nav-h);
+}
+.areas-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.areas-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.areas-list li {
+  background: var(--bone);
+  border: var(--rule-w) solid var(--rule);
+  border-radius: var(--radius);
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ─────────────────────────────────
    CONTACT
 ───────────────────────────────── */
 #contact {
-  background: var(--dark2);
+  background: var(--ink);
   padding: 80px 0 0;
 }
 .contact-wrap {
@@ -697,10 +724,10 @@ permalink: index.html
   align-items: start;
 }
 .contact-h2 {
-  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-family: var(--display);
   font-size: clamp(32px, 4vw, 48px);
   letter-spacing: .04em;
-  color: #F7F4EF;
+  color: var(--bone);
   margin: 10px 0 14px;
 }
 .contact-sub {
@@ -719,17 +746,17 @@ permalink: index.html
   text-decoration: none;
   transition: color .2s;
 }
-.contact-info-row:hover { color: var(--gold-lt); }
+.contact-info-row:hover { color: var(--copper-light); }
 .contact-info-icon {
   width: 36px;
   height: 36px;
-  background: rgba(200,123,58,.12);
-  border: 1px solid rgba(200,123,58,.2);
+  background: rgba(189,127,70,.12);
+  border: 1px solid rgba(189,127,70,.2);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gold);
+  color: var(--copper);
   flex-shrink: 0;
 }
 
@@ -750,7 +777,7 @@ permalink: index.html
   background: rgba(255,255,255,.05);
   border: 1px solid rgba(255,255,255,.12);
   border-radius: var(--radius);
-  color: #F7F4EF;
+  color: var(--bone);
   font-family: inherit;
   font-size: 14px;
   padding: 12px 16px;
@@ -761,13 +788,13 @@ permalink: index.html
 .form-group textarea::placeholder { color: rgba(255,255,255,.3); }
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus { border-color: rgba(200,123,58,.5); }
+.form-group textarea:focus { border-color: rgba(189,127,70,.5); }
 .form-group select { cursor: pointer; }
-.form-group select option { background: #1C1C1C; }
+.form-group select option { background: var(--ink-raised); }
 .form-group textarea { resize: vertical; min-height: 110px; }
 .form-submit {
-  background: var(--gold);
-  color: #1A1612;
+  background: var(--copper);
+  color: var(--ink);
   font-family: inherit;
   font-size: 12px;
   font-weight: 700;
@@ -780,7 +807,7 @@ permalink: index.html
   transition: background .2s, transform .15s;
   align-self: flex-start;
 }
-.form-submit:hover { background: var(--gold-lt); transform: translateY(-1px); }
+.form-submit:hover { background: var(--copper-light); transform: translateY(-1px); }
 
 /* map */
 .contact-right {
@@ -810,8 +837,8 @@ permalink: index.html
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge">Halifax &amp; HRM Nova Scotia</div>
-    <h1 class="hero-h1">FLOORS DONE<br><span>RIGHT</span>.<br>STAIRS DONE<br><span>BETTER</span>.</h1>
-    <p class="hero-sub">Halifax's interior finishing specialists — flooring, custom vinyl staircases, tile &amp; trim. For homeowners, property managers, and housing co-ops across HRM.</p>
+    <h1 class="hero-h1">INTERIOR<br><span>FINISHING</span>.<br>EXTERIOR<br><span>RESTORATION</span>.</h1>
+    <p class="hero-sub">Flooring, drywall, siding, decks, staircases and more — for homeowners, property managers, and housing co-ops across Halifax &amp; HRM.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Get a Free Quote &nbsp;→</a>
       <a href="#estimate" class="btn-outline">Quick Ballpark Estimate</a>
@@ -820,8 +847,8 @@ permalink: index.html
   <div class="hero-stats-bar">
     <div class="hero-stats-inner">
       <div class="hero-stat"><div class="hero-stat-num">4.6</div><div class="hero-stat-label">Google Rating</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">2022</div><div class="hero-stat-label">Founded in Halifax</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">6</div><div class="hero-stat-label">Core Services</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">2024</div><div class="hero-stat-label">Founded in Halifax</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">13</div><div class="hero-stat-label">Services Offered</div></div>
       <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Free Estimates</div></div>
     </div>
   </div>
@@ -837,7 +864,7 @@ permalink: index.html
     <div class="svc-header">
       <span class="section-tag">What We Do</span>
       <h2 class="section-h2">Our Services</h2>
-      <p class="section-sub">Interior finishing done by specialists — floors, stairs, tile and trim.</p>
+      <p class="section-sub">Interior finishing and exterior restoration — done right, start to finish.</p>
     </div>
     <!-- cards grid -->
     <div class="svc-grid">
@@ -859,14 +886,13 @@ permalink: index.html
         <span class="svc-link">Learn More →</span>
       </a>
 
-      <a href="custom-vinyl-staircases-halifax.html" class="svc-card svc-card--featured">
+      <a href="custom-vinyl-staircases-halifax.html" class="svc-card">
         <div class="svc-icon">
           <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="4,34 4,24 14,24 14,16 24,16 24,8 34,8 34,34"/>
             <line x1="4" y1="34" x2="34" y2="34"/>
           </svg>
         </div>
-        <div class="svc-featured-tag">Signature Service</div>
         <h3 class="svc-name">Custom Vinyl Staircases</h3>
         <p class="svc-desc">Stunning wrapped vinyl staircases — Halifax's staircase specialists.</p>
         <span class="svc-link">Learn More →</span>
@@ -928,6 +954,35 @@ permalink: index.html
         </div>
         <h3 class="svc-name">Decks &amp; Fences</h3>
         <p class="svc-desc">Custom-built outdoor structures designed for Nova Scotia weather.</p>
+        <span class="svc-link">Learn More →</span>
+      </a>
+
+      <a href="drywall-services-halifax.html" class="svc-card">
+        <div class="svc-icon">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="10" width="32" height="22" rx="1"/>
+            <line x1="3" y1="19" x2="35" y2="19"/>
+            <line x1="19" y1="10" x2="19" y2="32"/>
+            <polyline points="8,6 19,3 30,6"/>
+          </svg>
+        </div>
+        <h3 class="svc-name">Drywall Services</h3>
+        <p class="svc-desc">New installs, patching, taping and finishing — flawless results every time.</p>
+        <span class="svc-link">Learn More →</span>
+      </a>
+
+      <a href="exterior-siding-halifax.html" class="svc-card">
+        <div class="svc-icon">
+          <svg width="38" height="38" viewBox="0 0 38 38" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="4,18 19,5 34,18"/>
+            <polyline points="8,18 8,34 30,34 30,18"/>
+            <line x1="4" y1="20" x2="34" y2="20"/>
+            <line x1="4" y1="25" x2="34" y2="25"/>
+            <line x1="4" y1="30" x2="34" y2="30"/>
+          </svg>
+        </div>
+        <h3 class="svc-name">Exterior Siding</h3>
+        <p class="svc-desc">Vinyl and fibre-cement siding that protects your home for years to come.</p>
         <span class="svc-link">Learn More →</span>
       </a>
 
@@ -1007,7 +1062,7 @@ permalink: index.html
   <div class="why-wrap">
     <div class="why-header">
       <span class="section-tag">Why ETRA PRO</span>
-      <h2 class="section-h2">Halifax's Most Trusted Contractor</h2>
+      <h2 class="section-h2">Interior Finishing &amp; Exterior Restoration — Halifax &amp; HRM</h2>
       <p class="section-sub">We do the job right the first time — no shortcuts, no surprises.</p>
     </div>
     <div class="why-grid">
@@ -1075,19 +1130,19 @@ permalink: index.html
     <div class="port-grid">
       <div class="port-item port-item--tall">
         <img src="images/IMG_9466.webp" alt="Custom vinyl staircase installation Halifax" loading="lazy">
-        <div class="port-label">Custom Vinyl Staircase</div>
+        <div class="port-label">Custom Vinyl Staircase<span class="port-spec">TODO town &middot; TODO house type &middot; TODO scope &middot; TODO duration</span></div>
       </div>
       <div class="port-item">
         <img src="images/IMG_9465.webp" alt="LVP flooring installation Halifax" loading="lazy">
-        <div class="port-label">Flooring Installation</div>
+        <div class="port-label">Flooring Installation<span class="port-spec">TODO town &middot; TODO house type &middot; TODO scope &middot; TODO duration</span></div>
       </div>
       <div class="port-item">
         <img src="images/IMG_9470.webp" alt="Deck construction Halifax" loading="lazy">
-        <div class="port-label">Deck Construction</div>
+        <div class="port-label">Deck Construction<span class="port-spec">TODO town &middot; TODO house type &middot; TODO scope &middot; TODO duration</span></div>
       </div>
       <div class="port-item port-item--tall">
         <img src="images/IMG_9467.webp" alt="Drywall installation Halifax" loading="lazy">
-        <div class="port-label">Drywall Installation</div>
+        <div class="port-label">Drywall Installation<span class="port-spec">TODO town &middot; TODO house type &middot; TODO scope &middot; TODO duration</span></div>
       </div>
     </div>
     <div class="port-cta">
@@ -1175,11 +1230,30 @@ permalink: index.html
 <!-- ─────────────────────────────────
      CONTACT
 ───────────────────────────────── -->
+
+<!-- ─────────────────────────────────
+     AREAS WE SERVE
+───────────────────────────────── -->
+<section id="areas">
+  <div class="areas-wrap">
+    <span class="section-tag">Where We Work</span>
+    <h2 class="section-h2">Areas We Serve</h2>
+    <p class="section-sub">Based in Halifax, working across the whole municipality.</p>
+    <ul class="areas-list">
+      <li>Halifax</li>
+      <li>Dartmouth</li>
+      <li>Bedford</li>
+      <li>Cole Harbour</li>
+      <li>HRM &amp; Surrounding Areas</li>
+    </ul>
+  </div>
+</section>
+
 <section id="contact">
   <div class="contact-wrap">
 
     <div class="contact-left">
-      <span class="section-tag" style="color:var(--gold-lt);">Get In Touch</span>
+      <span class="section-tag" style="color:var(--copper-light);">Get In Touch</span>
       <h2 class="contact-h2">Request a Free Quote</h2>
       <p class="contact-sub">Fill out the form and we'll get back to you within 24 hours. No obligation, ever.</p>
 
