@@ -1,0 +1,13 @@
+{
+  "name": "etrapro",
+  "version": "1.0.0",
+  "description": "ETRA Pro Services website (etra.ca)",
+  "private": true,
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}
