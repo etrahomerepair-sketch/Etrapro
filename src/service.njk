@@ -1,0 +1,18 @@
+---
+pagination:
+  data: services
+  size: 1
+  alias: service
+---
+{% extends "base.njk" %}
+
+{% block head %}
+<title>{{ service.meta_title | safe }}</title>
+<meta name="description" content="{{ service.meta_description | safe }}">
+{% include "services/" + service.slug + "/head.njk" %}{% endblock %}
+
+{% block styles %}{% include "services/" + service.slug + "/styles.njk" %}{% endblock %}
+
+{% block body %}{% include "services/" + service.slug + "/body.njk" %}{% endblock %}
+
+{% block scripts %}{% include "services/" + service.slug + "/scripts.njk" %}{% endblock %}

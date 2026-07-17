@@ -1,0 +1,69 @@
+
+<script>
+// -- SMOOTH SCROLL --
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var id = a.getAttribute('href');
+    if (id === '#') return;
+    var target = document.querySelector(id);
+    if (target) {
+      e.preventDefault();
+      closeMobile();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// -- FORM SUBMISSION --
+document.getElementById('quote-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var form = this;
+  var btn = document.getElementById('formSubmit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    var response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    });
+
+    if (response.ok) {
+      btn.textContent = '\u2713  Request Sent! We\'ll be in touch soon.';
+      btn.style.background = '#2A5C3A';
+      btn.style.color = '#A8DDB8';
+      form.reset();
+      // Re-select the default staircase option after reset
+      document.getElementById('fservice').value = 'Custom Vinyl Staircase';
+      setTimeout(function() {
+        btn.textContent = 'Send My Staircase Quote Request \u2192';
+        btn.style.background = '';
+        btn.style.color = '';
+        btn.disabled = false;
+      }, 4500);
+    } else {
+      throw new Error('Submission failed');
+    }
+  } catch (err) {
+    btn.textContent = 'Something went wrong \u2014 please try again.';
+    btn.style.background = '#5C2A2A';
+    btn.style.color = '#DBA8A8';
+    setTimeout(function() {
+      btn.textContent = 'Send My Staircase Quote Request \u2192';
+      btn.style.background = '';
+      btn.style.color = '';
+      btn.disabled = false;
+    }, 4500);
+  }
+});
+// ── FAQ ACCORDION ──
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>

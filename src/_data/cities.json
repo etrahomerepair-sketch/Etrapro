@@ -1,0 +1,10 @@
+[
+  { "slug": "halifax", "name": "Halifax", "nav_label": "Halifax", "local_context": null },
+  { "slug": "dartmouth", "name": "Dartmouth", "nav_label": "Dartmouth", "local_context": null },
+  { "slug": "bedford", "name": "Bedford", "nav_label": "Bedford", "local_context": null },
+  { "slug": "sackville", "name": "Sackville", "nav_label": "Sackville", "local_context": null },
+  { "slug": "cole-harbour", "name": "Cole Harbour", "nav_label": "Cole Harbour", "local_context": null },
+  { "slug": "fall-river", "name": "Fall River", "nav_label": "Fall River", "local_context": null },
+  { "slug": "timberlea", "name": "Timberlea", "nav_label": "Timberlea", "local_context": null },
+  { "slug": "hammonds-plains", "name": "Hammonds Plains", "nav_label": "Hammonds Plains", "local_context": null }
+]
