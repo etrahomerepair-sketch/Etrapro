@@ -73,7 +73,8 @@
     "draft": false,
     "show_calculator": true,
     "calculator_key": "flooring",
-    "testimonials": []
+    "testimonials": [],
+    "bespoke": true
   },
   {
     "slug": "custom-vinyl-staircases-halifax",
@@ -145,7 +146,8 @@
     "draft": false,
     "show_calculator": true,
     "calculator_key": "stairs",
-    "testimonials": []
+    "testimonials": [],
+    "bespoke": true
   },
   {
     "slug": "drywall-services-halifax",
@@ -223,7 +225,8 @@
     "draft": false,
     "show_calculator": false,
     "calculator_key": null,
-    "testimonials": []
+    "testimonials": [],
+    "bespoke": true
   },
   {
     "slug": "exterior-siding-halifax",
@@ -298,7 +301,8 @@
     "draft": false,
     "show_calculator": false,
     "calculator_key": null,
-    "testimonials": []
+    "testimonials": [],
+    "bespoke": true
   },
   {
     "slug": "decks-fences-halifax",
@@ -385,7 +389,8 @@
     "draft": false,
     "show_calculator": true,
     "calculator_key": "deck",
-    "testimonials": []
+    "testimonials": [],
+    "bespoke": true
   },
   {
     "slug": "carpet-installation-halifax",
@@ -456,7 +461,8 @@
     "draft": false,
     "show_calculator": false,
     "calculator_key": null,
-    "testimonials": []
+    "testimonials": [],
+    "bespoke": true
   },
   {
     "slug": "repairs-renovations-halifax",
@@ -538,6 +544,179 @@
     "draft": false,
     "show_calculator": false,
     "calculator_key": null,
-    "testimonials": []
+    "testimonials": [],
+    "bespoke": true
+  },
+  {
+    "slug": "interior-painting-halifax",
+    "name": "Interior Painting",
+    "category": "interior",
+    "nav_label": "Interior Painting",
+    "meta_title": null,
+    "meta_description": null,
+    "h1": null,
+    "intro": null,
+    "what_we_do": null,
+    "process": null,
+    "faqs": null,
+    "price_range": null,
+    "self_perform": null,
+    "cities": null,
+    "related": [
+      "drywall-services-halifax",
+      "repairs-renovations-halifax",
+      "trim-and-doors-halifax"
+    ],
+    "hero_image": null,
+    "gallery": null,
+    "show_calculator": false,
+    "calculator_key": null,
+    "testimonials": [],
+    "bespoke": false,
+    "copy_todo": true,
+    "draft": true
+  },
+  {
+    "slug": "tile-installation-halifax",
+    "name": "Tile Installation",
+    "category": "interior",
+    "nav_label": "Tile Installation",
+    "meta_title": null,
+    "meta_description": null,
+    "h1": null,
+    "intro": null,
+    "what_we_do": null,
+    "process": null,
+    "faqs": null,
+    "price_range": null,
+    "self_perform": null,
+    "cities": null,
+    "related": [
+      "flooring-installation-halifax",
+      "basement-finishing-halifax",
+      "repairs-renovations-halifax"
+    ],
+    "hero_image": null,
+    "gallery": null,
+    "show_calculator": true,
+    "calculator_key": "tile",
+    "testimonials": [],
+    "bespoke": false,
+    "copy_todo": true,
+    "draft": true
+  },
+  {
+    "slug": "trim-and-doors-halifax",
+    "name": "Trim & Doors",
+    "category": "interior",
+    "nav_label": "Trim & Doors",
+    "meta_title": null,
+    "meta_description": null,
+    "h1": null,
+    "intro": null,
+    "what_we_do": null,
+    "process": null,
+    "faqs": null,
+    "price_range": null,
+    "self_perform": null,
+    "cities": null,
+    "related": [
+      "flooring-installation-halifax",
+      "drywall-services-halifax",
+      "interior-painting-halifax"
+    ],
+    "hero_image": null,
+    "gallery": null,
+    "show_calculator": true,
+    "calculator_key": "trim",
+    "testimonials": [],
+    "bespoke": false,
+    "copy_todo": true,
+    "draft": true
+  },
+  {
+    "slug": "basement-finishing-halifax",
+    "name": "Basement Finishing",
+    "category": "interior",
+    "nav_label": "Basement Finishing",
+    "meta_title": null,
+    "meta_description": null,
+    "h1": null,
+    "intro": null,
+    "what_we_do": null,
+    "process": null,
+    "faqs": null,
+    "price_range": null,
+    "self_perform": null,
+    "cities": null,
+    "related": [
+      "drywall-services-halifax",
+      "flooring-installation-halifax",
+      "interior-painting-halifax"
+    ],
+    "hero_image": null,
+    "gallery": null,
+    "show_calculator": false,
+    "calculator_key": null,
+    "testimonials": [],
+    "bespoke": false,
+    "copy_todo": true,
+    "draft": true
+  },
+  {
+    "slug": "deck-staining-halifax",
+    "name": "Deck Staining",
+    "category": "exterior",
+    "nav_label": "Deck Staining",
+    "meta_title": null,
+    "meta_description": null,
+    "h1": null,
+    "intro": null,
+    "what_we_do": null,
+    "process": null,
+    "faqs": null,
+    "price_range": null,
+    "self_perform": null,
+    "cities": null,
+    "related": [
+      "decks-fences-halifax",
+      "exterior-siding-halifax"
+    ],
+    "hero_image": null,
+    "gallery": null,
+    "show_calculator": false,
+    "calculator_key": null,
+    "testimonials": [],
+    "bespoke": false,
+    "copy_todo": true,
+    "draft": true
+  },
+  {
+    "slug": "gutter-services-halifax",
+    "name": "Gutter Services",
+    "category": "exterior",
+    "nav_label": "Gutter Services",
+    "meta_title": null,
+    "meta_description": null,
+    "h1": null,
+    "intro": null,
+    "what_we_do": null,
+    "process": null,
+    "faqs": null,
+    "price_range": null,
+    "self_perform": null,
+    "cities": null,
+    "related": [
+      "exterior-siding-halifax",
+      "repairs-renovations-halifax"
+    ],
+    "hero_image": null,
+    "gallery": null,
+    "show_calculator": false,
+    "calculator_key": null,
+    "testimonials": [],
+    "bespoke": false,
+    "copy_todo": true,
+    "draft": true
   }
 ]

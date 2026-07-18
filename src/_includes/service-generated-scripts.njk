@@ -1,0 +1,63 @@
+<script>
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    const target = document.querySelector(id);
+    if (target) {
+      e.preventDefault();
+      closeMobile();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+{% if service.show_calculator and service.calculator_key %}
+// ── CALCULATOR (rates from pricing.json) ──
+const gsvcRates = {{ pricing[service.calculator_key] | dump | safe }};
+document.getElementById('gsvcCalcBtn').addEventListener('click', () => {
+  const qty = Math.max(1, Number(document.getElementById('gsvcSize').value || 1));
+  const finish = document.getElementById('gsvcFinish').value;
+  const [low, high] = gsvcRates[finish];
+  const money = n => '$' + Math.round(n).toLocaleString();
+  document.getElementById('gsvcCalcRange').textContent = `${money(qty * low)} – ${money(qty * high)}`;
+  document.getElementById('gsvcCalcDetail').textContent =
+    `Based on ${qty.toLocaleString()} ${gsvcRates.unit} of ${gsvcRates.label} work at a ${finish} finish level.`;
+  document.getElementById('gsvcCalcResult').classList.add('show');
+});
+{% endif %}
+
+// ── FORM SUBMIT (Netlify) ──
+document.getElementById('quote-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = this;
+  const btn = document.getElementById('formSubmit');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  try {
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    });
+    if (!response.ok) throw new Error('Submission failed');
+    btn.textContent = '✓  Request Sent! We\'ll be in touch soon.';
+    form.reset();
+    setTimeout(() => { btn.textContent = 'Send My Quote Request →'; btn.disabled = false; }, 4500);
+  } catch (err) {
+    btn.textContent = 'Something went wrong — please call {{ site.phone_display }}.';
+    setTimeout(() => { btn.textContent = 'Send My Quote Request →'; btn.disabled = false; }, 4500);
+  }
+});
+
+// ── FAQ ACCORDION ──
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>

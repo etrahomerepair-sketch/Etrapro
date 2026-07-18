@@ -2,11 +2,23 @@ module.exports = function (eleventyConfig) {
   // Static assets copied through unchanged
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
-  eleventyConfig.addPassthroughCopy("src/sitemap.xml");
 
   // Internal standalone page: copied verbatim, never templated
   eleventyConfig.ignores.add("src/BrandIdentity.html");
   eleventyConfig.addPassthroughCopy("src/BrandIdentity.html");
+
+  // FAQPage JSON-LD from a services.json faqs array
+  eleventyConfig.addFilter("faqSchema", (faqs) =>
+    JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": (faqs || []).map((f) => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+      })),
+    })
+  );
 
   return {
     dir: {

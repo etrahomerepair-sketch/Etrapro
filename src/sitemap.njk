@@ -1,0 +1,23 @@
+---
+permalink: sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/</loc>
+    <lastmod>{{ lastmod.home }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+{% for s in services %}{% if not s.draft %}  <url>
+    <loc>{{ site.url }}/{{ s.slug }}</loc>
+    <lastmod>{{ lastmod.services[s.slug] or lastmod.fallback }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{% endif %}{% endfor %}{#
+  City pages join here automatically once a city template exists.
+  cities.json entries have no pages yet — listing URLs that 404 is worse
+  than omitting them, so they are excluded until then.
+#}</urlset>

@@ -3,16 +3,68 @@ pagination:
   data: services
   size: 1
   alias: service
+permalink: "{{ service.slug }}.html"
 ---
 {% extends "base.njk" %}
 
 {% block head %}
 <title>{{ service.meta_title | safe }}</title>
 <meta name="description" content="{{ service.meta_description | safe }}">
-{% include "services/" + service.slug + "/head.njk" %}{% endblock %}
+{% if service.bespoke %}{% include "services/" + service.slug + "/head.njk" %}{% else %}<link rel="canonical" href="{{ site.url }}/{{ service.slug }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site.url }}/{{ service.slug }}">
+<meta property="og:title" content="{{ service.meta_title | safe }}">
+<meta property="og:description" content="{{ service.meta_description | safe }}">
+<meta property="og:site_name" content="{{ site.company }}">
+{% set serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": service.name,
+  "serviceType": service.name,
+  "url": site.url + "/" + service.slug,
+  "areaServed": { "@type": "AdministrativeArea", "name": site.service_area },
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": site.company,
+    "telephone": site.phone_e164,
+    "email": site.email,
+    "url": site.url,
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": site.review_rating,
+      "reviewCount": site.review_count
+    }
+  }
+} %}
+<script type="application/ld+json">{{ serviceSchema | dump | safe }}</script>
+{% if service.faqs %}<script type="application/ld+json">{{ service.faqs | faqSchema | safe }}</script>
+{% endif %}{% endif %}
+{% set breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": site.url + "/" },
+    { "@type": "ListItem", "position": 2, "name": service.name, "item": site.url + "/" + service.slug }
+  ]
+} %}
+<script type="application/ld+json">{{ breadcrumbSchema | dump | safe }}</script>
+{% endblock %}
 
-{% block styles %}{% include "services/" + service.slug + "/styles.njk" %}{% endblock %}
+{% block styles %}{% if service.bespoke %}{% include "services/" + service.slug + "/styles.njk" %}{% else %}{% include "service-generated-styles.njk" %}{% endif %}{% endblock %}
 
-{% block body %}{% include "services/" + service.slug + "/body.njk" %}{% endblock %}
+{% block body %}{% if service.bespoke %}{% include "services/" + service.slug + "/body.njk" %}{% else %}{% include "service-generated-body.njk" %}{% endif %}
+{% if service.related %}
+<!-- related services — rendered from services.json, not by hand -->
+<section class="related-strip">
+  <div class="related-strip-inner">
+    <span class="related-strip-tag">More From ETRA Pro</span>
+    <nav class="related-strip-links" aria-label="Related services">
+      {%- for s in services %}{% if not s.draft and s.slug in service.related %}
+      <a href="{{ s.slug }}.html">{{ s.nav_label }}</a>
+      {%- endif %}{% endfor %}
+    </nav>
+  </div>
+</section>
+{% endif %}{% endblock %}
 
-{% block scripts %}{% include "services/" + service.slug + "/scripts.njk" %}{% endblock %}
+{% block scripts %}{% if service.bespoke %}{% include "services/" + service.slug + "/scripts.njk" %}{% else %}{% include "service-generated-scripts.njk" %}{% endif %}{% endblock %}

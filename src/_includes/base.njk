@@ -246,6 +246,39 @@ ul { list-style: none; }
 }
 
 /* ─────────────────────────────────
+   RELATED SERVICES STRIP
+───────────────────────────────── */
+.related-strip {
+  background: var(--ink);
+  border-top: var(--rule-w) solid var(--rule);
+  padding: 34px 5%;
+}
+.related-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.related-strip-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--copper);
+  flex-shrink: 0;
+}
+.related-strip-links { display: flex; gap: 22px; flex-wrap: wrap; }
+.related-strip-links a {
+  color: var(--muted);
+  font-size: 13.5px;
+  transition: color .2s;
+}
+.related-strip-links a:hover { color: var(--bone); }
+
+/* ─────────────────────────────────
    FOOTER
 ───────────────────────────────── */
 footer {
@@ -379,13 +412,9 @@ footer {
     <div class="nav-dropdown">
       <a href="{{ p }}#services" class="nav-dropdown-toggle" aria-haspopup="true">Services <svg width="9" height="6" viewBox="0 0 9 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l3.5 3.5L8 1"/></svg></a>
       <div class="nav-dropdown-menu">
-        <a href="flooring-installation-halifax.html">Flooring Installation</a>
-        <a href="custom-vinyl-staircases-halifax.html">Custom Vinyl Staircases</a>
-        <a href="drywall-services-halifax.html">Drywall Services</a>
-        <a href="exterior-siding-halifax.html">Exterior Siding</a>
-        <a href="decks-fences-halifax.html">Decks &amp; Fences</a>
-        <a href="carpet-installation-halifax.html">Carpet Installation</a>
-        <a href="repairs-renovations-halifax.html">Repairs &amp; Renovations</a>
+        {%- for s in services %}{% if not s.draft %}
+        <a href="{{ s.slug }}.html">{{ s.nav_label }}</a>
+        {%- endif %}{% endfor %}
       </div>
     </div>
     <a href="{{ p }}#areas">Areas We Serve</a>
@@ -401,13 +430,9 @@ footer {
 <!-- MOBILE NAV -->
 <nav class="mobile-nav" id="mobileNav">
   <span class="mobile-nav-group">Services</span>
-  <a href="flooring-installation-halifax.html" class="mobile-nav-sub" onclick="closeMobile()">Flooring Installation</a>
-  <a href="custom-vinyl-staircases-halifax.html" class="mobile-nav-sub" onclick="closeMobile()">Custom Vinyl Staircases</a>
-  <a href="drywall-services-halifax.html" class="mobile-nav-sub" onclick="closeMobile()">Drywall Services</a>
-  <a href="exterior-siding-halifax.html" class="mobile-nav-sub" onclick="closeMobile()">Exterior Siding</a>
-  <a href="decks-fences-halifax.html" class="mobile-nav-sub" onclick="closeMobile()">Decks &amp; Fences</a>
-  <a href="carpet-installation-halifax.html" class="mobile-nav-sub" onclick="closeMobile()">Carpet Installation</a>
-  <a href="repairs-renovations-halifax.html" class="mobile-nav-sub" onclick="closeMobile()">Repairs &amp; Renovations</a>
+  {%- for s in services %}{% if not s.draft %}
+  <a href="{{ s.slug }}.html" class="mobile-nav-sub" onclick="closeMobile()">{{ s.nav_label }}</a>
+  {%- endif %}{% endfor %}
   <a href="{{ p }}#areas" onclick="closeMobile()">Areas We Serve</a>
   <a href="{{ p }}#portfolio" onclick="closeMobile()">Portfolio</a>
   <a href="{{ contactHref }}" onclick="closeMobile()">Contact</a>
@@ -440,13 +465,9 @@ footer {
     <div class="footer-col">
       <h5 class="footer-col-title">Services</h5>
       <ul class="footer-links">
-        <li><a href="flooring-installation-halifax.html">Flooring Installation</a></li>
-        <li><a href="custom-vinyl-staircases-halifax.html">Custom Vinyl Staircases</a></li>
-        <li><a href="drywall-services-halifax.html">Drywall Services</a></li>
-        <li><a href="exterior-siding-halifax.html">Exterior Siding</a></li>
-        <li><a href="decks-fences-halifax.html">Decks &amp; Fences</a></li>
-        <li><a href="carpet-installation-halifax.html">Carpet Installation</a></li>
-        <li><a href="repairs-renovations-halifax.html">Repairs &amp; Renovations</a></li>
+        {%- for s in services %}{% if not s.draft %}
+        <li><a href="{{ s.slug }}.html">{{ s.nav_label }}</a></li>
+        {%- endif %}{% endfor %}
         <li><a href="{{ p }}#property-managers">Unit Turnovers</a></li>
         <li><a href="https://app.etra.ca/intake.html" target="_blank" rel="noopener noreferrer">Tile &amp; Bathrooms</a></li>
         <li><a href="https://app.etra.ca/intake.html" target="_blank" rel="noopener noreferrer">Trim &amp; Finish Carpentry</a></li>

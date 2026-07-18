@@ -34,8 +34,14 @@ permalink: index.html
     "@type": "AdministrativeArea",
     "name": "Halifax Regional Municipality, Nova Scotia"
   },
-  "sameAs": ["{{ site.instagram }}"],
+  "sameAs": ["{{ site.instagram }}", "{{ site.facebook }}", "{{ site.gbp_url }}"],
   "priceRange": "$$",
+  "foundingDate": "{{ site.founding_year }}",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": {{ site.review_rating }},
+    "reviewCount": {{ site.review_count }}
+  },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Interior Finishing & Exterior Restoration",
@@ -54,6 +60,15 @@ permalink: index.html
   }
 }
 
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/"}
+  ]
+}
 </script>
 <link rel="preload" as="image" href="images/IMG_9465.webp">
 {% endblock %}

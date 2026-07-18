@@ -1,0 +1,146 @@
+<!-- Generated service landing: standalone page, all content from services.json -->
+<section class="gsvc-hero">
+  <div class="gsvc-hero-inner">
+    <div class="gsvc-eyebrow">{{ service.category | upper }} &middot; {{ site.service_area | upper }}</div>
+    <h1 class="gsvc-h1">{{ service.h1 }}</h1>
+    {%- for para in service.intro %}
+    <p>{{ para }}</p>
+    {%- endfor %}
+    <div class="gsvc-hero-actions">
+      <a href="#quote-form" class="btn-copper">Get a Free Quote →</a>
+      <a href="tel:{{ site.phone_e164 }}" class="btn-ghost">Call {{ site.phone_display }}</a>
+    </div>
+  </div>
+</section>
+
+{% if service.what_we_do %}
+<section class="gsvc-section">
+  <div class="gsvc-inner">
+    <span class="section-tag">What We Do</span>
+    <h2 class="section-h2">{{ service.name }}</h2>
+    <ul class="gsvc-list">
+      {%- for item in service.what_we_do %}
+      <li>{{ item }}</li>
+      {%- endfor %}
+    </ul>
+    {% if service.price_range %}<p class="gsvc-price">{{ service.price_range }}</p>{% endif %}
+  </div>
+</section>
+{% endif %}
+
+{% if service.process %}
+<section class="gsvc-section">
+  <div class="gsvc-inner">
+    <span class="section-tag">How It Works</span>
+    <h2 class="section-h2">The Process</h2>
+    <ol class="gsvc-steps">
+      {%- for step in service.process %}
+      <li>{{ step }}</li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+{% endif %}
+
+{% if service.show_calculator and service.calculator_key %}
+<section class="gsvc-section" id="estimate">
+  <div class="gsvc-inner">
+    <span class="section-tag">Quick Ballpark</span>
+    <h2 class="section-h2">Get a Rough Range</h2>
+    <p class="section-sub">Not a final quote — a planning tool. Final pricing depends on site conditions, prep, materials, access, and scope.</p>
+    <div class="gsvc-calc">
+      <label for="gsvcSize">Size ({{ pricing[service.calculator_key].unit }})</label>
+      <input id="gsvcSize" type="number" min="1" value="100" inputmode="numeric">
+      <label for="gsvcFinish">Finish Level</label>
+      <select id="gsvcFinish">
+        <option value="standard">Standard</option>
+        <option value="premium">Premium</option>
+        <option value="complex">Complex / custom</option>
+      </select>
+      <div style="margin-top:20px;"><button type="button" class="btn-copper" id="gsvcCalcBtn">Calculate Range →</button></div>
+      <div class="gsvc-calc-result" id="gsvcCalcResult" aria-live="polite">
+        <div class="gsvc-calc-range" id="gsvcCalcRange"></div>
+        <p class="gsvc-calc-note" id="gsvcCalcDetail"></p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if service.gallery %}
+<section class="gsvc-section">
+  <div class="gsvc-inner">
+    <span class="section-tag">Our Work</span>
+    <h2 class="section-h2">Recent Projects</h2>
+    <div class="gsvc-gallery">
+      {%- for img in service.gallery %}
+      <img src="{{ img }}" alt="{{ service.name }} — {{ site.service_area }}" loading="lazy">
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if service.testimonials.length %}
+<section class="gsvc-section">
+  <div class="gsvc-inner">
+    <span class="section-tag">Reviews</span>
+    <h2 class="section-h2">What Customers Say</h2>
+    <div class="gsvc-reviews">
+      {%- for t in service.testimonials %}
+      <div class="gsvc-review">
+        <div class="gsvc-review-stars">{% for i in range(0, t.rating) %}★{% endfor %}</div>
+        <p class="gsvc-review-text">"{{ t.text }}"</p>
+        <div class="gsvc-review-author">{{ t.author }}{% if t.location %} &middot; {{ t.location }}{% endif %} &middot; Google</div>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if service.faqs %}
+<section class="gsvc-section">
+  <div class="gsvc-inner">
+    <span class="section-tag">FAQ</span>
+    <h2 class="section-h2">Common Questions</h2>
+    <div class="gsvc-faq">
+      {%- for f in service.faqs %}
+      <div class="faq-item">
+        <button class="faq-q">{{ f.question }}<span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">{{ f.answer }}</div></div>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="gsvc-section gsvc-section--ink" id="quote-form-section">
+  <div class="gsvc-inner">
+    <span class="section-tag">Free Quote</span>
+    <h2 class="section-h2">Get a Free Quote</h2>
+    <p class="section-sub">Tell us about the job and we'll get back to you within 24 hours.</p>
+    <form id="quote-form" class="gsvc-form" name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="service" value="{{ service.name }}">
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <div class="form-row">
+        <label for="fname">Name *</label>
+        <input id="fname" name="name" type="text" required>
+      </div>
+      <div class="form-row">
+        <label for="femail">Email *</label>
+        <input id="femail" name="email" type="email" required>
+      </div>
+      <div class="form-row">
+        <label for="fphone">Phone</label>
+        <input id="fphone" name="phone" type="tel">
+      </div>
+      <div class="form-row">
+        <label for="fmessage">About the job</label>
+        <textarea id="fmessage" name="message" rows="4"></textarea>
+      </div>
+      <button id="formSubmit" type="submit" class="btn-copper">Send My Quote Request →</button>
+    </form>
+  </div>
+</section>
