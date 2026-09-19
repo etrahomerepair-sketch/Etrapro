@@ -121,6 +121,34 @@ Ethan. `card-turnover.webp` is still in use on /interior.
 The owners section renders without a photo (`lander.ownersImage` is unset).
 Set it once a real photo of Ravin and Ethan exists.
 
+### Second photo drop (Dropbox `/Photos`, 2026-09-19)
+
+All checked for EXIF before use; every one carries genuine iPhone 14 Pro Max
+or iPhone 16 Plus capture data. In use now:
+
+| Image | Shot | Where |
+|-------|------|-------|
+| `stairs-lvp.webp` | 2026-08-14 | /interior hero, home work card |
+| `tile-hall.webp` | 2026-09-18 | /interior work |
+| `carpet-stairs.webp` | 2025-12-05 | /interior work, carpet page hero |
+| `subfloor-damage.webp` | 2026-09-04 | /interior work (a real before) |
+| `crew-jamb.webp` | 2026-08-12 | flooring page hero |
+| `deck-woodland.webp` | 2026-06-19 | /exterior hero, home work card |
+| `deck-weathered.webp` | 2026-05-24 | /exterior work |
+
+Two were cropped only to remove the photographer's own feet or laundry at
+the frame edge. `crew-jamb` shows a crew member's face; alt text describes
+them as a crew member and names nobody, since it is not confirmed to be
+Ravin or Ethan.
+
+**Open question — the deck before/after.** `deck-weathered` (May 24, a
+weathered elevated deck on a white-sided house) is plausibly the same
+property as the June 19 Bedford rebuild, but it is not confirmed. It
+therefore runs as its own card, "Weathered deck, before rebuild", and is
+*not* paired with the finished deck as a before/after. If Ravin confirms
+they are the same job, it can become a genuine before/after — the first the
+site would have.
+
 ## Confirmed job locations
 
 - Deck rebuild — **Bedford** (owner-confirmed 2026-09-19)
