@@ -6,8 +6,8 @@
       <div class="form-fields" id="formFields">
         <h2>Get your free estimate in 30 seconds</h2>
         <p class="form-lead">Tell us about your project &mdash; owners review every request. No obligation.</p>
-        <form id="estimateForm" name="estimate-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-          <input type="hidden" name="form-name" value="estimate-request">
+        <form id="estimateForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contact">
           <input type="hidden" name="source-page" value="{{ formSource }}">
           <p class="hp-field"><label>Leave this empty: <input name="bot-field"></label></p>
           <div class="form-grid cols-2 cols-desktop">
@@ -38,7 +38,7 @@
             </div>
             <div class="field span-2 full span-4">
               <label for="notes">Notes</label>
-              <textarea id="notes" name="notes" placeholder="{{ notesPlaceholder }}"></textarea>
+              <textarea id="notes" name="message" placeholder="{{ notesPlaceholder }}"></textarea>
             </div>
             <div class="field span-4 full">
               <button class="btn btn-primary form-submit" type="submit" id="formSubmit">Get my free estimate <span aria-hidden="true">&rarr;</span></button>
