@@ -27,7 +27,7 @@
               <label for="service">Service type</label>
               <select id="service" name="service" required>
                 <option value="" disabled{% if not serviceDefault %} selected{% endif %}>Select a service</option>
-                {%- for opt in serviceOptions %}
+                {%- for opt in site.form_options %}
                 <option{% if opt == serviceDefault %} selected{% endif %}>{{ opt }}</option>
                 {%- endfor %}
               </select>

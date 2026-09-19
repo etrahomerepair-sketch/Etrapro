@@ -10,5 +10,16 @@
   "review_rating": 4.6,
   "url": "https://etra.ca",
   "instagram": "https://www.instagram.com/etra_hfx",
-  "facebook": "https://www.facebook.com/p/ETRA-Pro-Services-61564513751640/"
+  "facebook": "https://www.facebook.com/p/ETRA-Pro-Services-61564513751640/",
+  "form_options": [
+    "Flooring",
+    "Carpet",
+    "Stairs",
+    "Drywall",
+    "Decks & fences",
+    "Siding",
+    "Repairs & renovations",
+    "Unit turnover",
+    "Other"
+  ]
 }

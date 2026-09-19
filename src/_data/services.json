@@ -253,7 +253,7 @@
       "Full-Service Contracting — Need flooring, paint prep, or trim work alongside your drywall? We handle multiple trades so you don't need to coordinate separate contractors.",
       "Serving All of HRM — Halifax, Dartmouth, Bedford, Sackville, Cole Harbour, Fall River, and everywhere in between. We come to you."
     ],
-    "form_default": "Other"
+    "form_default": "Drywall"
   },
   {
     "slug": "exterior-siding-halifax",
@@ -334,7 +334,7 @@
       "Experienced with older Halifax homes and new HRM builds",
       "Storm damage repair and insurance-related work"
     ],
-    "form_default": "Decks & exterior"
+    "form_default": "Siding"
   },
   {
     "slug": "decks-fences-halifax",
@@ -425,7 +425,7 @@
       "One Team, Full Project — No subcontractors you've never met. Our crew handles the entire build from footings to finish. One point of contact, consistent quality.",
       "Clean & Professional — We show up on time, work clean, and leave your property looking better than we found it. Full cleanup and walkthrough on every project."
     ],
-    "form_default": "Decks & exterior"
+    "form_default": "Decks & fences"
   },
   {
     "slug": "carpet-installation-halifax",
@@ -503,7 +503,7 @@
       "FULL-SERVICE APPROACH — We handle tear-out, subfloor prep, and installation all under one roof. No juggling multiple contractors or scheduling headaches.",
       "CLEAN JOBSITE, EVERY TIME — We work clean and leave your home the way we found it. Carpet scraps, old underpad, and debris are removed before we walk out the door."
     ],
-    "form_default": "Flooring"
+    "form_default": "Carpet"
   },
   {
     "slug": "repairs-renovations-halifax",
@@ -594,7 +594,7 @@
       "Licensed, insured, and locally trusted in HRM",
       "We genuinely take on jobs of all sizes"
     ],
-    "form_default": "Other"
+    "form_default": "Repairs & renovations"
   },
   {
     "slug": "interior-painting-halifax",
@@ -625,7 +625,7 @@
     "copy_todo": true,
     "draft": true,
     "why_us": null,
-    "form_default": null
+    "form_default": "Repairs & renovations"
   },
   {
     "slug": "tile-installation-halifax",
@@ -656,7 +656,7 @@
     "copy_todo": true,
     "draft": true,
     "why_us": null,
-    "form_default": null
+    "form_default": "Flooring"
   },
   {
     "slug": "trim-and-doors-halifax",
@@ -687,7 +687,7 @@
     "copy_todo": true,
     "draft": true,
     "why_us": null,
-    "form_default": null
+    "form_default": "Repairs & renovations"
   },
   {
     "slug": "basement-finishing-halifax",
@@ -718,7 +718,7 @@
     "copy_todo": true,
     "draft": true,
     "why_us": null,
-    "form_default": null
+    "form_default": "Repairs & renovations"
   },
   {
     "slug": "deck-staining-halifax",
@@ -748,7 +748,7 @@
     "copy_todo": true,
     "draft": true,
     "why_us": null,
-    "form_default": null
+    "form_default": "Decks & fences"
   },
   {
     "slug": "gutter-services-halifax",
@@ -778,6 +778,6 @@
     "copy_todo": true,
     "draft": true,
     "why_us": null,
-    "form_default": null
+    "form_default": "Siding"
   }
 ]
