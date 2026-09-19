@@ -36,6 +36,33 @@
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
 
+/* Homepage: no hero photo — the choice carries the page, so keep the hero
+   tight and let the chooser sit as high as possible. */
+.hero--solo { padding: 1.75rem 0 0.25rem; }
+.hero-grid--solo { grid-template-columns: 1fr !important; }
+.hero-grid--solo .hero-sub { max-width: 40rem; }
+.hero--solo + .chooser { padding-top: 1.75rem; }
+@media (min-width: 900px) { .hero--solo { padding: 2.5rem 0 0.25rem; } }
+
+/* Large chooser cards (homepage) */
+.chooser-grid--lg .chooser-card {
+  grid-template-columns: 1fr;
+  padding: 0;
+  overflow: hidden;
+  align-items: stretch;
+}
+.chooser-grid--lg .chooser-thumb {
+  width: 100%; height: 190px; border-radius: 0;
+}
+.chooser-grid--lg .chooser-card > span:nth-child(2) { padding: 1.1rem 1.25rem 0.35rem; }
+.chooser-grid--lg .chooser-card h3 { font-size: 1.3rem; }
+.chooser-grid--lg .chooser-card p { font-size: 0.97rem; }
+.chooser-grid--lg .chooser-arrow {
+  padding: 0 1.25rem 1.15rem; text-align: left;
+  font-size: 0.95rem; font-weight: 600;
+}
+@media (min-width: 640px) { .chooser-grid--lg .chooser-thumb { height: 220px; } }
+
 /* Estimate form */
 .estimate { padding: 0 0 2.5rem; margin-top: -0.5rem; }
 .form-card {

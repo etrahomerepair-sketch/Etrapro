@@ -11,8 +11,8 @@
 </div>
 {%- endif %}
 
-<section class="hero">
-  <div class="wrap hero-grid">
+<section class="hero{% if not lander.heroImage %} hero--solo{% endif %}">
+  <div class="wrap hero-grid{% if not lander.heroImage %} hero-grid--solo{% endif %}">
     <div>
       <div class="eyebrow">{{ lander.eyebrow }}</div>
       <h1>{{ lander.h1 }}</h1>
@@ -29,10 +29,12 @@
         <span>Local crew</span>
       </div>
     </div>
+    {%- if lander.heroImage %}
     <div class="hero-media">
       <img src="images/{{ lander.heroImage }}" alt="{{ lander.heroAlt }}" width="1400" height="1867" fetchpriority="high">
       <div class="hero-media-badge">{{ lander.heroBadge }}</div>
     </div>
+    {%- endif %}
   </div>
 </section>
 
@@ -43,7 +45,7 @@
       <h2>What can we quote for you?</h2>
       <p>Pick one and we&rsquo;ll take you straight to the right page.</p>
     </div>
-    <div class="chooser-grid">
+    <div class="chooser-grid{% if lander.chooserLarge %} chooser-grid--lg{% endif %}">
       <a class="chooser-card" href="/interior" data-intent="interior">
         <span class="chooser-thumb"><img src="images/hero-stairs.webp" alt="" width="96" height="76" loading="lazy"></span>
         <span>
@@ -72,6 +74,7 @@
 {%- set notesPlaceholder = lander.notesPlaceholder -%}
 {% include "estimate-form.njk" %}
 
+{%- if lander.focus %}
 <section class="focus" id="services">
   <div class="wrap">
     <div class="section-head">
@@ -92,6 +95,7 @@
     {%- endif %}
   </div>
 </section>
+{%- endif %}
 
 {%- if lander.work %}
 <section id="work">

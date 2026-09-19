@@ -1,33 +1,15 @@
 ---
 permalink: index.html
 lander:
-  eyebrow: "Halifax & HRM · Flooring & stairs"
-  h1: "Local flooring, done right."
-  sub: "Free estimates for flooring & stairs across Halifax & HRM. Clean installs, honest quotes, local crew."
-  heroImage: "hero-stairs.webp"
-  heroAlt: "Finished light wood-look vinyl staircase installed by ETRA Pro Services"
-  heroBadge: "Stairs · HRM"
+  eyebrow: "Halifax & HRM"
+  h1: "Inside and out, done right."
+  sub: "Interior finishing and exterior work across Halifax & HRM. Free estimates, clean installs, honest quotes, local crew."
   chooser: true
+  chooserLarge: true
   formSource: "home"
   serviceOptions: ["Flooring", "Stairs", "Unit turnover", "Decks & exterior", "Other"]
-  notesPlaceholder: "Room count, material preference, timing…"
-  focusHeading: "What we focus on"
-  focusLead: "The three we get asked for most. Everything else is on the interior and exterior pages."
-  focus:
-    - icon: "▣"
-      title: "Flooring"
-      body: "LVP, hardwood, laminate, and honest subfloor prep so the finish lasts."
-      href: "/flooring-installation-halifax"
-    - icon: "▦"
-      title: "Stairs"
-      body: "Custom vinyl wraps and stair work matched to your adjoining floors."
-      href: "/custom-vinyl-staircases-halifax"
-    - icon: "⌂"
-      title: "Decks & fences"
-      body: "Deck rebuilds, composite installs, and fencing across HRM."
-      href: "/decks-fences-halifax"
-  moreServices: 'Also drywall, carpet, siding and repairs — see <a href="/interior">Interior</a> or <a href="/exterior">Exterior</a>, or just describe the job on the form.'
-  workLead: "Real job photos from ETRA crews across HRM."
+  notesPlaceholder: "Tell us what you need — inside, outside, or both."
+  workLead: "Recent jobs from ETRA crews across HRM."
   work:
     - image: "work-flooring.webp"
       alt: "Light wood-look vinyl plank flooring mid-install with cutting tools and material staged"
@@ -44,8 +26,8 @@ lander:
       loc: "Bedford"
       title: "Deck rebuild"
       body: "Rebuilt deck surface and railings."
-  howLead: "Simple path from first message to finished work."
-  step1: "room count, material preference, and your area in HRM."
+  howLead: "Same three steps whatever the job."
+  step1: "what you need done, roughly when, and your area in HRM."
   owners: true
   reviews:
     - stars: "★★★★★"
@@ -54,27 +36,26 @@ lander:
       text: "Honest free estimate for our Halifax condo flooring — no pressure, solid workmanship."
     - stars: "★★★★☆"
       text: "Reliable for unit turnovers — photo updates and on-time finish for our PM schedule."
-  ballpark: ["flooring", "stairs"]
 ---
 {% extends "base.njk" %}
 
 {% block head %}
-<title>{{ site.company }} — Local flooring, done right | Halifax &amp; HRM</title>
-<meta name="description" content="Free estimates for flooring &amp; stairs across Halifax &amp; HRM. Local crew. Call {{ site.phone_display }}.">
+<title>{{ site.company }} — Interior finishing &amp; exterior work | Halifax &amp; HRM</title>
+<meta name="description" content="Flooring, stairs, decks, fences and siding across Halifax &amp; HRM. Free estimates from a local crew. Call {{ site.phone_display }}.">
 <link rel="canonical" href="{{ site.url }}/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ site.url }}/">
-<meta property="og:title" content="{{ site.company }} — Local flooring, done right | Halifax &amp; HRM">
-<meta property="og:description" content="Free estimates for flooring &amp; stairs across Halifax &amp; HRM. Local crew. Call {{ site.phone_display }}.">
+<meta property="og:title" content="{{ site.company }} — Interior finishing &amp; exterior work | Halifax &amp; HRM">
+<meta property="og:description" content="Flooring, stairs, decks, fences and siding across Halifax &amp; HRM. Free estimates from a local crew. Call {{ site.phone_display }}.">
 <meta property="og:site_name" content="{{ site.company }}">
 <meta name="twitter:card" content="summary">
-<link rel="preload" as="image" href="images/hero-stairs.webp" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero-stairs.webp">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "name": {{ site.company | dump | safe }},
-  "description": "Flooring, stairs, decks and interior finishing across Halifax & HRM.",
+  "description": "Interior finishing and exterior work across Halifax & HRM — flooring, stairs, drywall, carpet, decks, fences and siding.",
   "url": "{{ site.url }}",
   "telephone": "{{ site.phone_e164 }}",
   "email": "{{ site.email }}",
