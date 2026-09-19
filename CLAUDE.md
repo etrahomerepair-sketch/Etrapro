@@ -43,10 +43,9 @@ Do **not** start a fresh Next.js or static rebuild that discards it.
 
 ## Google reviews
 
-Keep rating **4.6** and `review_count: 14` in schema for now; both match
-existing live-site copy. `14` is worth confirming against the Google Business
-Profile once, since it now appears in structured data. If it cannot be
-confirmed, drop the count from schema and keep the 4.6 rating alone.
+Rating **4.6** and `review_count: 14` are **confirmed by the owner**
+(2026-09-19) and are published in structured data on all three landers.
+Re-check the count if the Business Profile moves.
 
 ## Branch
 
@@ -67,6 +66,46 @@ Point each campaign at the lander that matches its creative, not at `/`:
 All three are Direction B landers with the estimate form directly under the
 hero. Each submission carries a hidden `source-page` field (`home`,
 `interior-lander`, `exterior-lander`) so leads can be attributed per campaign.
+
+## Photo provenance — read before adding any image
+
+EXIF across the supplied handoff set:
+
+| File | Camera | Taken |
+|------|--------|-------|
+| `hero-stairs.jpg` | iPhone 14 Pro Max | 2026-02-17 |
+| `deck-rebuild/before.jpg` | iPhone 14 Pro Max | 2026-06-19 12:54:25 |
+| `deck-rebuild/01-removal.jpg` | iPhone 14 Pro Max | 2026-06-19 12:54:27 |
+| `deck-rebuild/05-finished.jpg` | iPhone 14 Pro Max | 2026-06-19 12:54:34 |
+| `deck-rebuild/after.jpg` | iPhone 14 Pro Max | 2026-06-19 12:54:39 |
+| `work-flooring.jpg` | iPhone 16 Plus | 2026-09-14 |
+| `hero-deck.jpg` | **none** | 2026-05-24 |
+| `assets/card-*.jpg` | **none** (soft video stills) | — |
+
+Two consequences, both load-bearing:
+
+1. **There is no deck before/after.** All four `deck-rebuild` frames were shot
+   within 14 seconds of each other — they are angles of one job in one pass,
+   not a progression. Their filenames imply a sequence that does not exist.
+   Never label them before/during/after.
+2. **`hero-deck.jpg` is not used.** No camera metadata, a web-shaped 1030x678
+   crop, and black aluminium railings and staged furniture that match nothing
+   else in the set. It is almost certainly stock or a manufacturer image, so
+   it cannot be shown as ETRA's own work. It has been deleted from
+   `src/images/`. Do not reinstate it without the owners confirming it is
+   their job.
+
+The three `assets/card-*` crops are genuine but are low-resolution, motion-
+blurred video stills. They are usable and honest; they are not good. Better
+job photos would measurably help these landers.
+
+## Confirmed job locations
+
+- Deck rebuild — **Bedford** (owner-confirmed 2026-09-19)
+- Main-floor LVP install — **Dartmouth** (owner-confirmed 2026-09-19)
+- Staircase and material-on-site cards — town unconfirmed, labelled **HRM**
+
+Never assign a town to a job without owner confirmation; use HRM.
 
 ## Known gap
 
