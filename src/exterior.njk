@@ -17,16 +17,16 @@ lander:
     - icon: "▣"
       title: "Decks & fences"
       body: "Deck rebuilds, composite installs, and fencing."
-      href: "decks-fences-halifax.html"
+      href: "/decks-fences-halifax"
     - icon: "▦"
       title: "Siding"
       body: "Exterior siding repair and replacement across HRM."
-      href: "exterior-siding-halifax.html"
+      href: "/exterior-siding-halifax"
     - icon: "⌂"
       title: "Repairs"
       body: "Exterior repairs and renovation work when the structure needs it first."
-      href: "repairs-renovations-halifax.html"
-  moreServices: 'Working inside instead? See <a href="interior.html">flooring, stairs and interior finishing</a>.'
+      href: "/repairs-renovations-halifax"
+  moreServices: 'Working inside instead? See <a href="/interior">flooring, stairs and interior finishing</a>.'
   workLead: "Several angles from one deck rebuild in Bedford."
   work:
     - image: "deck-after.webp"
@@ -110,7 +110,7 @@ lander:
     <span class="related-strip-tag">All exterior services</span>
     <nav class="related-strip-links" aria-label="Exterior services">
       {%- for s in services %}{% if not s.draft and s.category == "exterior" %}
-      <a href="{{ s.slug }}.html">{{ s.nav_label }}</a>
+      <a href="/{{ s.slug }}">{{ s.nav_label }}</a>
       {%- endif %}{% endfor %}
     </nav>
   </div>

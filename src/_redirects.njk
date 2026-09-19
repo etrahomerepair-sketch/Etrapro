@@ -1,0 +1,12 @@
+---
+permalink: _redirects
+eleventyExcludeFromCollections: true
+---
+# Generated. Collapses the .html duplicates onto the canonical extensionless
+# URLs, which is what every <link rel="canonical"> and the sitemap point at.
+/index.html            /             301!
+/interior.html         /interior     301!
+/exterior.html         /exterior     301!
+{% for s in services | live -%}
+/{{ s.slug }}.html  /{{ s.slug }}  301!
+{% endfor -%}

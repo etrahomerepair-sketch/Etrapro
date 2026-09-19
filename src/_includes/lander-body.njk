@@ -44,7 +44,7 @@
       <p>Pick one and we&rsquo;ll take you straight to the right page.</p>
     </div>
     <div class="chooser-grid">
-      <a class="chooser-card" href="interior.html" data-intent="interior">
+      <a class="chooser-card" href="/interior" data-intent="interior">
         <span class="chooser-thumb"><img src="images/hero-stairs.webp" alt="" width="96" height="76" loading="lazy"></span>
         <span>
           <h3>Inside the house</h3>
@@ -52,7 +52,7 @@
         </span>
         <span class="chooser-arrow" aria-hidden="true">&rarr;</span>
       </a>
-      <a class="chooser-card" href="exterior.html" data-intent="exterior">
+      <a class="chooser-card" href="/exterior" data-intent="exterior">
         <span class="chooser-thumb"><img src="images/deck-finished.webp" alt="" width="96" height="76" loading="lazy"></span>
         <span>
           <h3>Outside the house</h3>
@@ -167,44 +167,6 @@
   </div>
 </section>
 
-{%- if lander.owners %}
-<section class="owners" id="owners">
-  <div class="wrap owners-grid">
-    <div class="owners-photo">
-      <img src="images/owners.webp" alt="ETRA Pro Services crew member finishing wood on a jobsite sawhorse" width="720" height="954" loading="lazy">
-    </div>
-    <div class="owners-copy">
-      <div class="owners-tag">Meet the owners</div>
-      <h2>Ravin &amp; Ethan &mdash; 50/50 local</h2>
-      <p>{{ site.company }} is owned and run by Ravin and Ethan, a Halifax-based duo who show up, prep properly, and clean up when the job&rsquo;s done.</p>
-      <p>Founded in {{ site.founding_year }}. No inflated service counts &mdash; just flooring, stairs, turnovers, decks, and the finishing work HRM homes actually need.</p>
-    </div>
-  </div>
-</section>
-{%- endif %}
-
-{%- if lander.reviews %}
-<section id="reviews">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>What clients say</h2>
-      <p>Structure ready for real Google reviews. The cards below are labelled so nothing reads as a real quote.</p>
-    </div>
-    <div class="reviews-grid">
-      {%- for r in lander.reviews %}
-      <article class="review-card">
-        <div class="review-label">Example review style</div>
-        <div class="stars" aria-hidden="true">{{ r.stars }}</div>
-        <blockquote>{{ r.text }}</blockquote>
-      </article>
-      {%- endfor %}
-    </div>
-    <p class="reviews-note">Rated <strong>{{ site.review_rating }} on Google</strong>.
-      <a href="{{ site.gbp_url }}" target="_blank" rel="noopener noreferrer">Read reviews on Google</a>.</p>
-  </div>
-</section>
-{%- endif %}
-
 {%- if lander.ballpark %}
 <section class="ballpark" id="ballpark">
   <div class="wrap">
@@ -239,6 +201,44 @@
         <p class="ballpark-detail" id="bpDetail"></p>
       </div>
     </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if lander.owners %}
+<section class="owners" id="owners">
+  <div class="wrap owners-grid">
+    <div class="owners-photo">
+      <img src="images/owners.webp" alt="ETRA Pro Services crew member finishing wood on a jobsite sawhorse" width="720" height="954" loading="lazy">
+    </div>
+    <div class="owners-copy">
+      <div class="owners-tag">Meet the owners</div>
+      <h2>Ravin &amp; Ethan &mdash; 50/50 local</h2>
+      <p>{{ site.company }} is owned and run by Ravin and Ethan, a Halifax-based duo who show up, prep properly, and clean up when the job&rsquo;s done.</p>
+      <p>Founded in {{ site.founding_year }}. No inflated service counts &mdash; just flooring, stairs, turnovers, decks, and the finishing work HRM homes actually need.</p>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if lander.reviews %}
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What clients say</h2>
+      <p>Structure ready for real Google reviews. The cards below are labelled so nothing reads as a real quote.</p>
+    </div>
+    <div class="reviews-grid">
+      {%- for r in lander.reviews %}
+      <article class="review-card">
+        <div class="review-label">Example review style</div>
+        <div class="stars" aria-hidden="true">{{ r.stars }}</div>
+        <blockquote>{{ r.text }}</blockquote>
+      </article>
+      {%- endfor %}
+    </div>
+    <p class="reviews-note">Rated <strong>{{ site.review_rating }} on Google</strong>.
+      <a href="{{ site.gbp_url }}" target="_blank" rel="noopener noreferrer">Read reviews on Google</a>.</p>
   </div>
 </section>
 {%- endif %}

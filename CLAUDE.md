@@ -122,6 +122,15 @@ Shared components, so pages cannot drift apart:
 - `lander-body.njk` / `lander-scripts.njk` — home, `/interior`, `/exterior`
 - `service-body.njk` / `service-styles.njk` / `service-scripts.njk` — service pages
 
+## URLs
+
+Canonical URLs are extensionless (`/interior`, `/flooring-installation-halifax`).
+Internal links use that form, and a generated `_redirects` 301s every `.html`
+duplicate onto it, so each page has exactly one live URL.
+
+`BrandIdentity.html` stays in the repo but is no longer published — it
+documents the retired dark Rev.2 system and contradicted the live site.
+
 ## Visual reference
 
 Direction B's reference implementation (`reference/index.html`, its assets and

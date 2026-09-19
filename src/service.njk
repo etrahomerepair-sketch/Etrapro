@@ -64,9 +64,9 @@ permalink: "{{ service.slug }}.html"
   <div class="related-strip-inner">
     <span class="related-strip-tag">More {{ service.category }} work</span>
     <nav class="related-strip-links" aria-label="Related services">
-      <a href="{{ service.category }}.html">All {{ service.category }}</a>
+      <a href="/{{ service.category }}">All {{ service.category }}</a>
       {%- for s in siblings %}{% if s.slug != service.slug %}
-      <a href="{{ s.slug }}.html">{{ s.nav_label }}</a>
+      <a href="/{{ s.slug }}">{{ s.nav_label }}</a>
       {%- endif %}{% endfor %}
     </nav>
   </div>

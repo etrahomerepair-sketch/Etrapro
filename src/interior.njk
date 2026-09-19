@@ -17,16 +17,16 @@ lander:
     - icon: "▣"
       title: "Flooring"
       body: "LVP, hardwood, laminate, and honest subfloor prep so the finish lasts."
-      href: "flooring-installation-halifax.html"
+      href: "/flooring-installation-halifax"
     - icon: "▦"
       title: "Stairs"
       body: "Custom vinyl wraps and stair work matched to your adjoining floors."
-      href: "custom-vinyl-staircases-halifax.html"
+      href: "/custom-vinyl-staircases-halifax"
     - icon: "⌂"
       title: "Also interior"
       body: "Drywall, carpet, and repairs as supporting finishes when the job needs them."
-      href: "drywall-services-halifax.html"
-  moreServices: 'Working outside instead? See <a href="exterior.html">decks, fences and siding</a>.'
+      href: "/drywall-services-halifax"
+  moreServices: 'Working outside instead? See <a href="/exterior">decks, fences and siding</a>.'
   workLead: "Recent interior work across HRM."
   work:
     - image: "work-flooring.webp"
@@ -110,7 +110,7 @@ lander:
     <span class="related-strip-tag">All interior services</span>
     <nav class="related-strip-links" aria-label="Interior services">
       {%- for s in services %}{% if not s.draft and s.category == "interior" %}
-      <a href="{{ s.slug }}.html">{{ s.nav_label }}</a>
+      <a href="/{{ s.slug }}">{{ s.nav_label }}</a>
       {%- endif %}{% endfor %}
     </nav>
   </div>

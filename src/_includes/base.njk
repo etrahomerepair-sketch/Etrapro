@@ -112,6 +112,57 @@ button, input, select, textarea { font: inherit; }
 .nav-desktop a { font-size: 0.9rem; font-weight: 500; color: var(--header-muted); }
 .nav-desktop a:hover { color: var(--copper); }
 .nav-desktop a[aria-current="page"] { color: var(--header-text); font-weight: 600; }
+.nav-dropdown { position: relative; }
+.nav-dropdown > button {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  background: none; border: 0; cursor: pointer; padding: 0;
+  font-size: 0.9rem; font-weight: 500; color: var(--header-muted);
+  font-family: inherit;
+}
+.nav-dropdown > button:hover,
+.nav-dropdown[data-open="true"] > button { color: var(--copper); }
+.nav-dropdown > button svg { transition: transform 0.18s; }
+.nav-dropdown[data-open="true"] > button svg { transform: rotate(180deg); }
+.nav-menu {
+  position: absolute; top: calc(100% + 0.75rem); left: 50%; transform: translateX(-50%);
+  min-width: min(30rem, 78vw);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 0.9rem;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem 1.5rem;
+  z-index: 60;
+}
+.nav-dropdown[data-open="true"] .nav-menu { display: grid; }
+.nav-menu-head {
+  grid-column: span 1;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted);
+  padding: 0.35rem 0.6rem 0.4rem;
+}
+.nav-menu a {
+  display: block; padding: 0.5rem 0.6rem; border-radius: 8px;
+  font-size: 0.92rem; font-weight: 500; color: var(--ink);
+  white-space: nowrap;
+}
+.nav-menu a:hover { background: var(--bg); color: var(--copper); }
+.nav-menu a.nav-menu-all { color: var(--copper); font-weight: 600; }
+
+/* mobile: collapsible services group */
+.drawer-toggle {
+  width: 100%; background: none; border: 0; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.7rem 0; border-bottom: 1px solid var(--line);
+  font-family: inherit; font-size: 1rem; font-weight: 500; color: var(--header-text);
+}
+.drawer-toggle svg { transition: transform 0.2s; color: var(--muted); }
+.drawer-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.drawer-panel { display: none; }
+.drawer-panel.open { display: block; }
+
 .header-phone {
   display: none;
   align-items: center;
@@ -251,14 +302,36 @@ section { padding: 3rem 0; }
 
 <header class="site-header">
   <div class="wrap header-inner">
-    <a href="index.html" class="logo" aria-label="{{ site.company }} home">
+    <a href="/" class="logo" aria-label="{{ site.company }} home">
       <span class="etra">ETRA</span><span class="pro">PRO</span>
       <span class="logo-sub">Services &middot; Halifax</span>
     </a>
     <nav class="nav-desktop" aria-label="Primary">
-      <a href="index.html"{% if isHome %} aria-current="page"{% endif %}>Home</a>
-      <a href="interior.html"{% if page.url == "/interior.html" %} aria-current="page"{% endif %}>Interior</a>
-      <a href="exterior.html"{% if page.url == "/exterior.html" %} aria-current="page"{% endif %}>Exterior</a>
+      <a href="/"{% if isHome %} aria-current="page"{% endif %}>Home</a>
+      <a href="/interior"{% if page.url == "/interior.html" %} aria-current="page"{% endif %}>Interior</a>
+      <a href="/exterior"{% if page.url == "/exterior.html" %} aria-current="page"{% endif %}>Exterior</a>
+      <div class="nav-dropdown" id="navDropdown" data-open="false">
+        <button type="button" id="navServices" aria-expanded="false" aria-haspopup="true" aria-controls="navMenu">
+          Services
+          <svg width="10" height="7" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1.5 5 5.5 9 1.5"/></svg>
+        </button>
+        <div class="nav-menu" id="navMenu" role="menu">
+          <span class="nav-menu-head">Interior</span>
+          <span class="nav-menu-head">Exterior</span>
+          <div>
+            {%- for s in services | live | category("interior") %}
+            <a href="/{{ s.slug }}" role="menuitem">{{ s.nav_label }}</a>
+            {%- endfor %}
+            <a href="/interior" class="nav-menu-all" role="menuitem">All interior &rarr;</a>
+          </div>
+          <div>
+            {%- for s in services | live | category("exterior") %}
+            <a href="/{{ s.slug }}" role="menuitem">{{ s.nav_label }}</a>
+            {%- endfor %}
+            <a href="/exterior" class="nav-menu-all" role="menuitem">All exterior &rarr;</a>
+          </div>
+        </div>
+      </div>
     </nav>
     <div class="header-actions">
       <a class="btn btn-primary btn-sm" href="{{ estimateHref }}">Free Estimate</a>
@@ -272,13 +345,18 @@ section { padding: 3rem 0; }
     </div>
   </div>
   <div class="wrap mobile-nav" id="mobileNav" hidden>
-    <a href="index.html">Home</a>
-    <a href="interior.html">Interior</a>
-    <a href="exterior.html">Exterior</a>
-    <span class="drawer-group">Services</span>
-    {%- for s in services %}{% if not s.draft %}
-    <a href="{{ s.slug }}.html" class="drawer-sub">{{ s.nav_label }}</a>
-    {%- endif %}{% endfor %}
+    <a href="/">Home</a>
+    <a href="/interior">Interior</a>
+    <a href="/exterior">Exterior</a>
+    <button type="button" class="drawer-toggle" id="drawerServices" aria-expanded="false" aria-controls="drawerPanel">
+      Services
+      <svg width="12" height="8" viewBox="0 0 10 7" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 1.5 5 5.5 9 1.5"/></svg>
+    </button>
+    <div class="drawer-panel" id="drawerPanel">
+      {%- for s in services | live %}
+      <a href="/{{ s.slug }}" class="drawer-sub">{{ s.nav_label }}</a>
+      {%- endfor %}
+    </div>
     <a href="{{ estimateHref }}">Free Estimate</a>
     <a href="tel:{{ site.phone_e164 }}">Call {{ site.phone_display }}</a>
   </div>
@@ -308,18 +386,18 @@ section { padding: 3rem 0; }
     <div class="footer-col">
       <h4>Interior</h4>
       <ul>
-        <li><a href="interior.html">All interior work</a></li>
+        <li><a href="/interior">All interior work</a></li>
         {%- for s in services %}{% if not s.draft and s.category == "interior" %}
-        <li><a href="{{ s.slug }}.html">{{ s.nav_label }}</a></li>
+        <li><a href="/{{ s.slug }}">{{ s.nav_label }}</a></li>
         {%- endif %}{% endfor %}
       </ul>
     </div>
     <div class="footer-col">
       <h4>Exterior</h4>
       <ul>
-        <li><a href="exterior.html">All exterior work</a></li>
+        <li><a href="/exterior">All exterior work</a></li>
         {%- for s in services %}{% if not s.draft and s.category == "exterior" %}
-        <li><a href="{{ s.slug }}.html">{{ s.nav_label }}</a></li>
+        <li><a href="/{{ s.slug }}">{{ s.nav_label }}</a></li>
         {%- endif %}{% endfor %}
       </ul>
     </div>
@@ -346,6 +424,7 @@ section { padding: 3rem 0; }
 
 <script>
 (function () {
+  // ── mobile drawer ──
   var toggle = document.getElementById("menuToggle");
   var nav = document.getElementById("mobileNav");
   if (toggle && nav) {
@@ -360,6 +439,48 @@ section { padding: 3rem 0; }
         nav.hidden = true;
         toggle.setAttribute("aria-expanded", "false");
       });
+    });
+  }
+
+  // ── mobile: collapsible services group ──
+  var dt = document.getElementById("drawerServices");
+  var dp = document.getElementById("drawerPanel");
+  if (dt && dp) {
+    dt.addEventListener("click", function () {
+      var open = dp.classList.toggle("open");
+      dt.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  }
+
+  // ── desktop: services dropdown ──
+  var dd = document.getElementById("navDropdown");
+  var ddBtn = document.getElementById("navServices");
+  if (dd && ddBtn) {
+    var setOpen = function (open) {
+      dd.setAttribute("data-open", open ? "true" : "false");
+      ddBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+    // On a mouse, hover opens the menu — so a click must not toggle it shut
+    // again, or clicking "Services" appears to do nothing. Hover devices get
+    // open-on-hover with click as an also-open; touch devices get a toggle.
+    var canHover = window.matchMedia("(hover: hover)").matches;
+    ddBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (canHover) setOpen(true);
+      else setOpen(dd.getAttribute("data-open") !== "true");
+    });
+    if (canHover) {
+      dd.addEventListener("mouseenter", function () { setOpen(true); });
+      dd.addEventListener("mouseleave", function () { setOpen(false); });
+    }
+    document.addEventListener("click", function (e) {
+      if (!dd.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") { setOpen(false); ddBtn.blur(); }
+    });
+    dd.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () { setOpen(false); });
     });
   }
 })();

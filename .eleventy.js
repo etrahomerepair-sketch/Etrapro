@@ -3,9 +3,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
 
-  // Internal standalone page: copied verbatim, never templated
+  // Internal-only brand doc. Kept in the repo for reference but no longer
+  // published: it documents the retired dark Rev.2 system and contradicts
+  // the live Direction B site.
   eleventyConfig.ignores.add("src/BrandIdentity.html");
-  eleventyConfig.addPassthroughCopy("src/BrandIdentity.html");
 
   // Live (non-draft) services, optionally narrowed to one category.
   // Filtering before the loop keeps `loop.last` correct — iterating the raw
