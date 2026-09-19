@@ -25,6 +25,8 @@ module.exports = () => {
   const result = {
     fallback,
     home: gitDate("src/index.html") || fallback,
+    interior: gitDate("src/interior.njk") || fallback,
+    exterior: gitDate("src/exterior.njk") || fallback,
     services: {},
   };
   for (const s of services) {

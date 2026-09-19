@@ -54,6 +54,20 @@ Work on `data-layer` (descended from `main`). The flat-HTML branch
 `claude/review-website-code-bKmHN` is an older snapshot with no `src/` and is
 not a valid base.
 
+## Ad routing (Meta campaigns)
+
+Point each campaign at the lander that matches its creative, not at `/`:
+
+| Campaign | URL | Form pre-set to |
+|----------|-----|-----------------|
+| Flooring, stairs, trim, unit turnovers | `https://etra.ca/interior` | Flooring |
+| Decks, fences, siding | `https://etra.ca/exterior` | Decks & exterior |
+| Brand / general | `https://etra.ca/` | nothing pre-set |
+
+All three are Direction B landers with the estimate form directly under the
+hero. Each submission carries a hidden `source-page` field (`home`,
+`interior-lander`, `exterior-lander`) so leads can be attributed per campaign.
+
 ## Known gap
 
 The seven live service pages are still bespoke hand-built includes under

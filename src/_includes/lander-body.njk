@@ -1,0 +1,267 @@
+{#- Direction B lander body. Driven entirely by the `lander` object in each
+    page's front matter, so home, /interior and /exterior share one template. -#}
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">{{ lander.eyebrow }}</div>
+      <h1>{{ lander.h1 }}</h1>
+      <p class="hero-sub">{{ lander.sub }}</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#estimate">Get a free estimate <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-ghost" href="tel:{{ site.phone_e164 }}">Call now</a>
+      </div>
+      <div class="trust-row" aria-label="Trust signals">
+        <span><span class="star" aria-hidden="true">&#9733;</span> {{ site.review_rating }} on Google</span>
+        <span class="divider" aria-hidden="true"></span>
+        <span>Licensed &amp; insured</span>
+        <span class="divider" aria-hidden="true"></span>
+        <span>Local crew</span>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="images/{{ lander.heroImage }}" alt="{{ lander.heroAlt }}" width="1400" height="1867" fetchpriority="high">
+      <div class="hero-media-badge">{{ lander.heroBadge }}</div>
+    </div>
+  </div>
+</section>
+
+<section class="estimate" id="estimate">
+  <div class="wrap">
+    <div class="form-card">
+      <div class="form-fields" id="formFields">
+        <h2>Get your free estimate in 30 seconds</h2>
+        <p class="form-lead">Tell us about your project &mdash; owners review every request. No obligation.</p>
+        <form id="estimateForm" name="estimate-request" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="estimate-request">
+          <input type="hidden" name="source-page" value="{{ lander.formSource }}">
+          <p class="hp-field"><label>Leave this empty: <input name="bot-field"></label></p>
+          <div class="form-grid cols-2 cols-desktop">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(782) 123-4567" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+            </div>
+            <div class="field">
+              <label for="service">Service type</label>
+              <select id="service" name="service" required>
+                <option value="" disabled{% if not lander.serviceDefault %} selected{% endif %}>Select a service</option>
+                {%- for opt in lander.serviceOptions %}
+                <option{% if opt == lander.serviceDefault %} selected{% endif %}>{{ opt }}</option>
+                {%- endfor %}
+              </select>
+            </div>
+            <div class="field span-2">
+              <label for="city">City / area</label>
+              <input id="city" name="city" type="text" placeholder="Halifax, Dartmouth, Bedford&hellip;" required>
+            </div>
+            <div class="field span-2 full span-4">
+              <label for="notes">Notes</label>
+              <textarea id="notes" name="notes" placeholder="{{ lander.notesPlaceholder }}"></textarea>
+            </div>
+            <div class="field span-4 full">
+              <button class="btn btn-primary form-submit" type="submit" id="formSubmit">Get my free estimate <span aria-hidden="true">&rarr;</span></button>
+              <p class="form-note">No obligation. Owners review every request.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+        <div class="check" aria-hidden="true">&#10003;</div>
+        <h3>Thanks &mdash; we&rsquo;ve got your request</h3>
+        <p>Ravin or Ethan will follow up soon.<br>
+        Need us sooner? Call <a href="tel:{{ site.phone_e164 }}"><strong>{{ site.phone_display }}</strong></a>
+        or email <a href="mailto:{{ site.email }}"><strong>{{ site.email }}</strong></a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="focus" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>{{ lander.focusHeading }}</h2>
+      <p>{{ lander.focusLead }}</p>
+    </div>
+    <div class="cards-3">
+      {%- for card in lander.focus %}
+      {% if card.href %}<a class="focus-card" href="{{ card.href }}">{% else %}<article class="focus-card">{% endif %}
+        <div class="focus-icon" aria-hidden="true">{{ card.icon }}</div>
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.body }}</p>
+      {% if card.href %}</a>{% else %}</article>{% endif %}
+      {%- endfor %}
+    </div>
+    {%- if lander.moreServices %}
+    <p class="more-services">{{ lander.moreServices | safe }}</p>
+    {%- endif %}
+  </div>
+</section>
+
+{%- if lander.work %}
+<section id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Recent work</h2>
+      <p>{{ lander.workLead }}</p>
+    </div>
+    <div class="work-grid">
+      {%- for w in lander.work %}
+      <article class="work-card">
+        <div class="thumb"><img src="images/{{ w.image }}" alt="{{ w.alt }}" width="900" height="675" loading="lazy"></div>
+        <div class="meta">
+          <div class="loc">{{ w.loc }}</div>
+          <h3>{{ w.title }}</h3>
+          <p>{{ w.body }}</p>
+        </div>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if lander.sequence %}
+<section id="sequence">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>{{ lander.sequenceHeading }}</h2>
+      <p>{{ lander.sequenceLead }}</p>
+    </div>
+    <div class="ba-grid">
+      {%- for f in lander.sequence %}
+      <figure class="ba-item" style="margin:0">
+        <div class="thumb"><img src="images/{{ f.image }}" alt="{{ f.alt }}" width="900" height="1200" loading="lazy"></div>
+        <figcaption class="ba-label">{{ f.label }}{% if f.caption %}<span>{{ f.caption }}</span>{% endif %}</figcaption>
+      </figure>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How it works</h2>
+      <p>{{ lander.howLead }}</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Tell us the job</h3>
+          <p>Form or call &mdash; {{ lander.step1 }}</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Free estimate</h3>
+          <p>Owners review the request and follow up with a clear, no-obligation quote.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>We schedule &amp; install</h3>
+          <p>Local crew on site, clean workmanship, and a finish you can live with.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- if lander.owners %}
+<section class="owners" id="owners">
+  <div class="wrap owners-grid">
+    <div class="owners-photo">
+      <img src="images/owners.webp" alt="ETRA Pro Services crew member finishing wood on a jobsite sawhorse" width="720" height="954" loading="lazy">
+    </div>
+    <div class="owners-copy">
+      <div class="owners-tag">Meet the owners</div>
+      <h2>Ravin &amp; Ethan &mdash; 50/50 local</h2>
+      <p>{{ site.company }} is owned and run by Ravin and Ethan, a Halifax-based duo who show up, prep properly, and clean up when the job&rsquo;s done.</p>
+      <p>Founded in {{ site.founding_year }}. No inflated service counts &mdash; just flooring, stairs, turnovers, decks, and the finishing work HRM homes actually need.</p>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if lander.reviews %}
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What clients say</h2>
+      <p>Structure ready for real Google reviews. The cards below are labelled so nothing reads as a real quote.</p>
+    </div>
+    <div class="reviews-grid">
+      {%- for r in lander.reviews %}
+      <article class="review-card">
+        <div class="review-label">Example review style</div>
+        <div class="stars" aria-hidden="true">{{ r.stars }}</div>
+        <blockquote>{{ r.text }}</blockquote>
+      </article>
+      {%- endfor %}
+    </div>
+    <p class="reviews-note">Rated <strong>{{ site.review_rating }} on Google</strong>.
+      <a href="{{ site.gbp_url }}" target="_blank" rel="noopener noreferrer">Read reviews on Google</a>.</p>
+  </div>
+</section>
+{%- endif %}
+
+{%- if lander.ballpark %}
+<section class="ballpark" id="ballpark">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Rough ballpark</h2>
+      <p>A planning tool, not a quote. Final pricing depends on site conditions, prep, materials, access, and scope &mdash; the free estimate above is the real number.</p>
+    </div>
+    <div class="ballpark-card">
+      <div class="field">
+        <label for="bpKind">Type of work</label>
+        <select id="bpKind">
+          {%- for k in lander.ballpark %}
+          <option value="{{ k }}">{{ pricing[k].label | capitalize }}</option>
+          {%- endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label for="bpSize">Size (<span id="bpUnit">{{ pricing[lander.ballpark[0]].unit }}</span>)</label>
+        <input id="bpSize" type="number" min="1" value="100" inputmode="numeric">
+      </div>
+      <div class="field">
+        <label for="bpFinish">Finish level</label>
+        <select id="bpFinish">
+          <option value="standard">Standard</option>
+          <option value="premium">Premium</option>
+          <option value="complex">Complex / custom</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-ghost" id="bpGo">Calculate range</button>
+      <div class="ballpark-out" id="bpOut" aria-live="polite">
+        <div class="ballpark-range" id="bpRange"></div>
+        <p class="ballpark-detail" id="bpDetail"></p>
+      </div>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready for a free estimate?</h2>
+    <p>Halifax, Dartmouth, Bedford, Cole Harbour, and across HRM. Tell us the job &mdash; we&rsquo;ll take it from there.</p>
+    <div class="hero-ctas" style="margin-bottom:0">
+      <a class="btn btn-primary" href="#estimate">Get a free estimate</a>
+      <a class="btn btn-ghost" href="tel:{{ site.phone_e164 }}">Call {{ site.phone_display }}</a>
+    </div>
+  </div>
+</section>

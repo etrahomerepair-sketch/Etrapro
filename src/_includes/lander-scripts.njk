@@ -1,0 +1,54 @@
+<script>
+(function () {
+  // ── Estimate form → Netlify, with in-place success state ──
+  var form = document.getElementById("estimateForm");
+  var fields = document.getElementById("formFields");
+  var success = document.getElementById("formSuccess");
+  var submit = document.getElementById("formSubmit");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      submit.disabled = true;
+      submit.textContent = "Sending…";
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function (r) {
+        if (!r.ok) throw new Error("submit failed");
+        if (fields) fields.classList.add("hide");
+        if (success) success.classList.add("show");
+        success.scrollIntoView({ behavior: "smooth", block: "center" });
+      }).catch(function () {
+        submit.disabled = false;
+        submit.textContent = "Try again — or call {{ site.phone_display }}";
+      });
+    });
+  }
+
+{% if lander.ballpark %}
+  // ── Ballpark estimator (secondary). Rates from pricing.json. ──
+  var rates = {{ pricing | dump | safe }};
+  var kind = document.getElementById("bpKind");
+  var unit = document.getElementById("bpUnit");
+  var size = document.getElementById("bpSize");
+  var finish = document.getElementById("bpFinish");
+  var out = document.getElementById("bpOut");
+  function money(n) { return "$" + Math.round(n).toLocaleString(); }
+  if (kind) {
+    kind.addEventListener("change", function () { unit.textContent = rates[kind.value].unit; });
+    document.getElementById("bpGo").addEventListener("click", function () {
+      var r = rates[kind.value];
+      var qty = Math.max(1, Number(size.value || 1));
+      var band = r[finish.value];
+      document.getElementById("bpRange").textContent = money(qty * band[0]) + " – " + money(qty * band[1]);
+      document.getElementById("bpDetail").textContent =
+        "Based on " + qty.toLocaleString() + " " + r.unit + " of " + r.label.toLowerCase() +
+        " at a " + finish.value + " finish level. Not a quote.";
+      out.classList.add("show");
+    });
+  }
+{% endif %}
+})();
+</script>
