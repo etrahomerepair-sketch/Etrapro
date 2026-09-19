@@ -22,7 +22,7 @@
         success.scrollIntoView({ behavior: "smooth", block: "center" });
       }).catch(function () {
         submit.disabled = false;
-        submit.textContent = "Try again — or call {{ site.phone_display }}";
+        submit.textContent = "Try again - or call {{ site.phone_display }}";
       });
     });
   }
@@ -48,7 +48,7 @@
 
   var params = new URLSearchParams(location.search);
 
-  // explicit campaign deep link — honour it immediately
+  // explicit campaign deep link - honour it immediately
   var forced = (params.get("go") || "").toLowerCase();
   if (forced === "interior" || forced === "exterior") {
     location.replace(LABEL_FOR[forced][1] + location.hash);
@@ -114,7 +114,7 @@
       var r = rates[kind.value];
       var qty = Math.max(1, Number(size.value || 1));
       var band = r[finish.value];
-      document.getElementById("bpRange").textContent = money(qty * band[0]) + " – " + money(qty * band[1]);
+      document.getElementById("bpRange").textContent = money(qty * band[0]) + " - " + money(qty * band[1]);
       document.getElementById("bpDetail").textContent =
         "Based on " + qty.toLocaleString() + " " + r.unit + " of " + r.label.toLowerCase() +
         " at a " + finish.value + " finish level. Not a quote.";

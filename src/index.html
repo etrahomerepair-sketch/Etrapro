@@ -7,7 +7,7 @@ lander:
   chooser: true
   chooserLarge: true
   formSource: "home"
-  notesPlaceholder: "Tell us what you need — inside, outside, or both."
+  notesPlaceholder: "Tell us what you need - inside, outside, or both."
   workLead: "Recent jobs from ETRA crews across HRM."
   work:
     - image: "work-flooring.webp"
@@ -45,12 +45,12 @@ lander:
 {% extends "base.njk" %}
 
 {% block head %}
-<title>{{ site.company }} — Interior finishing &amp; exterior work | Halifax &amp; HRM</title>
+<title>{{ site.company }} - Interior finishing &amp; exterior work | Halifax &amp; HRM</title>
 <meta name="description" content="Flooring, stairs, decks, fences and siding across Halifax &amp; HRM. Free estimates from a local crew. Call {{ site.phone_display }}.">
 <link rel="canonical" href="{{ site.url }}/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ site.url }}/">
-<meta property="og:title" content="{{ site.company }} — Interior finishing &amp; exterior work | Halifax &amp; HRM">
+<meta property="og:title" content="{{ site.company }} - Interior finishing &amp; exterior work | Halifax &amp; HRM">
 <meta property="og:description" content="Flooring, stairs, decks, fences and siding across Halifax &amp; HRM. Free estimates from a local crew. Call {{ site.phone_display }}.">
 <meta property="og:site_name" content="{{ site.company }}">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@ lander:
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "name": {{ site.company | dump | safe }},
-  "description": "Interior finishing and exterior work across Halifax & HRM — flooring, stairs, drywall, carpet, decks, fences and siding.",
+  "description": "Interior finishing and exterior work across Halifax & HRM - flooring, stairs, drywall, carpet, decks, fences and siding.",
   "url": "{{ site.url }}",
   "telephone": "{{ site.phone_e164 }}",
   "email": "{{ site.email }}",

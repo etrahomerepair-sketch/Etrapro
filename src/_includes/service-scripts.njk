@@ -22,7 +22,7 @@
         success.scrollIntoView({ behavior: "smooth", block: "center" });
       }).catch(function () {
         submit.disabled = false;
-        submit.textContent = "Try again — or call {{ site.phone_display }}";
+        submit.textContent = "Try again - or call {{ site.phone_display }}";
       });
     });
   }
@@ -48,7 +48,7 @@
   document.getElementById("bpGo").addEventListener("click", function () {
     var qty = Math.max(1, Number(document.getElementById("bpSize").value || 1));
     var band = r[document.getElementById("bpFinish").value];
-    document.getElementById("bpRange").textContent = money(qty * band[0]) + " – " + money(qty * band[1]);
+    document.getElementById("bpRange").textContent = money(qty * band[0]) + " - " + money(qty * band[1]);
     document.getElementById("bpDetail").textContent =
       "Based on " + qty.toLocaleString() + " " + r.unit + " of " + r.label + " work. Not a quote.";
     out.classList.add("show");

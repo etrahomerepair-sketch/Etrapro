@@ -3,7 +3,7 @@
 Every fact and every per-service field lives here. Pages are templates; nothing
 that varies per service or per city is hand-written in HTML.
 
-## services.json — one entry per service page
+## services.json - one entry per service page
 
 | field | type | notes |
 |---|---|---|
@@ -12,11 +12,11 @@ that varies per service or per city is hand-written in HTML.
 | `category` | `"interior"` \| `"exterior"` | |
 | `meta_title` / `meta_description` | string | Rendered verbatim into `<title>` / meta description. |
 | `h1` | string | Landing-page headline. |
-| `intro` | string[] \| null | 2–3 paragraphs. |
-| `what_we_do` | string[] \| null | Scope bullets, `"Title — description"` format where the source used cards. |
+| `intro` | string[] \| null | 2-3 paragraphs. |
+| `what_we_do` | string[] \| null | Scope bullets, `"Title - description"` format where the source used cards. |
 | `process` | string[] \| null | Steps, in order. |
 | `faqs` | `{question, answer}[]` \| null | |
-| `price_range` | string \| null | Plain-language range, e.g. `"$4–8 per sq ft installed"`. |
+| `price_range` | string \| null | Plain-language range, e.g. `"$4-8 per sq ft installed"`. |
 | `self_perform` | bool \| null | |
 | `cities` | string[] \| null | City slugs from cities.json. |
 | `related` | string[] \| null | Slugs of related services (drives internal linking). |
@@ -56,4 +56,4 @@ Each: `label`, `unit`, and `[low, high]` per finish level
 
 Single source of truth for company facts (founding year, phone, email, GBP URL,
 review count/rating, social URLs). If a fact appears on a page, it reads from
-here — a fact must never live in more than one place.
+here - a fact must never live in more than one place.
