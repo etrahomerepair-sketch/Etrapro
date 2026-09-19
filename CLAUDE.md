@@ -107,13 +107,20 @@ job photos would measurably help these landers.
 
 Never assign a town to a job without owner confirmation; use HRM.
 
-## Known gap
+## Status
 
-The seven live service pages are still bespoke hand-built includes under
-`src/_includes/services/<slug>/` and carry the old dark styling. Converting
-them onto the generated template — by lifting their copy into
-`services.json` — is the next chunk of work and is what the generated
-landing branch was built for.
+The whole site renders from `services.json` through shared Direction B
+templates. There are no hand-built pages left: `src/_includes/services/`
+and the scoped `body.legacy` dark theme are both gone. Adding or changing a
+service is a data edit.
+
+Shared components, so pages cannot drift apart:
+
+- `base.njk` — tokens, header, drawer, footer, sticky call bar
+- `lander-styles.njk` — the Direction B visual system
+- `estimate-form.njk` — one form, used by all ten pages
+- `lander-body.njk` / `lander-scripts.njk` — home, `/interior`, `/exterior`
+- `service-body.njk` / `service-styles.njk` / `service-scripts.njk` — service pages
 
 ## Visual reference
 

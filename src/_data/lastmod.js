@@ -30,11 +30,8 @@ module.exports = () => {
     services: {},
   };
   for (const s of services) {
-    // bespoke pages change via their include dir; generated pages via the data file
-    const source = s.bespoke
-      ? `src/_includes/services/${s.slug}`
-      : "src/_data/services.json";
-    result.services[s.slug] = gitDate(source) || fallback;
+    // every service page now renders from the data file
+    result.services[s.slug] = gitDate("src/_data/services.json") || fallback;
   }
   return result;
 };

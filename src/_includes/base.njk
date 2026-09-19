@@ -29,45 +29,11 @@
   --callbar-h: 56px;
   --font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  /* chrome surfaces — overridden by the legacy theme below */
   --header-bg: rgba(255, 255, 255, 0.92);
   --header-text: var(--ink);
   --header-muted: var(--ink-soft);
   --drawer-bg: var(--white);
   --callbar-bg: rgba(255, 255, 255, 0.96);
-}
-
-/* ── LEGACY Rev.2 THEME ──
-   Scoped to the hand-built service pages in _includes/services/<slug>/.
-   Those pages still carry dark bespoke styling; this keeps their chrome dark
-   to match until their copy moves into services.json and they render from the
-   generated template. */
-body.legacy {
-  --ink: #141414;
-  --ink-raised: #1E1D1B;
-  --rule: #33312E;
-  --bone: #F5F4EF;
-  --muted: #8A857D;
-  --copper: #BD7F46;
-  --copper-deep: #96612F;
-  --copper-light: #D9A06B;
-  --display: 'Anton', 'Arial Narrow', sans-serif;
-  --body: 'Barlow', system-ui, sans-serif;
-  --mono: 'IBM Plex Mono', ui-monospace, monospace;
-  --radius: 0;
-  --rule-w: 1px;
-  --nav-h: var(--header-h);
-  --shadow: 0 4px 24px rgba(0,0,0,.10);
-  --shadow-lg: 0 8px 40px rgba(0,0,0,.14);
-
-  --font: var(--body);
-  --line: var(--rule);
-  --bg: var(--bone);
-  --header-bg: var(--ink);
-  --header-text: var(--bone);
-  --header-muted: var(--muted);
-  --drawer-bg: var(--ink);
-  --callbar-bg: rgba(20,20,20,.96);
 }
 
 /* ── BASE ── */
@@ -111,9 +77,6 @@ button, input, select, textarea { font: inherit; }
 .btn-ghost { background: var(--white); color: var(--ink); border-color: var(--ink); }
 .btn-ghost:hover { background: var(--ink); color: var(--white); }
 .btn-sm { padding: 0.5rem 0.95rem; font-size: 0.875rem; }
-body.legacy .btn { border-radius: 0; }
-body.legacy .btn-ghost { background: transparent; color: var(--bone); border-color: var(--rule); }
-body.legacy .btn-ghost:hover { background: var(--bone); color: var(--ink); }
 
 /* ── HEADER ── */
 .site-header {
@@ -144,7 +107,6 @@ body.legacy .btn-ghost:hover { background: var(--bone); color: var(--ink); }
   color: var(--header-muted);
   margin-top: 0.2rem;
 }
-body.legacy .logo .etra, body.legacy .logo .pro { font-family: var(--display); font-weight: 400; font-size: 1.4rem; }
 .header-actions { display: flex; align-items: center; gap: 0.65rem; }
 .nav-desktop { display: none; align-items: center; gap: 1.25rem; margin-right: 0.5rem; }
 .nav-desktop a { font-size: 0.9rem; font-weight: 500; color: var(--header-muted); }
@@ -209,7 +171,6 @@ section { padding: 3rem 0; }
 
 /* ── RELATED SERVICES STRIP ── */
 .related-strip { background: var(--white); border-top: 1px solid var(--line); padding: 1.85rem 0; }
-body.legacy .related-strip { background: var(--ink); }
 .related-strip-inner {
   width: min(1120px, calc(100% - 2rem));
   margin-inline: auto;
@@ -269,7 +230,6 @@ body.legacy .related-strip { background: var(--ink); }
 }
 .call-bar .btn { flex: 1; border-radius: 12px; }
 .call-bar .btn-ghost { border-width: 1.5px; }
-body.legacy .call-bar .btn { border-radius: 0; }
 
 @media (min-width: 640px) {
   .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
@@ -287,7 +247,7 @@ body.legacy .call-bar .btn { border-radius: 0; }
 </style>
 {% block styles %}{% endblock %}
 </head>
-<body{% if service and service.bespoke %} class="legacy"{% endif %}>
+<body>
 
 <header class="site-header">
   <div class="wrap header-inner">

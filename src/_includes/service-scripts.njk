@@ -1,0 +1,58 @@
+<script>
+(function () {
+  // ── Estimate form → Netlify ──
+  var form = document.getElementById("estimateForm");
+  var fields = document.getElementById("formFields");
+  var success = document.getElementById("formSuccess");
+  var submit = document.getElementById("formSubmit");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      submit.disabled = true;
+      submit.textContent = "Sending…";
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function (r) {
+        if (!r.ok) throw new Error("submit failed");
+        if (fields) fields.classList.add("hide");
+        if (success) success.classList.add("show");
+        success.scrollIntoView({ behavior: "smooth", block: "center" });
+      }).catch(function () {
+        submit.disabled = false;
+        submit.textContent = "Try again — or call {{ site.phone_display }}";
+      });
+    });
+  }
+
+  // ── FAQ accordion ──
+  document.querySelectorAll(".faq-q").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var item = btn.parentElement;
+      var wasOpen = item.classList.contains("open");
+      document.querySelectorAll(".faq-item.open").forEach(function (i) {
+        i.classList.remove("open");
+        i.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+      });
+      if (!wasOpen) { item.classList.add("open"); btn.setAttribute("aria-expanded", "true"); }
+    });
+  });
+
+{% if service.show_calculator and service.calculator_key %}
+  // ── Ballpark (secondary). Rates from pricing.json. ──
+  var r = {{ pricing[service.calculator_key] | dump | safe }};
+  var out = document.getElementById("bpOut");
+  function money(n) { return "$" + Math.round(n).toLocaleString(); }
+  document.getElementById("bpGo").addEventListener("click", function () {
+    var qty = Math.max(1, Number(document.getElementById("bpSize").value || 1));
+    var band = r[document.getElementById("bpFinish").value];
+    document.getElementById("bpRange").textContent = money(qty * band[0]) + " – " + money(qty * band[1]);
+    document.getElementById("bpDetail").textContent =
+      "Based on " + qty.toLocaleString() + " " + r.unit + " of " + r.label + " work. Not a quote.";
+    out.classList.add("show");
+  });
+{% endif %}
+})();
+</script>
