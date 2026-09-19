@@ -90,7 +90,7 @@ EXIF across the supplied handoff set:
 
 | File | Camera | Taken |
 |------|--------|-------|
-| `hero-stairs.jpg` | iPhone 14 Pro Max | 2026-02-17 |
+| `hero-stairs.webp` (looking-up wood treads / white risers) | owner-supplied JPEG, EXIF Orientation applied | 2026-09-19 swap |
 | `deck-rebuild/before.jpg` | iPhone 14 Pro Max | 2026-06-19 12:54:25 |
 | `deck-rebuild/01-removal.jpg` | iPhone 14 Pro Max | 2026-06-19 12:54:27 |
 | `deck-rebuild/05-finished.jpg` | iPhone 14 Pro Max | 2026-06-19 12:54:34 |
