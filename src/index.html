@@ -24,12 +24,15 @@ lander:
   step1: "what you need done, roughly when, and your area in HRM."
   owners: true
   reviews:
-    - stars: "★★★★★"
-      text: "Clean install, showed up when they said they would, and the stairs match the floors perfectly."
-    - stars: "★★★★★"
-      text: "Honest free estimate for our Halifax condo flooring — no pressure, solid workmanship."
-    - stars: "★★★★☆"
-      text: "Reliable for unit turnovers — photo updates and on-time finish for our PM schedule."
+    - author: "Laurie Gushue"
+      rating: 5
+      text: "Very professional and personal team. We had a positive experience working with this crew. They installed our vinyl floors throughout our main floor and custom stairs for a sunken living room. The quality of the work was exceptional. I highly recommend this company for services."
+    - author: "Matt Clayfield"
+      rating: 5
+      text: "Had ERTA put vinyl on our stairs, and upstairs floors, result were great. Fixed one minor issues I asked about. Communication was quick and easy. Price was very reasonable."
+    - author: "Berniebsquared1"
+      rating: 5
+      text: "I've subcontracted to Etra on several occasions I use them for our flooring because their professional reliable and very fair price"
 ---
 {% extends "base.njk" %}
 
@@ -68,6 +71,16 @@ lander:
     "ratingValue": {{ site.review_rating }},
     "reviewCount": {{ site.review_count }}
   },
+  "review": [
+    {%- for r in lander.reviews %}
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": {{ r.author | dump | safe }} },
+      "reviewRating": { "@type": "Rating", "ratingValue": {{ r.rating }}, "bestRating": 5 },
+      "reviewBody": {{ r.text | dump | safe }}
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Interior finishing & exterior restoration",

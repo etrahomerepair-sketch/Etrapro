@@ -231,14 +231,14 @@
   <div class="wrap">
     <div class="section-head">
       <h2>What clients say</h2>
-      <p>Structure ready for real Google reviews. The cards below are labelled so nothing reads as a real quote.</p>
+      <p>Real reviews from our Google Business Profile.</p>
     </div>
     <div class="reviews-grid">
       {%- for r in lander.reviews %}
       <article class="review-card">
-        <div class="review-label">Example review style</div>
-        <div class="stars" aria-hidden="true">{{ r.stars }}</div>
+        <div class="stars" aria-label="{{ r.rating }} out of 5">{% for i in range(0, r.rating) %}&#9733;{% endfor %}</div>
         <blockquote>{{ r.text }}</blockquote>
+        <div class="review-author">{{ r.author }} <span>&middot; Google</span></div>
       </article>
       {%- endfor %}
     </div>
