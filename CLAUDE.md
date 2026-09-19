@@ -47,9 +47,10 @@ Rating **4.6** and `review_count: 14` are **confirmed by the owner**
 (2026-09-19) and are published in structured data on all three landers.
 Re-check the count if the Business Profile moves.
 
-The homepage now shows three **real** reviews, supplied by the owner from the
+The homepage now shows four **real** reviews, supplied by the owner from the
 Google Business Profile (2026-09-19) and transcribed verbatim — Laurie
-Gushue, Matt Clayfield and Berniebsquared1. They are also cited as `Review`
+Gushue, Matt Clayfield, Berniebsquared1 and joseph (lowercase is that
+reviewer's own display name). They are also cited as `Review`
 entries in the homepage schema, which is only legitimate because they are
 genuine and displayed on the page.
 
@@ -57,8 +58,11 @@ Rules for this section: quote verbatim, including the reviewers' own spelling
 (one review calls the company "ERTA"). Only whitespace has been normalised.
 `datePublished` is deliberately absent — the profile shows relative ages
 ("6 months ago"), not dates, and a guessed date would be an invented fact.
-Two further real reviews exist and are unused (joseph; Melanie Wilson,
-whose text was cut off in the screenshot).
+One further real review exists and is unused: Melanie Wilson, whose text was
+cut off in the screenshot.
+
+The reviews grid picks 2 or 3 columns depending on the count, so the last row
+is never a single orphaned card.
 
 ## Branch
 

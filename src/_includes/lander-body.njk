@@ -233,7 +233,7 @@
       <h2>What clients say</h2>
       <p>Real reviews from our Google Business Profile.</p>
     </div>
-    <div class="reviews-grid">
+    <div class="reviews-grid {% if lander.reviews.length % 3 == 0 %}reviews-3{% else %}reviews-2{% endif %}">
       {%- for r in lander.reviews %}
       <article class="review-card">
         <div class="stars" aria-label="{{ r.rating }} out of 5">{% for i in range(0, r.rating) %}&#9733;{% endfor %}</div>
