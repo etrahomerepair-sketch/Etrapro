@@ -211,10 +211,12 @@
 
 {%- if lander.owners %}
 <section class="owners" id="owners">
-  <div class="wrap owners-grid">
+  <div class="wrap owners-grid{% if not lander.ownersImage %} owners-grid--solo{% endif %}">
+    {%- if lander.ownersImage %}
     <div class="owners-photo">
-      <img src="images/owners.webp" alt="ETRA Pro Services crew member finishing wood on a jobsite sawhorse" width="720" height="954" loading="lazy">
+      <img src="images/{{ lander.ownersImage }}" alt="{{ lander.ownersAlt }}" width="720" height="954" loading="lazy">
     </div>
+    {%- endif %}
     <div class="owners-copy">
       <div class="owners-tag">Meet the owners</div>
       <h2>Ravin &amp; Ethan &mdash; 50/50 local</h2>

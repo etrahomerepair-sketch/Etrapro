@@ -95,9 +95,14 @@ Two consequences, both load-bearing:
    `src/images/`. Do not reinstate it without the owners confirming it is
    their job.
 
-The three `assets/card-*` crops are genuine but are low-resolution, motion-
-blurred video stills. They are usable and honest; they are not good. Better
-job photos would measurably help these landers.
+The `assets/card-*` crops are genuine but are low-resolution, motion-blurred
+video stills. Two were pulled at the owner's request (2026-09-19):
+`card-stairs.webp`, too blurry to sell stair work, and `owners.webp`, which
+showed an unidentifiable person crouched over a board rather than Ravin and
+Ethan. `card-turnover.webp` is still in use on /interior.
+
+The owners section renders without a photo (`lander.ownersImage` is unset).
+Set it once a real photo of Ravin and Ethan exists.
 
 ## Confirmed job locations
 

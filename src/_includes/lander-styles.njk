@@ -221,6 +221,8 @@
   background: #2a211c; box-shadow: var(--shadow);
 }
 .owners-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.owners-grid--solo { grid-template-columns: 1fr !important; }
+.owners-grid--solo .owners-copy { max-width: 44rem; }
 .owners-copy h2 { margin: 0 0 0.6rem; }
 .owners-copy p { margin: 0 0 0.85rem; color: var(--ink-soft); }
 .owners-copy p:last-child { margin-bottom: 0; }
@@ -264,7 +266,8 @@
   .form-grid.cols-2 { grid-template-columns: 1fr 1fr; }
   .form-grid .full { grid-column: 1 / -1; }
   .cards-3 { grid-template-columns: repeat(3, 1fr); }
-  .work-grid { grid-template-columns: repeat(3, 1fr); }
+  /* auto-fit so a two-card row fills the width instead of leaving a hole */
+  .work-grid { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
   .ba-grid { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: repeat(3, 1fr); }
   .reviews-grid { grid-template-columns: repeat(3, 1fr); }
