@@ -1,6 +1,16 @@
 {#- Direction B lander body. Driven entirely by the `lander` object in each
     page's front matter, so home, /interior and /exterior share one template. -#}
 
+{%- if lander.chooser %}
+<div class="intent-bar" id="intentBar" role="region" aria-label="Suggested section">
+  <div class="intent-bar-inner">
+    <span id="intentMsg"></span>
+    <a class="intent-go" id="intentGo" href="#">Take me there &rarr;</a>
+    <button type="button" class="intent-x" id="intentX" aria-label="Dismiss suggestion">&times;</button>
+  </div>
+</div>
+{%- endif %}
+
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
@@ -25,6 +35,36 @@
     </div>
   </div>
 </section>
+
+{%- if lander.chooser %}
+<section class="chooser" id="chooser">
+  <div class="wrap">
+    <div class="chooser-head">
+      <h2>What can we quote for you?</h2>
+      <p>Pick one and we&rsquo;ll take you straight to the right page.</p>
+    </div>
+    <div class="chooser-grid">
+      <a class="chooser-card" href="interior.html" data-intent="interior">
+        <span class="chooser-thumb"><img src="images/hero-stairs.webp" alt="" width="96" height="76" loading="lazy"></span>
+        <span>
+          <h3>Inside the house</h3>
+          <p>Flooring, stairs, drywall, carpet, repairs.</p>
+        </span>
+        <span class="chooser-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="chooser-card" href="exterior.html" data-intent="exterior">
+        <span class="chooser-thumb"><img src="images/deck-finished.webp" alt="" width="96" height="76" loading="lazy"></span>
+        <span>
+          <h3>Outside the house</h3>
+          <p>Decks, fences, siding.</p>
+        </span>
+        <span class="chooser-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+    <p class="chooser-or">Not sure, or need both? <a href="#estimate">Just send us the job</a> &mdash; we&rsquo;ll sort it out.</p>
+  </div>
+</section>
+{%- endif %}
 
 <section class="estimate" id="estimate">
   <div class="wrap">
