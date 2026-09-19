@@ -1,0 +1,118 @@
+---
+permalink: exterior.html
+lander:
+  eyebrow: "Exterior · Halifax & HRM"
+  h1: "Decks, fences & siding — built to last."
+  sub: "Free estimates for exterior work across Halifax & HRM. Local crew, clean installs."
+  heroImage: "deck-finished.webp"
+  heroAlt: "Finished deck with wood railings, rebuilt by ETRA Pro Services"
+  heroBadge: "Deck rebuild · HRM"
+  formSource: "exterior-lander"
+  serviceOptions: ["Decks & exterior", "Fences", "Siding", "Other"]
+  serviceDefault: "Decks & exterior"
+  notesPlaceholder: "Deck size, materials, access, timing…"
+  focusHeading: "What we do outside"
+  focusLead: "Deck rebuilds first, plus the fence and siding work that usually comes with them."
+  focus:
+    - icon: "▣"
+      title: "Decks & fences"
+      body: "Deck rebuilds, composite installs, and fencing."
+      href: "decks-fences-halifax.html"
+    - icon: "▦"
+      title: "Siding"
+      body: "Exterior siding repair and replacement across HRM."
+      href: "exterior-siding-halifax.html"
+    - icon: "⌂"
+      title: "Repairs"
+      body: "Exterior repairs and renovation work when the structure needs it first."
+      href: "repairs-renovations-halifax.html"
+  moreServices: 'Working inside instead? See <a href="interior.html">flooring, stairs and interior finishing</a>.'
+  workLead: "Several angles from one deck rebuild in Bedford."
+  work:
+    - image: "deck-after.webp"
+      alt: "Finished deck with wood railings running along the back of a house"
+      loc: "Bedford"
+      title: "Deck rebuild"
+      body: "Full deck run rebuilt against the house."
+    - image: "deck-removal.webp"
+      alt: "Deck rebuild in progress — stair treads lifted and new railing sections framed, crew on site"
+      loc: "Bedford"
+      title: "Railings and stairs"
+      body: "New railing sections framed and stair treads reset."
+    - image: "deck-before.webp"
+      alt: "Rebuilt deck surface with new railing lumber staged on the boards"
+      loc: "Bedford"
+      title: "Railing sections"
+      body: "New railing lumber built up and set in place on site."
+  howLead: "Simple path from first message to a finished exterior."
+  step1: "deck or fence size, materials, access, and your area in HRM."
+  ballpark: ["deck"]
+---
+{% extends "base.njk" %}
+
+{% block head %}
+<title>Decks, Fences &amp; Siding — Free Estimate | {{ site.company }} Halifax</title>
+<meta name="description" content="Deck rebuilds, fences, and siding across Halifax &amp; HRM. Free estimate. {{ site.phone_display }}.">
+<link rel="canonical" href="{{ site.url }}/exterior">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site.url }}/exterior">
+<meta property="og:title" content="Decks, Fences &amp; Siding — Free Estimate | {{ site.company }} Halifax">
+<meta property="og:description" content="Deck rebuilds, fences, and siding across Halifax &amp; HRM. Free estimate. {{ site.phone_display }}.">
+<meta property="og:site_name" content="{{ site.company }}">
+<link rel="preload" as="image" href="images/deck-finished.webp" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Exterior restoration — decks, fences & siding",
+  "serviceType": "Exterior restoration",
+  "url": "{{ site.url }}/exterior",
+  "areaServed": { "@type": "AdministrativeArea", "name": {{ site.service_area | dump | safe }} },
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": {{ site.company | dump | safe }},
+    "telephone": "{{ site.phone_e164 }}",
+    "email": "{{ site.email }}",
+    "url": "{{ site.url }}",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": {{ site.review_rating }},
+      "reviewCount": {{ site.review_count }}
+    }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Exterior services",
+    "itemListElement": [
+      {%- for s in services | live | category("exterior") %}
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": {{ s.name | dump | safe }}, "url": "{{ site.url }}/{{ s.slug }}"}}{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/"},
+    {"@type": "ListItem", "position": 2, "name": "Exterior", "item": "{{ site.url }}/exterior"}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block styles %}{% include "lander-styles.njk" %}{% endblock %}
+{% block body %}{% include "lander-body.njk" %}
+<section class="related-strip" style="padding-top:0;padding-bottom:2.5rem;background:var(--bg);border-top:0">
+  <div class="related-strip-inner">
+    <span class="related-strip-tag">All exterior services</span>
+    <nav class="related-strip-links" aria-label="Exterior services">
+      {%- for s in services %}{% if not s.draft and s.category == "exterior" %}
+      <a href="{{ s.slug }}.html">{{ s.nav_label }}</a>
+      {%- endif %}{% endfor %}
+    </nav>
+  </div>
+</section>{% endblock %}
+{% block scripts %}{% include "lander-scripts.njk" %}{% endblock %}

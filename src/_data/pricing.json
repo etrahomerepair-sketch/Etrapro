@@ -1,0 +1,7 @@
+{
+  "flooring": { "label": "flooring", "unit": "sq ft", "standard": [4, 8], "premium": [8, 12], "complex": [12, 16] },
+  "stairs": { "label": "staircase", "unit": "steps", "standard": [85, 130], "premium": [130, 180], "complex": [180, 240] },
+  "tile": { "label": "tile", "unit": "sq ft", "standard": [12, 18], "premium": [18, 28], "complex": [28, 40] },
+  "trim": { "label": "trim & finish carpentry", "unit": "linear ft", "standard": [6, 9], "premium": [9, 14], "complex": [14, 20] },
+  "deck": { "label": "deck/fence", "unit": "sq ft", "standard": [22, 38], "premium": [38, 55], "complex": [55, 70] }
+}

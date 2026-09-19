@@ -1,0 +1,126 @@
+<script>
+(function () {
+  // ── Estimate form → Netlify, with in-place success state ──
+  var form = document.getElementById("estimateForm");
+  var fields = document.getElementById("formFields");
+  var success = document.getElementById("formSuccess");
+  var submit = document.getElementById("formSubmit");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      submit.disabled = true;
+      submit.textContent = "Sending…";
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form)).toString()
+      }).then(function (r) {
+        if (!r.ok) throw new Error("submit failed");
+        if (fields) fields.classList.add("hide");
+        if (success) success.classList.add("show");
+        success.scrollIntoView({ behavior: "smooth", block: "center" });
+      }).catch(function () {
+        submit.disabled = false;
+        submit.textContent = "Try again — or call {{ site.phone_display }}";
+      });
+    });
+  }
+
+{% if lander.chooser %}
+  // ── Intent router ──
+  // Works out whether a visitor is here for interior or exterior work and
+  // points them at the matching lander. Campaign links can force it with
+  // ?go=interior|exterior; otherwise we only *suggest*, never redirect, so
+  // the back button and organic traffic behave normally.
+  // No term may be a substring of another in the same list, or one word
+  // scores twice ("flooring" matching both "floor" and "flooring").
+  var INTENT = {
+    interior: ["floor","lvp","plank","hardwood","laminate","stair","tread","riser",
+               "drywall","carpet","trim","tile","paint","basement","interior","turnover"],
+    exterior: ["deck","fence","siding","exterior","gutter","patio","railing","soffit","fascia"]
+  };
+  var SERVICE_FOR = { interior: "Flooring", exterior: "Decks & exterior" };
+  var LABEL_FOR = {
+    interior: ["flooring, stairs and interior work", "interior.html", "Interior"],
+    exterior: ["decks, fences and siding", "exterior.html", "Exterior"]
+  };
+
+  var params = new URLSearchParams(location.search);
+
+  // explicit campaign deep link — honour it immediately
+  var forced = (params.get("go") || "").toLowerCase();
+  if (forced === "interior" || forced === "exterior") {
+    location.replace(LABEL_FOR[forced][1] + location.hash);
+  } else {
+    // otherwise score the campaign fields and referrer
+    var haystack = [
+      params.get("utm_campaign"), params.get("utm_content"), params.get("utm_term"),
+      params.get("q"), params.get("s"), params.get("service"), document.referrer
+    ].filter(Boolean).join(" ").toLowerCase();
+
+    var score = { interior: 0, exterior: 0 };
+    Object.keys(INTENT).forEach(function (k) {
+      INTENT[k].forEach(function (w) { if (haystack.indexOf(w) !== -1) score[k]++; });
+    });
+
+    // Only suggest when the signal is unambiguous. A campaign mentioning both
+    // ("flooring-and-decking") is a genuine both-trades enquiry, and guessing
+    // at it sends half those visitors to the wrong page.
+    var pick = null;
+    if (score.interior > 0 && score.exterior === 0) pick = "interior";
+    else if (score.exterior > 0 && score.interior === 0) pick = "exterior";
+
+    if (pick) {
+      // pre-select the form so a ready visitor does not re-enter what we know
+      var sel = document.getElementById("service");
+      if (sel) {
+        var want = SERVICE_FOR[pick];
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].text === want) { sel.selectedIndex = i; break; }
+        }
+      }
+      var dismissed = false;
+      try { dismissed = sessionStorage.getItem("etra-intent-x") === "1"; } catch (e) {}
+      if (!dismissed) {
+        var bar = document.getElementById("intentBar");
+        document.getElementById("intentMsg").innerHTML =
+          "Looks like you\u2019re here about <strong>" + LABEL_FOR[pick][0] + "</strong>.";
+        var go = document.getElementById("intentGo");
+        go.setAttribute("href", LABEL_FOR[pick][1]);
+        go.textContent = "Go to " + LABEL_FOR[pick][2] + " \u2192";
+        bar.classList.add("show");
+        document.getElementById("intentX").addEventListener("click", function () {
+          bar.classList.remove("show");
+          try { sessionStorage.setItem("etra-intent-x", "1"); } catch (e) {}
+        });
+      }
+    }
+  }
+{% endif %}
+
+{% if lander.ballpark %}
+  // ── Ballpark estimator (secondary). Rates from pricing.json. ──
+  var rates = {{ pricing | dump | safe }};
+  var kind = document.getElementById("bpKind");
+  var unit = document.getElementById("bpUnit");
+  var size = document.getElementById("bpSize");
+  var finish = document.getElementById("bpFinish");
+  var out = document.getElementById("bpOut");
+  function money(n) { return "$" + Math.round(n).toLocaleString(); }
+  if (kind) {
+    kind.addEventListener("change", function () { unit.textContent = rates[kind.value].unit; });
+    document.getElementById("bpGo").addEventListener("click", function () {
+      var r = rates[kind.value];
+      var qty = Math.max(1, Number(size.value || 1));
+      var band = r[finish.value];
+      document.getElementById("bpRange").textContent = money(qty * band[0]) + " – " + money(qty * band[1]);
+      document.getElementById("bpDetail").textContent =
+        "Based on " + qty.toLocaleString() + " " + r.unit + " of " + r.label.toLowerCase() +
+        " at a " + finish.value + " finish level. Not a quote.";
+      out.classList.add("show");
+    });
+  }
+{% endif %}
+})();
+</script>

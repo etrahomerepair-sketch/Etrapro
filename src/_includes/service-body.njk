@@ -1,0 +1,157 @@
+{#- Direction B service page. Renders entirely from a services.json entry,
+    reusing the lander's components so the two never drift apart. -#}
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">{{ service.category | capitalize }} &middot; Halifax &amp; HRM</div>
+      <h1>{{ service.h1 }}</h1>
+      {%- if service.intro %}
+      <p class="hero-sub">{{ service.intro[0] }}</p>
+      {%- endif %}
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#estimate">Get a free estimate <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-ghost" href="tel:{{ site.phone_e164 }}">Call now</a>
+      </div>
+      <div class="trust-row" aria-label="Trust signals">
+        <span><span class="star" aria-hidden="true">&#9733;</span> {{ site.review_rating }} on Google</span>
+        <span class="divider" aria-hidden="true"></span>
+        <span>Licensed &amp; insured</span>
+        <span class="divider" aria-hidden="true"></span>
+        <span>Local crew</span>
+      </div>
+    </div>
+    {%- if service.hero_image %}
+    <div class="hero-media">
+      <img src="images/{{ service.hero_image }}" alt="{{ service.name }} by {{ site.company }} in Halifax &amp; HRM" width="1400" height="1400" fetchpriority="high">
+      <div class="hero-media-badge">{{ service.nav_label }} &middot; HRM</div>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+{%- set formSource = service.slug -%}
+{%- set serviceOptions = ["Flooring", "Stairs", "Unit turnover", "Decks & exterior", "Other"] -%}
+{%- set serviceDefault = service.form_default -%}
+{%- set notesPlaceholder = "Size of the job, materials, timing…" -%}
+{% include "estimate-form.njk" %}
+
+{%- if service.intro and service.intro.length > 1 %}
+<section class="svc-intro">
+  <div class="wrap">
+    <div class="svc-prose">
+      {%- for para in service.intro.slice(1) %}
+      <p>{{ para }}</p>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if service.what_we_do %}
+<section class="focus">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What we handle</h2>
+      <p>{{ service.name }} across Halifax, Dartmouth, Bedford, Cole Harbour and the rest of HRM.</p>
+    </div>
+    <ul class="svc-list">
+      {%- for item in service.what_we_do %}
+      <li>{{ item }}</li>
+      {%- endfor %}
+    </ul>
+    {%- if service.price_range %}
+    <p class="more-services">{{ service.price_range }}</p>
+    {%- endif %}
+  </div>
+</section>
+{%- endif %}
+
+{%- if service.process %}
+<section id="how">
+  <div class="wrap">
+    <div class="section-head"><h2>How it works</h2></div>
+    <div class="steps">
+      {%- for step in service.process %}
+      <div class="step">
+        <div class="step-num">{{ loop.index }}</div>
+        <div><p>{{ step }}</p></div>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if service.why_us %}
+<section id="why">
+  <div class="wrap">
+    <div class="section-head"><h2>Why homeowners pick us</h2></div>
+    <div class="cards-3">
+      {%- for w in service.why_us %}
+      <article class="focus-card">
+        <div class="focus-icon" aria-hidden="true">&#9642;</div>
+        <p>{{ w }}</p>
+      </article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if service.show_calculator and service.calculator_key %}
+<section class="ballpark" id="ballpark">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Rough ballpark</h2>
+      <p>A planning tool, not a quote. Final pricing depends on site conditions, prep, materials, access and scope &mdash; the free estimate above is the real number.</p>
+    </div>
+    <div class="ballpark-card">
+      <div class="field">
+        <label for="bpSize">Size ({{ pricing[service.calculator_key].unit }})</label>
+        <input id="bpSize" type="number" min="1" value="100" inputmode="numeric">
+      </div>
+      <div class="field">
+        <label for="bpFinish">Finish level</label>
+        <select id="bpFinish">
+          <option value="standard">Standard</option>
+          <option value="premium">Premium</option>
+          <option value="complex">Complex / custom</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-ghost" id="bpGo">Calculate range</button>
+      <div class="ballpark-out" id="bpOut" aria-live="polite">
+        <div class="ballpark-range" id="bpRange"></div>
+        <p class="ballpark-detail" id="bpDetail"></p>
+      </div>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if service.faqs %}
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head"><h2>Common questions</h2></div>
+    <div class="svc-faq">
+      {%- for f in service.faqs %}
+      <div class="faq-item">
+        <button class="faq-q" type="button" aria-expanded="false">{{ f.question }}<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">{{ f.answer }}</div></div>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready for a free estimate?</h2>
+    <p>Halifax, Dartmouth, Bedford, Cole Harbour, and across HRM. Tell us the job &mdash; we&rsquo;ll take it from there.</p>
+    <div class="hero-ctas" style="margin-bottom:0">
+      <a class="btn btn-primary" href="#estimate">Get a free estimate</a>
+      <a class="btn btn-ghost" href="tel:{{ site.phone_e164 }}">Call {{ site.phone_display }}</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,118 @@
+---
+permalink: interior.html
+lander:
+  eyebrow: "Interior · Halifax & HRM"
+  h1: "Flooring & stairs, done right."
+  sub: "Free estimates for LVP, hardwood, laminate, and custom stair work across Halifax & HRM."
+  heroImage: "hero-stairs.webp"
+  heroAlt: "Finished light wood-look vinyl staircase installed by ETRA Pro Services"
+  heroBadge: "Stairs · HRM"
+  formSource: "interior-lander"
+  serviceOptions: ["Flooring", "Stairs", "Unit turnover", "Other"]
+  serviceDefault: "Flooring"
+  notesPlaceholder: "Room count, material preference, timing…"
+  focusHeading: "What we do inside"
+  focusLead: "Flooring and stairs first, with the supporting finishes a room usually needs to come together."
+  focus:
+    - icon: "▣"
+      title: "Flooring"
+      body: "LVP, hardwood, laminate, and honest subfloor prep so the finish lasts."
+      href: "flooring-installation-halifax.html"
+    - icon: "▦"
+      title: "Stairs"
+      body: "Custom vinyl wraps and stair work matched to your adjoining floors."
+      href: "custom-vinyl-staircases-halifax.html"
+    - icon: "⌂"
+      title: "Also interior"
+      body: "Drywall, carpet, and repairs as supporting finishes when the job needs them."
+      href: "drywall-services-halifax.html"
+  moreServices: 'Working outside instead? See <a href="exterior.html">decks, fences and siding</a>.'
+  workLead: "Recent interior work across HRM."
+  work:
+    - image: "work-flooring.webp"
+      alt: "Light wood-look vinyl plank flooring mid-install with tools and material staged"
+      loc: "Dartmouth"
+      title: "Main-floor LVP install"
+      body: "Plank flooring with clean transitions between rooms."
+    - image: "card-stairs.webp"
+      alt: "Finished light wood-look stair treads with square nosing"
+      loc: "HRM"
+      title: "Custom vinyl staircase"
+      body: "Full tread-and-riser wrap with matching nosing."
+    - image: "card-turnover.webp"
+      alt: "Flooring material and trim being unloaded from the work truck on site"
+      loc: "HRM"
+      title: "Material on site"
+      body: "Flooring and trim unloaded and cut on site."
+  howLead: "Simple path from first message to finished floors."
+  step1: "room count, material preference, and your area in HRM."
+  ballpark: ["flooring", "stairs", "tile", "trim"]
+---
+{% extends "base.njk" %}
+
+{% block head %}
+<title>Interior Flooring &amp; Stairs — Free Estimate | {{ site.company }} Halifax</title>
+<meta name="description" content="Flooring, stairs, and interior finishing across Halifax &amp; HRM. Free estimate. {{ site.phone_display }}.">
+<link rel="canonical" href="{{ site.url }}/interior">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site.url }}/interior">
+<meta property="og:title" content="Interior Flooring &amp; Stairs — Free Estimate | {{ site.company }} Halifax">
+<meta property="og:description" content="Flooring, stairs, and interior finishing across Halifax &amp; HRM. Free estimate. {{ site.phone_display }}.">
+<meta property="og:site_name" content="{{ site.company }}">
+<link rel="preload" as="image" href="images/hero-stairs.webp" fetchpriority="high">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Interior finishing — flooring & stairs",
+  "serviceType": "Interior finishing",
+  "url": "{{ site.url }}/interior",
+  "areaServed": { "@type": "AdministrativeArea", "name": {{ site.service_area | dump | safe }} },
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": {{ site.company | dump | safe }},
+    "telephone": "{{ site.phone_e164 }}",
+    "email": "{{ site.email }}",
+    "url": "{{ site.url }}",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": {{ site.review_rating }},
+      "reviewCount": {{ site.review_count }}
+    }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Interior services",
+    "itemListElement": [
+      {%- for s in services | live | category("interior") %}
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": {{ s.name | dump | safe }}, "url": "{{ site.url }}/{{ s.slug }}"}}{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/"},
+    {"@type": "ListItem", "position": 2, "name": "Interior", "item": "{{ site.url }}/interior"}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block styles %}{% include "lander-styles.njk" %}{% endblock %}
+{% block body %}{% include "lander-body.njk" %}
+<section class="related-strip" style="padding-top:0;padding-bottom:2.5rem;background:var(--bg);border-top:0">
+  <div class="related-strip-inner">
+    <span class="related-strip-tag">All interior services</span>
+    <nav class="related-strip-links" aria-label="Interior services">
+      {%- for s in services %}{% if not s.draft and s.category == "interior" %}
+      <a href="{{ s.slug }}.html">{{ s.nav_label }}</a>
+      {%- endif %}{% endfor %}
+    </nav>
+  </div>
+</section>{% endblock %}
+{% block scripts %}{% include "lander-scripts.njk" %}{% endblock %}

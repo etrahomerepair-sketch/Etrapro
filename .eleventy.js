@@ -2,11 +2,31 @@ module.exports = function (eleventyConfig) {
   // Static assets copied through unchanged
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
-  eleventyConfig.addPassthroughCopy("src/sitemap.xml");
 
   // Internal standalone page: copied verbatim, never templated
   eleventyConfig.ignores.add("src/BrandIdentity.html");
   eleventyConfig.addPassthroughCopy("src/BrandIdentity.html");
+
+  // Live (non-draft) services, optionally narrowed to one category.
+  // Filtering before the loop keeps `loop.last` correct — iterating the raw
+  // list and skipping drafts inside leaves a trailing comma in JSON-LD.
+  eleventyConfig.addFilter("live", (arr) => (arr || []).filter((s) => !s.draft));
+  eleventyConfig.addFilter("category", (arr, cat) =>
+    (arr || []).filter((s) => s.category === cat)
+  );
+
+  // FAQPage JSON-LD from a services.json faqs array
+  eleventyConfig.addFilter("faqSchema", (faqs) =>
+    JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": (faqs || []).map((f) => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": { "@type": "Answer", "text": f.answer },
+      })),
+    })
+  );
 
   return {
     dir: {
