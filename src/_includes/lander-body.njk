@@ -17,10 +17,12 @@
       <div class="eyebrow">{{ lander.eyebrow }}</div>
       <h1>{{ lander.h1 }}</h1>
       <p class="hero-sub">{{ lander.sub }}</p>
+      {%- if not lander.chooser %}
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#estimate">Get a free estimate <span aria-hidden="true">&rarr;</span></a>
         <a class="btn btn-ghost" href="tel:{{ site.phone_e164 }}">Call now</a>
       </div>
+      {%- endif %}
       <div class="trust-row" aria-label="Trust signals">
         <span><span class="star" aria-hidden="true">&#9733;</span> {{ site.review_rating }} on Google</span>
         <span class="divider" aria-hidden="true"></span>
@@ -41,13 +43,15 @@
 {%- if lander.chooser %}
 <section class="chooser" id="chooser">
   <div class="wrap">
+    {%- if not lander.chooserLarge %}
     <div class="chooser-head">
       <h2>What can we quote for you?</h2>
       <p>Pick one and we&rsquo;ll take you straight to the right page.</p>
     </div>
+    {%- endif %}
     <div class="chooser-grid{% if lander.chooserLarge %} chooser-grid--lg{% endif %}">
       <a class="chooser-card" href="/interior" data-intent="interior">
-        <span class="chooser-thumb"><img src="images/hero-stairs.webp" alt="" width="96" height="76" loading="lazy"></span>
+        <span class="chooser-thumb"><img src="images/hero-stairs.webp" alt="" width="96" height="76" fetchpriority="high"></span>
         <span>
           <h3>Inside the house</h3>
           <p>Flooring, stairs, drywall, carpet, repairs.</p>
@@ -55,7 +59,7 @@
         <span class="chooser-arrow" aria-hidden="true">&rarr;</span>
       </a>
       <a class="chooser-card" href="/exterior" data-intent="exterior">
-        <span class="chooser-thumb"><img src="images/deck-finished.webp" alt="" width="96" height="76" loading="lazy"></span>
+        <span class="chooser-thumb"><img src="images/deck-finished.webp" alt="" width="96" height="76"></span>
         <span>
           <h3>Outside the house</h3>
           <p>Decks, fences, siding.</p>
@@ -71,6 +75,7 @@
 {%- set formSource = lander.formSource -%}
 {%- set serviceDefault = lander.serviceDefault -%}
 {%- set notesPlaceholder = lander.notesPlaceholder -%}
+{%- set serviceOptions = site.form_options_interior if lander.formSource == "interior-lander" else (site.form_options_exterior if lander.formSource == "exterior-lander" else site.form_options) -%}
 {% include "estimate-form.njk" %}
 
 {%- if lander.focus %}

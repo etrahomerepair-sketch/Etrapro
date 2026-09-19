@@ -13,13 +13,30 @@
   "facebook": "https://www.facebook.com/p/ETRA-Pro-Services-61564513751640/",
   "form_options": [
     "Flooring",
-    "Carpet",
     "Stairs",
+    "Carpet",
     "Drywall",
-    "Decks & fences",
+    "Unit turnover",
+    "Decks",
+    "Fences",
     "Siding",
     "Repairs & renovations",
+    "Other"
+  ],
+  "form_options_interior": [
+    "Flooring",
+    "Stairs",
+    "Carpet",
+    "Drywall",
     "Unit turnover",
+    "Repairs & renovations",
+    "Other"
+  ],
+  "form_options_exterior": [
+    "Decks",
+    "Fences",
+    "Siding",
+    "Repairs & renovations",
     "Other"
   ]
 }

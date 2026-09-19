@@ -33,6 +33,7 @@
 {%- set formSource = service.slug -%}
 {%- set serviceDefault = service.form_default -%}
 {%- set notesPlaceholder = "Size of the job, materials, timing…" -%}
+{%- set serviceOptions = site.form_options_interior if service.category == "interior" else (site.form_options_exterior if service.category == "exterior" else site.form_options) -%}
 {% include "estimate-form.njk" %}
 
 {%- if service.intro and service.intro.length > 1 %}

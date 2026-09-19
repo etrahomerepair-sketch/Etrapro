@@ -36,15 +36,19 @@
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
 }
 
-/* Homepage: no hero photo — the choice carries the page, so keep the hero
-   tight and let the chooser sit as high as possible. */
-.hero--solo { padding: 1.75rem 0 0.25rem; }
+/* Homepage: no hero photo — H1 + side-by-side Inside/Outside cards above the fold. */
+.hero--solo { padding: 1.25rem 0 0.15rem; }
 .hero-grid--solo { grid-template-columns: 1fr !important; }
-.hero-grid--solo .hero-sub { max-width: 40rem; }
-.hero--solo + .chooser { padding-top: 1.75rem; }
-@media (min-width: 900px) { .hero--solo { padding: 2.5rem 0 0.25rem; } }
+.hero-grid--solo .hero-sub { max-width: 40rem; margin-bottom: 0.9rem; }
+.hero--solo .trust-row { margin-bottom: 0; }
+.hero--solo + .chooser { padding-top: 1rem; padding-bottom: 0.25rem; }
+@media (min-width: 900px) { .hero--solo { padding: 2rem 0 0.25rem; } }
 
-/* Large chooser cards (homepage) */
+/* Large chooser cards (homepage) — always side-by-side, even on small phones */
+.chooser-grid--lg {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 0.65rem;
+}
 .chooser-grid--lg .chooser-card {
   grid-template-columns: 1fr;
   padding: 0;
@@ -52,16 +56,30 @@
   align-items: stretch;
 }
 .chooser-grid--lg .chooser-thumb {
-  width: 100%; height: 190px; border-radius: 0;
+  width: 100%; height: 96px; border-radius: 0;
 }
-.chooser-grid--lg .chooser-card > span:nth-child(2) { padding: 1.1rem 1.25rem 0.35rem; }
-.chooser-grid--lg .chooser-card h3 { font-size: 1.3rem; }
-.chooser-grid--lg .chooser-card p { font-size: 0.97rem; }
+.chooser-grid--lg .chooser-card > span:nth-child(2) { padding: 0.7rem 0.75rem 0.2rem; }
+.chooser-grid--lg .chooser-card h3 { font-size: 1rem; }
+.chooser-grid--lg .chooser-card p { font-size: 0.78rem; line-height: 1.35; }
 .chooser-grid--lg .chooser-arrow {
-  padding: 0 1.25rem 1.15rem; text-align: left;
-  font-size: 0.95rem; font-weight: 600;
+  padding: 0 0.75rem 0.75rem; text-align: left;
+  font-size: 0.85rem; font-weight: 600;
 }
-@media (min-width: 640px) { .chooser-grid--lg .chooser-thumb { height: 220px; } }
+@media (min-width: 480px) {
+  .chooser-grid--lg .chooser-thumb { height: 130px; }
+  .chooser-grid--lg .chooser-card h3 { font-size: 1.15rem; }
+  .chooser-grid--lg .chooser-card p { font-size: 0.88rem; }
+  .chooser-grid--lg .chooser-card > span:nth-child(2) { padding: 0.9rem 1rem 0.25rem; }
+  .chooser-grid--lg .chooser-arrow { padding: 0 1rem 0.95rem; font-size: 0.95rem; }
+}
+@media (min-width: 640px) {
+  .chooser-grid--lg { gap: 0.9rem; }
+  .chooser-grid--lg .chooser-thumb { height: 200px; }
+  .chooser-grid--lg .chooser-card h3 { font-size: 1.3rem; }
+  .chooser-grid--lg .chooser-card p { font-size: 0.97rem; }
+  .chooser-grid--lg .chooser-card > span:nth-child(2) { padding: 1.1rem 1.25rem 0.35rem; }
+  .chooser-grid--lg .chooser-arrow { padding: 0 1.25rem 1.15rem; }
+}
 
 /* Estimate form */
 .estimate { padding: 0 0 2.5rem; margin-top: -0.5rem; }
@@ -72,6 +90,7 @@
 }
 .form-card h2 { margin: 0 0 0.35rem; font-size: 1.35rem; letter-spacing: -0.02em; }
 .form-card .form-lead { margin: 0 0 1.15rem; color: var(--muted); font-size: 0.95rem; }
+.field .optional { font-weight: 500; color: var(--muted); }
 .form-grid { display: grid; gap: 0.85rem; }
 .field label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.35rem; color: var(--ink-soft); }
 .field input, .field select, .field textarea {

@@ -1,11 +1,12 @@
 {#- Shared estimate form. Callers set formSource, serviceOptions,
     serviceDefault and notesPlaceholder before including. -#}
+{%- if not serviceOptions %}{%- set serviceOptions = site.form_options -%}{%- endif -%}
 <section class="estimate" id="estimate">
   <div class="wrap">
     <div class="form-card">
       <div class="form-fields" id="formFields">
-        <h2>Get your free estimate in 30 seconds</h2>
-        <p class="form-lead">Tell us about your project &mdash; owners review every request. No obligation.</p>
+        <h2>Get your free estimate</h2>
+        <p class="form-lead">Name, phone, service and area &mdash; email is optional. Owners review every request.</p>
         <form id="estimateForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
           <input type="hidden" name="form-name" value="contact">
           <input type="hidden" name="source-page" value="{{ formSource }}">
@@ -20,14 +21,14 @@
               <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(782) 123-4567" required>
             </div>
             <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+              <label for="email">Email <span class="optional">(optional)</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com">
             </div>
             <div class="field">
               <label for="service">Service type</label>
               <select id="service" name="service" required>
                 <option value="" disabled{% if not serviceDefault %} selected{% endif %}>Select a service</option>
-                {%- for opt in site.form_options %}
+                {%- for opt in serviceOptions %}
                 <option{% if opt == serviceDefault %} selected{% endif %}>{{ opt }}</option>
                 {%- endfor %}
               </select>
@@ -57,4 +58,3 @@
     </div>
   </div>
 </section>
-

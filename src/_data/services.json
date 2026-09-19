@@ -425,7 +425,7 @@
       "One Team, Full Project — No subcontractors you've never met. Our crew handles the entire build from footings to finish. One point of contact, consistent quality.",
       "Clean & Professional — We show up on time, work clean, and leave your property looking better than we found it. Full cleanup and walkthrough on every project."
     ],
-    "form_default": "Decks & fences"
+    "form_default": "Decks"
   },
   {
     "slug": "carpet-installation-halifax",
@@ -748,7 +748,7 @@
     "copy_todo": true,
     "draft": true,
     "why_us": null,
-    "form_default": "Decks & fences"
+    "form_default": "Decks"
   },
   {
     "slug": "gutter-services-halifax",
